@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Bloqueia pastas que não precisam aparecer no Google (se você tiver)
+Disallow: /admin/
+Disallow: /config/
+
+# Indica onde está o seu mapa do site para o Google ler mais rápido
+Sitemap: https://recargasplay.com.br/sitemap.xml
