@@ -1,486 +1,426 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    
-    <title>Recargas Play | Gift Cards com Entrega Digital via PIX</title>
-    <meta name="description" content="Compre Gift Cards da Uber, PlayStation, Roblox, Netflix e muito mais na Recargas Play. Pagamento facilitado no PIX com envio digital imediato. Sua diversão começa aqui!">
-    <meta name="keywords" content="Gift Card, Cartão Presente, Recarga de Celular, Uber, PlayStation, Free Fire, PIX, Recargas Play, Comprar Gift Card Online">
-    <meta name="author" content="Recargas Play">
-    
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="apple-touch-icon" href="favicon.png">
-
-    <meta property="og:title" content="Recargas Play | Os Melhores Gift Cards estão aqui!">
-    <meta property="og:description" content="Uber, Games, Streaming e Delivery. Compre agora via PIX com total segurança.">
-    <meta property="og:image" content="https://seusite.com.br/logo.png"> <meta property="og:type" content="website">
-    <meta property="og:url" content="https://recargasplay.com.br">
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-    :root {
-        --primary-mint: #00ffcc;
-        --accent-purple: #a855f7; 
-        --bg-dark: #111111;
-        --bg-gradient: linear-gradient(180deg, #1a0b2e 0%, #111111 100%);
-        --card-bg: rgba(26, 26, 26, 0.8);
-        --card-border: var(--primary-mint); 
-        --input-bg: rgba(255, 255, 255, 0.05);
-    }
-
-    /* BARRA DE ROLAGEM VERTICAL (Geral) */
-    ::-webkit-scrollbar { width: 6px; height: 6px; }
-    ::-webkit-scrollbar-track { background: #0a0a0a; }
-    ::-webkit-scrollbar-thumb { background: var(--accent-purple); border-radius: 10px; }
-    ::-webkit-scrollbar-thumb:hover { background: var(--primary-mint); }
-
-    /* Estilo para Firefox */
-    * { scrollbar-width: thin; scrollbar-color: var(--accent-purple) #0a0a0a; }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-
-    body { 
-        background: var(--bg-gradient);
-        background-attachment: fixed;
-        color: #fff;
-        min-height: 100vh;
-        padding-bottom: 120px;
-    }
-
-    /* HEADER COM LOGO E DEGRADÊ DUO (VERDE E ROXO) */
-    header { padding: 40px 20px 20px; display: flex; justify-content: center; }
-    
-    .logo-container {
-        display: flex;
-        align-items: center;
-        gap: 8px; /* Logo bem próxima ao texto */
-    }
-
-    .logo-img {
-        width: 55px; 
-        height: auto;
-    }
-
-    header h1 { 
-        font-size: 2.5rem; 
-        font-weight: 800; 
-        text-transform: uppercase; 
-        letter-spacing: -2px; 
-        line-height: 1;
-        /* EFEITO DEGRADÊ APENAS VERDE E ROXO */
-        background: linear-gradient(90deg, var(--primary-mint) 0%, var(--accent-purple) 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        display: flex;
-        align-items: center;
-    }
-
-    .container { max-width: 1300px; margin: 0 auto; padding: 0 20px; }
-
-    .toolbar {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-        margin-bottom: 40px;
-        width: 100%;
-    }
-
-    .search-box { width: 100%; max-width: 600px; position: relative; }
-    .search-box i { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--primary-mint); z-index: 10; }
-    .search-box input {
-        width: 100%; background: var(--input-bg); border: 1px solid var(--primary-mint);
-        padding: 12px 12px 12px 45px; border-radius: 12px; color: #fff; outline: none; transition: 0.3s;
-    }
-    .search-box input:focus { border-color: var(--accent-purple); box-shadow: 0 0 20px rgba(168, 85, 247, 0.4); }
-
-    .filter-select {
-        background: #1a1a1a; border: 1px solid var(--primary-mint); color: var(--primary-mint);
-        padding: 10px 20px; border-radius: 12px; outline: none; cursor: pointer; font-weight: 600;
-    }
-
-    .product-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-        gap: 25px;
-    }
-
-    .card {
-        background: var(--card-bg);
-        border: 1px solid var(--primary-mint);
-        border-radius: 24px;
-        text-decoration: none;
-        color: inherit;
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-        backdrop-filter: blur(10px);
-    }
-
-    .card:hover {
-        transform: translateY(-10px);
-        border-color: var(--accent-purple);
-        box-shadow: 0 15px 40px rgba(168, 85, 247, 0.4);
-    }
-
-    .image-wrapper { 
-        width: 100%; height: 200px; 
-        display: flex; justify-content: center; align-items: center;
-        padding: 30px; background: rgba(0,0,0,0.2);
-    }
-
-    .image-wrapper img { max-width: 100%; max-height: 100%; object-fit: contain; }
-
-    .info { padding: 20px; text-align: center; }
-    .info h3 { font-size: 0.95rem; margin-bottom: 15px; font-weight: 700; height: 2.5rem; display: flex; align-items: center; justify-content: center; }
-
-    .buy-btn {
-        background: linear-gradient(90deg, #6a11cb, #45108a);
-        color: white; padding: 12px 0; border-radius: 12px;
-        font-size: 0.8rem; font-weight: 800; text-transform: uppercase; transition: 0.3s;
-        width: 100%; display: block;
-    }
-
-    /* MAC NAV - ATUALIZADO COM SCROLL HORIZONTAL */
-    .mac-nav {
-        position: fixed; bottom: 0; left: 0; right: 0;
-        background: rgba(10, 10, 10, 0.95); border-top: 1px solid rgba(255,255,255,0.1);
-        display: flex; justify-content: center; z-index: 10000; backdrop-filter: blur(20px);
-    }
-
-    .nav-list { 
-        display: flex; 
-        list-style: none; 
-        padding: 10px 15px; 
-        gap: 15px; 
-        max-width: 100%; 
-        overflow-x: auto; /* Permite rolagem horizontal */
-        scroll-behavior: smooth;
-        -webkit-overflow-scrolling: touch; /* Melhora deslize no iOS */
-    }
-
-    /* BARRA DE ROLAGEM HORIZONTAL DO MENU (Estilo Fino) */
-    .nav-list::-webkit-scrollbar {
-        height: 4px; /* Barra horizontal mais fininha que a vertical */
-    }
-    .nav-list::-webkit-scrollbar-thumb {
-        background: var(--accent-purple);
-        border-radius: 10px;
-    }
-
-    .nav-item { 
-        display: flex; 
-        flex-direction: column; 
-        align-items: center; 
-        color: #555; 
-        min-width: 70px; /* Garante que o item não esprema */
-        transition: 0.3s;
-        cursor: pointer;
-    }
-    
-    .nav-item:hover, .nav-item.active { color: var(--primary-mint); }
-    .nav-item i { font-size: 1.2rem; margin-bottom: 4px; }
-    .nav-item span { font-size: 9px; font-weight: 700; text-transform: uppercase; white-space: nowrap; }
-
-    /* RESPONSIVIDADE MOBILE */
-    @media (max-width: 600px) {
-        header h1 { font-size: 1.8rem; }
-        
-        .product-grid {
-            grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
-            padding: 0 5px;
-        }
-
-        .card { border-radius: 12px; }
-        .image-wrapper { height: 80px; padding: 10px; }
-        .info { padding: 10px 5px; }
-        .info h3 { font-size: 0.6rem; height: 1.5rem; margin-bottom: 8px; line-height: 1.1; }
-        .buy-btn { padding: 6px 0; font-size: 0.55rem; border-radius: 6px; }
-        .container { padding: 0 10px; }
-    }
-</style>
-</head>
-<body>
-
-<header>
-    <div class="logo-container">
-        <img src="logo.png" alt="Logo" class="logo-img">
-        <h1>RECARGASPLAY</h1>
-    </div>
-</header>
-
-<div class="container">
-    <div class="toolbar">
-        <div class="search-box">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" id="searchInput" placeholder="Buscar Gift Card..." oninput="filterAll()">
-        </div>
-        
-        <select id="sortSelect" class="filter-select" onchange="filterAll()">
-            <option value="popular">✨ Mais Vendidos</option>
-            <option value="az">🔤 Ordem Alfabética (A-Z)</option>
-            <option value="za">🔤 Ordem Alfabética (Z-A)</option>
-        </select>
-    </div>
-
-    <div class="product-grid" id="product-grid"></div>
-</div>
-
-<nav class="mac-nav">
-    <ul class="nav-list">
-        <li class="nav-item active" onclick="setCategory('all', this)"><i class="fa-solid fa-house"></i><span>Início</span></li>
-        <li class="nav-item" onclick="setCategory('games', this)"><i class="fa-solid fa-gamepad"></i><span>Games</span></li>
-        <li class="nav-item" onclick="setCategory('streaming', this)"><i class="fa-solid fa-play"></i><span>Vídeo</span></li>
-        <li class="nav-item" onclick="setCategory('delivery', this)"><i class="fa-solid fa-truck"></i><span>Delivery</span></li>
-        <li class="nav-item" onclick="setCategory('comida', this)"><i class="fa-solid fa-utensils"></i><span>Comida</span></li>
-        <li class="nav-item" onclick="setCategory('moda', this)"><i class="fa-solid fa-shirt"></i><span>Moda</span></li>
-        <li class="nav-item" onclick="setCategory('variedades', this)"><i class="fa-solid fa-tags"></i><span>Outros</span></li>
-    </ul>
-</nav>
-
-<script>
-    const products = [
-    // --- TOP VENDAS (OS MAIS POPULARES PRIMEIRO) ---
-    { id: 59, name: "Uber", img: "6f436aa7-ef6e-4832-9d7a-99d68f4e422e", slug: "uber", category: "delivery" },
-    { id: 60, name: "Cupom 99 Food", img: "5737c5b5-9e11-46bc-a8a0-4edfbba19889", slug: "cupom-99-food", category: "delivery" },
-    { id: 52, name: "Google Play", img: "658d4ca2-050d-4d3c-a6b8-ac9ac50e49fc", slug: "google-play", category: "streaming" },
-    { id: 51, name: "App Store", img: "52da4f28-ccba-4c53-a3fd-9cd62ea614e0", slug: "app-store", category: "streaming" },
-    { id: 4, name: "Roblox", img: "265c588f-ebf0-472a-9df4-f56461a2e01c", slug: "roblox", category: "games" },
-    { id: 1, name: "Sony PlayStation", img: "690ca50b-0d59-41cf-9413-5202e3f66ec9", slug: "sony-playstation", category: "games" },
-    { id: 53, name: "Netflix", img: "b617afc8-b3e8-490f-914a-e8d5ebc715c8", slug: "netflix", category: "streaming" },
-    { id: 5, name: "Free Fire", img: "7767258f-cf71-4b2c-986c-28303cfe522c", slug: "free-fire", category: "games" },
-    { id: 118, name: "Cupom Shopee", img: "9f4e8427-5bc1-4067-9250-22ef8eb85ddc", slug: "cupom-shopee", category: "variedades" },
-    { id: 85, name: "McDonald's", img: "c535b5bd-a040-45c3-950f-a8a1b0b8fd88", slug: "mcdonalds", category: "comida" },
-    { id: 116, name: "Airbnb", img: "86664843-fbed-400f-9c17-b3170ffb151a", slug: "airbnb", category: "variedades" },
-    { id: 54, name: "Spotify", img: "be523ba6-2bc2-4225-bbcc-1a67bb9612e3", slug: "spotify", category: "streaming" },
-
-    // --- GAMES ---
-    { id: 2, name: "Xbox Game Pass Ultimate", img: "54e2a747-e2b4-420a-8137-3db7736b974d", slug: "xbox-game-pass-ultimate", category: "games" },
-    { id: 3, name: "Xbox", img: "cfb4bbba-086d-47d8-b937-2278e2e27983", slug: "xbox", category: "games" },
-    { id: 9, name: "Razer Gold", img: "36c0a2b6-7154-41c2-940c-872ca8482662", slug: "razer-gold", category: "games" },
-    { id: 11, name: "Valorant", img: "75007748-dfd6-4555-a58c-762e6931e138", slug: "valorant", category: "games" },
-    { id: 12, name: "League of Legends", img: "f77d2fa0-357e-4f98-b83d-a3a3ce22d7bd", slug: "league-of-legends", category: "games" },
-    { id: 10, name: "Minecraft", img: "b5cab84a-0cd8-4ba1-aedf-277089e2f860", slug: "minecraft", category: "games" },
-    { id: 6, name: "Nintendo eShop", img: "cb12aafe-36d3-4c9e-a0f2-d05b72c41699", slug: "nintendo-eshop", category: "games" },
-    { id: 49, name: "CoD: Black Ops 7", img: "8e987e60-49ba-4a52-8cf0-79dc208e3cf5", slug: "call-of-duty-black-ops-7", category: "games" },
-    { id: 17, name: "EA FC 26 Standard", img: "669c04a8-2f50-4961-92d1-b6767dee0dde", slug: "ea-fc-26-standard-edition", category: "games" },
-    { id: 18, name: "EA FC 26 Ultimate", img: "7e4cb5ee-71c1-41d6-bb66-58553d7d7c39", slug: "ea-fc-26-ultimate-edition", category: "games" },
-    { id: 7, name: "Xbox Game Pass Premium", img: "05efc6b8-297f-4df1-bccf-a06b3988e3d7", slug: "xbox-game-pass-premium", category: "games" },
-    { id: 8, name: "Xbox Game Pass Essential", img: "feb2515c-25a3-4668-acc6-63846a56f0d0", slug: "xbox-game-pass-essential", category: "games" },
-    { id: 13, name: "Minecraft Minecoins", img: "1440b9c1-bbb7-465f-9795-b0ccad5dae85", slug: "minecraft-minecoins", category: "games" },
-    { id: 14, name: "Mobile Legends", img: "4a7f0b4a-5229-49dc-8303-8da6802b367e", slug: "mobile-legends", category: "games" },
-    { id: 16, name: "Zelda Tears of the Kingdom", img: "b559e29f-cc52-4185-b70b-d64a0b13ed3e", slug: "the-legend-of-zelda-tears-of-the-kingdom", category: "games" },
-    { id: 19, name: "FIFA Points", img: "1889da26-5a65-4e99-8f28-2ef83deadadd", slug: "fifa-points", category: "games" },
-    { id: 27, name: "Blizzard/Battle.net", img: "98a17c4a-5dc0-44f1-968e-c95b91802bbb", slug: "blizzardbattlenet", category: "games" },
-    { id: 26, name: "Rainbow Six® Siege", img: "113", slug: "tom-clancys-rainbow-six-siege", category: "games" },
-    { id: 39, name: "Blood Strike", img: "275f6f42-07eb-4641-9e01-1488efeb340c", slug: "blood-strike", category: "games" },
-    { id: 41, name: "Elden Ring Nightreign", img: "cf714d3a-d818-4eab-a35c-286e4ea0b5d3", slug: "elden-ring-nightreign", category: "games" },
-    { id: 48, name: "Mario Party Jamboree", img: "b81cf256-087e-4c57-8a60-ac0b52dedb69", slug: "super-mario-party-jamboree", category: "games" },
-    { id: 43, name: "Zelda: Breath of the Wild", img: "6c6636ec-2a19-4af5-a411-7362ed9acf38", slug: "the-legend-of-zelda-breath-of-the-wild", category: "games" },
-    { id: 44, name: "Mario Kart World", img: "223f032b-37ed-4dc4-815b-c6275aaed150", slug: "mario-kart-world", category: "games" },
-    { id: 38, name: "Garena Delta Force", img: "347b677f-e21d-4396-9c87-8395206baad7", slug: "garena-delta-force", category: "games" },
-    { id: 15, name: "Minecraft Legends Console", img: "70135c8e-f527-48e4-829a-40549ea91376", slug: "minecraft-legends-console", category: "games" },
-    { id: 22, name: "Level Up", img: "9", slug: "level-up", category: "games" },
-    { id: 23, name: "Warner Bros. Games", img: "2691b65d-86c9-413f-91da-af1f21981916", slug: "warner-bros-games", category: "games" },
-    { id: 25, name: "IMVU", img: "71", slug: "imvu", category: "games" },
-    { id: 37, name: "Doom: The Dark Ages", img: "0b4f92c1-c384-4c2f-910b-5d465d46f012", slug: "doom-the-dark-ages", category: "games" },
-    { id: 35, name: "Assassin's Creed Shadows", img: "f2efc8d9-78aa-4316-bde2-ac8747f01f76", slug: "assassins-creed-shadows", category: "games" },
-    { id: 20, name: "Wario Ware: Move It", img: "7a964c9b-c403-4e28-bff1-bd7e1082eed9", slug: "wario-ware-move-it", category: "games" },
-    { id: 21, name: "Mario Golf: Super Rush", img: "cca34713-3309-45a1-9ef8-08978f11d6a3", slug: "mario-golf-super-rush", category: "games" },
-    { id: 24, name: "Perfect World", img: "161", slug: "perfect-world", category: "games" },
-    { id: 28, name: "Minecraft Legends PC", img: "de4275b9-5371-48e3-a556-902e77a06cc9", slug: "minecraft-legends-pc", category: "games" },
-    { id: 29, name: "Xenoblade Chronicles 2", img: "de806966-cdbe-4e90-9287-2f59a7192565", slug: "xenoblade-chronicles-2", category: "games" },
-    { id: 30, name: "Minecraft Dungeons", img: "f4f2e1be-2da2-4275-b7a0-afe022a1f882", slug: "minecraft-dungeons", category: "games" },
-    { id: 31, name: "Zelda: Link's Awakening", img: "790cda83-9c36-4b1a-b2de-bcde3d0c7b0e", slug: "legend-of-zelda-link-awakening", category: "games" },
-    { id: 32, name: "Battle.Net", img: "ddc481e6-8911-44f3-90df-eb4abbe3ac09", slug: "battlenet", category: "games" },
-    { id: 33, name: "Avowed", img: "5fb66de1-07bd-4773-b711-0a9d6343dca9", slug: "avowed", category: "games" },
-    { id: 34, name: "Minecraft Triple Bundle", img: "1bd2397e-e218-4ed7-9820-58b8585ae2be", slug: "minecraft-triple-bundle", category: "games" },
-    { id: 36, name: "South of Midnight", img: "fa826a4e-fd29-4536-ae33-72cfc9300688", slug: "south-of-midnight", category: "games" },
-    { id: 40, name: "Fórmula 1 25", img: "9075b81f-fa6b-41df-a849-8b5029d0c7d3", slug: "formula-1-25", category: "games" },
-    { id: 42, name: "Zelda: Tears of the Kingdom Up", img: "4df8aa48-f9ab-4622-bfa5-4b18703841ce", slug: "pacote-de-melhoria-the-legend-of-zelda-tears-of-the-kingdom", category: "games" },
-    { id: 45, name: "Zelda: BotW Upgrade", img: "a37573fd-8969-41a8-a68c-613107d3ae3c", slug: "pacote-de-melhoria-the-legend-of-zelda-breath-of-the-wild", category: "games" },
-    { id: 46, name: "Mario Party Jamboree Up", img: "dd0651d8-79d2-4825-b284-9cc47331613e", slug: "pacote-de-melhoria-super-mario-party-jamboree-up", category: "games" },
-    { id: 47, name: "Donkey Kong Bananza", img: "f70c6dbf-7290-47d2-87b0-52bbdd850250", slug: "donkey-kong-bananza", category: "games" },
-    { id: 50, name: "Rainbow Six", img: "c98a252a-6efd-4aa3-a0b9-d77f5153a635", slug: "rainbow-six", category: "games" },
-
-    // --- STREAMING & APPS ---
-    { id: 55, name: "Nintendo Switch Online", img: "a9c3f7e9-9af1-41e2-8651-749f8859ee46", slug: "nintendo-switch-online", category: "streaming" },
-    { id: 58, name: "Claro TV+", img: "b5ba0d51-953e-4019-8fae-84f2e860252f", slug: "claro-tv", category: "streaming" },
-    { id: 57, name: "Sky +", img: "06cc1d47-52b7-4b32-9c06-77f48580194a", slug: "sky--", category: "streaming" },
-    { id: 56, name: "Looke", img: "6", slug: "looke", category: "streaming" },
-
-    // --- DELIVERY & TRANSPORTE ---
-    { id: 63, name: "Zé Delivery", img: "6e05cabb-1fcb-4ee1-9cff-ed9f388fd692", slug: "ze-delivery", category: "delivery" },
-    { id: 61, name: "Rappi", img: "922094cb-f4fc-4d8c-a09e-4baba50dbcba", slug: "rappi", category: "delivery" },
-    { id: 62, name: "Buser", img: "141", slug: "buser", category: "delivery" },
-
-    // --- ALIMENTAÇÃO (COMIDA) ---
-    { id: 84, name: "Cacau Show", img: "4c72fbee-0d39-41c0-82fb-5fbcccb619ad", slug: "cacau-show", category: "comida" },
-    { id: 65, name: "Outback Steakhouse", img: "c417f31e-6eeb-4e35-a638-c0ab74dcd3cd", slug: "outback-steakhouse", category: "comida" },
-    { id: 64, name: "Assaí", img: "a35c6490-0172-4005-baeb-b86edeb168d7", slug: "assai", category: "comida" },
-    { id: 89, name: "Lindt", img: "fc6d2748-eb85-4256-a998-2213a5ea726e", slug: "cupom-lindt", category: "comida" },
-    { id: 81, name: "Bacio di Latte", img: "e426a008-0ae6-45fd-a7ad-be0d31e61346", slug: "bacio-di-latte", category: "comida" },
-    { id: 67, name: "Coco Bambu", img: "cef04188-6515-4013-9948-c9113f337c57", slug: "coco-bambu", category: "comida" },
-    { id: 66, name: "Madero", img: "70211879-6613-47c2-b862-18e949e3ce24", slug: "madero", category: "comida" },
-    { id: 73, name: "Kopenhagen", img: "f7c11bbc-7fd4-409d-b613-00c716bdc447", slug: "kopenhagen", category: "comida" },
-    { id: 88, name: "Jeronimo", img: "c8c6e2d9-be25-4cdd-a078-f190ea2c3282", slug: "jeronimo", category: "comida" },
-    { id: 68, name: "Abbraccio", img: "822b6fa9-28c9-48cb-b361-4ba840793b2e", slug: "abbraccio", category: "comida" },
-    { id: 86, name: "We Coffee", img: "e82fec6a-bc3a-401a-aaa7-01cc1fa29b59", slug: "we-coffee", category: "comida" },
-    { id: 69, name: "Dengo", img: "ac990fc3-236e-438b-bbe2-863e442e98bc", slug: "dengo", category: "comida" },
-    { id: 70, name: "Supernosso", img: "16f1eff2-e594-4ad2-a619-9274ed26fe4b", slug: "supernosso", category: "comida" },
-    { id: 71, name: "St. Marche", img: "282cf8a0-b9a3-4399-93e1-b0a9d0193f69", slug: "st-marche", category: "comida" },
-    { id: 72, name: "Evino", img: "afa08731-b554-4a5e-b9f0-fc12e0347251", slug: "evino", category: "comida" },
-    { id: 74, name: "Camarada Camarão", img: "bfa3a802-066d-4150-8edf-0411f3edc295", slug: "camarada-camarao", category: "comida" },
-    { id: 75, name: "Aussie Grill", img: "fe8be4b8-d483-4f44-85fd-0ad429415094", slug: "aussie-grill", category: "comida" },
-    { id: 76, name: "Pobre Juan", img: "b696e7eb-0234-4669-8c31-e84e8c5ee3e7", slug: "pobre-juan", category: "comida" },
-    { id: 77, name: "Fogo de Chão", img: "d06e8aa3-63a0-4d5e-a36f-44fddc52f3fd", slug: "fogo-de-chao", category: "comida" },
-    { id: 78, name: "Applebee's", img: "01716d70-e9de-4ad3-bfd7-cbda09dfb470", slug: "applebees", category: "comida" },
-    { id: 79, name: "Casa Santa Luzia", img: "116438be-ebf8-4386-862a-9af738fe69ee", slug: "casa-santa-luzia", category: "comida" },
-    { id: 80, name: "Brasil Cacau", img: "0a8ea798-8436-482c-8edf-839f91d5f087", slug: "brasil-cacau", category: "comida" },
-    { id: 82, name: "Di Paolo", img: "addf1730-6c0a-46bb-bab7-13cce0a6e587", slug: "di-paolo", category: "comida" },
-    { id: 83, name: "Gurumê", img: "e3ec5410-f350-4316-9215-39b001cb3aa5", slug: "gurume", category: "comida" },
-    { id: 87, name: "Ao Gosto", img: "45a7f214-f291-4256-b375-4c3be6e41f5c", slug: "ao-gosto", category: "comida" },
-
-    // --- MODA & BELEZA ---
-    { id: 109, name: "Nike", img: "2826155d-5f0f-4d6c-9a56-373059a3403a", slug: "nike", category: "moda" },
-    { id: 90, name: "O Boticário", img: "b28c7912-1cfc-4041-ac8f-e8a82c28590f", slug: "o-boticario", category: "moda" },
-    { id: 99, name: "Renner", img: "d557ae57-baab-4b26-b101-c46d018a03e3", slug: "renner", category: "moda" },
-    { id: 91, name: "C&A", img: "1346fa44-f153-44c9-8680-39071531c41d", slug: "ca", category: "moda" },
-    { id: 92, name: "Riachuelo", img: "9f20e1a2-a4f8-4cb7-8b10-3d4c15099503", slug: "riachuelo", category: "moda" },
-    { id: 110, name: "Vans", img: "ed9bfc63-9ba6-490e-8139-3040112e63f6", slug: "vans", category: "moda" },
-    { id: 107, name: "Arezzo", img: "ed7d455e-4b58-4df2-b7e4-8565d4ca9a76", slug: "arezzo", category: "moda" },
-    { id: 104, name: "Havaianas", img: "0afe6926-c363-4d5b-b117-ffd779910561", slug: "havaianas", category: "moda" },
-    { id: 108, name: "Granado", img: "6c136389-ae29-4596-a7b6-c1b06a7ea7b5", slug: "granado", category: "moda" },
-    { id: 93, name: "Crocs", img: "b376ee41-e73b-4ead-840f-5a2b8856e51e", slug: "crocs", category: "moda" },
-    { id: 95, name: "Eudora", img: "eddef300-e758-446a-8a40-2e2667034a42", slug: "eudora", category: "moda" },
-    { id: 111, name: "Santa Lolla", img: "f614abe3-38d7-4cd3-8f1b-40ba42990d12", slug: "santa-lolla", category: "moda" },
-    { id: 105, name: "Chilli Beans", img: "a28f1d1e-5d81-4b9d-94f0-b344e6c12e62", slug: "chilli-beans", category: "moda" },
-    { id: 94, name: "Anacapri", img: "d84baac4-5bd9-45fc-b26b-d919f3f7a58a", slug: "anacapri", category: "moda" },
-    { id: 96, name: "Mizuno", img: "d3d6e71f-a466-4561-8d7e-447ab47dbdc6", slug: "mizuno", category: "moda" },
-    { id: 97, name: "Olympikus", img: "d949e103-a47c-4cfc-bdcb-c8a4cbceedec", slug: "olympikus", category: "moda" },
-    { id: 98, name: "Quem Disse, Berenice?", img: "420b0259-af83-4fd8-8c6f-325b0ae26f86", slug: "quem-disse-berenice", category: "moda" },
-    { id: 100, name: "Democrata", img: "04e6ddab-c9eb-4d11-9ff2-f7b87ec355f0", slug: "democrata", category: "moda" },
-    { id: 101, name: "Zattini", img: "409981a4-2da8-4f88-8d45-fd99d79ed34c", slug: "zattini", category: "moda" },
-    { id: 102, name: "Vila Romana", img: "f84517b4-ba6f-483f-a7cd-24807bb35164", slug: "vila-romana", category: "moda" },
-    { id: 103, name: "Schutz", img: "190ea2bb-6530-4090-923a-916813142a77", slug: "schutz", category: "moda" },
-    { id: 106, name: "Loungerie", img: "90c39195-171d-445a-b939-73ac12fa4e6c", slug: "loungerie", category: "moda" },
-    { id: 112, name: "Under Armour", img: "a1360fe1-6577-4a60-a68e-085825f46a68", slug: "under-armour", category: "moda" },
-    { id: 113, name: "Beleza Quem Disse Berenice", img: "b69fd434-9888-4636-b556-43b5359764bf", slug: "experiencia-de-beleza-quem-disse-berenice", category: "moda" },
-    { id: 114, name: "Beleza O Boticário", img: "2b9e8cce-3077-47c7-9281-b2c47d1daa71", slug: "experiencia-de-beleza-o-boticario", category: "moda" },
-
-    // --- VARIEDADES, CASA & LOJAS ---
-    { id: 115, name: "Zift - Multimarcas", img: "3eb9e9b3-d29b-4cb5-af4c-9c5208ef889f", slug: "zift-cartao-multimarcas", category: "variedades" },
-    { id: 132, name: "Carrefour", img: "a72a2fd9-0600-459f-875a-b1d38ea6dcde", slug: "carrefour", category: "variedades" },
-    { id: 120, name: "Centauro", img: "f5e9911f-5ff1-4791-8291-5f65067236f5", slug: "centauro", category: "variedades" },
-    { id: 133, name: "Netshoes", img: "97bf1e33-390f-4de9-aa69-0fa20ef29913", slug: "netshoes", category: "variedades" },
-    { id: 119, name: "Casas Bahia", img: "afc5a7f3-e92c-4d7f-a15b-2a9d5a87ab08", slug: "casas-bahia", category: "variedades" },
-    { id: 117, name: "Petlove", img: "54be4c2c-a457-4a43-aafe-0c94fd276ed3", slug: "petlove", category: "variedades" },
-    { id: 147, name: "Petz", img: "63a7fad5-d350-43dd-a637-ab1f89e09764", slug: "cupom-petz", category: "variedades" },
-    { id: 155, name: "Vivara", img: "cec4efe8-f378-40b2-9db2-01ae6aa8370b", slug: "vivara", category: "variedades" },
-    { id: 148, name: "Cinemark", img: "b8a14d69-78b6-4ffa-9106-bbf328967e13", slug: "cinemark", category: "variedades" },
-    { id: 121, name: "Tok&Stok", img: "f1b41530-9ac0-4736-811d-a93d98be9fee", slug: "tokstok", category: "variedades" },
-    { id: 123, name: "Decathlon", img: "6bd8e631-ab0d-415c-8aaf-bdfe475bfc40", slug: "decathlon", category: "variedades" },
-    { id: 125, name: "Pague Menos", img: "a92247d1-618a-4b9f-a78c-cba859c43617", slug: "pague-menos", category: "variedades" },
-    { id: 141, name: "UCI Cinemas", img: "490fea53-bbf5-4f6a-8d53-e0fff17785d1", slug: "uci", category: "variedades" },
-    { id: 151, name: "LEGO", img: "12ee4811-c351-4311-b97e-fbb678f9b7a2", slug: "lego", category: "variedades" },
-    { id: 134, name: "Reserva", img: "16d806ff-fb96-4572-9fca-125b7b6f3aa2", slug: "cupom-reserva", category: "variedades" },
-    { id: 122, name: "Sorte Online", img: "a2e0d2a8-f153-47ee-93a8-e2ba8f7e9336", slug: "sorte-online", category: "variedades" },
-    { id: 124, name: "Ri Happy", img: "4675c41f-7f50-4468-99a6-d592a1edaf32", slug: "ri-happy", category: "variedades" },
-    { id: 126, name: "Bem Estar", img: "0acb59ca-d17f-4637-bc18-128d27319a53", slug: "bem-estar", category: "variedades" },
-    { id: 127, name: "Fazer a festa", img: "d441e5d1-362b-4a89-9549-e75c2493193c", slug: "fazer-a-festa", category: "variedades" },
-    { id: 128, name: "Brinquedos Estrela", img: "b8f9abbb-d330-4c33-8998-c98d1029b2f6", slug: "brinquedos-estrela", category: "variedades" },
-    { id: 129, name: "McAfee", img: "f83f2563-89f7-40de-98fc-1812327b5f91", slug: "mcafee", category: "variedades" },
-    { id: 130, name: "Monte Carlo", img: "53bbd053-5490-4ae8-ad01-02d666f1b60d", slug: "monte-carlo", category: "variedades" },
-    { id: 131, name: "ZZ Mall", img: "731db2d6-a018-41e9-92b0-718d528634f5", slug: "zz-mall", category: "variedades" },
-    { id: 135, name: "Farmácias Nissei", img: "9b581f15-fd47-4594-89e8-a0fffad832f7", slug: "farmacias-nissei", category: "variedades" },
-    { id: 136, name: "Extra", img: "ff92676c-03bc-48e6-8e37-24dab31af9bf", slug: "extra", category: "variedades" },
-    { id: 137, name: "Ponto Frio", img: "6a864542-9ef0-476a-931f-55c7b5efada6", slug: "ponto-frio", category: "variedades" },
-    { id: 138, name: "Microsoft 365 + McAfee", img: "8e255b34-8ddb-45d3-96c1-0e6884d51895", slug: "microsoft-365-family--antivirus-mcafee", category: "variedades" },
-    { id: 139, name: "Technos", img: "2df423c0-d696-4bc4-b7f4-1c606149054f", slug: "technos", category: "variedades" },
-    { id: 140, name: "Bagaggio", img: "2a7774aa-434e-4fcd-8ad8-57a195ebca2b", slug: "bagaggio", category: "variedades" },
-    { id: 142, name: "Camicado", img: "bb2bfec4-0cc8-403f-8159-9771feb334cb", slug: "camicado", category: "variedades" },
-    { id: 143, name: "Spicy", img: "f2962636-ec1c-4c10-931d-6b6a214c9e8c", slug: "spicy", category: "variedades" },
-    { id: 144, name: "L'Occitane au Brésil", img: "4d9b23de-290e-4bdc-9a19-97ca165072d3", slug: "cupom-loccitane-au-bresil", category: "variedades" },
-    { id: 145, name: "MAC by Renner", img: "87625baa-e376-47d6-82bf-5c469e1efab6", slug: "mac-by-renner", category: "variedades" },
-    { id: 146, name: "Renner Perfumes", img: "86978b85-b8b2-4f34-a61e-adf51131cf55", slug: "renner-perfumes", category: "variedades" },
-    { id: 149, name: "L'Occitane en Provence", img: "009f4a69-a5bc-40e4-8968-8ba08e280fbc", slug: "cupom-loccitane-en-provence", category: "variedades" },
-    { id: 150, name: "Dolce Gusto", img: "4d733ccc-1673-48c3-9467-ad0c9e3684d5", slug: "dolce-gusto-by-americanas", category: "variedades" },
-    { id: 152, name: "Nespresso", img: "ddd7f1b7-01f6-48b2-8ce3-eb1f12ed0653", slug: "nespresso-by-americanas", category: "variedades" },
-    { id: 153, name: "Giuliana Flores", img: "d227177a-b7f4-49db-891c-20c612eac384", slug: "cupom-giuliana-flores", category: "variedades" },
-    { id: 154, name: "Sam’s Club", img: "aff344da-48f8-4e2c-a9fd-859018dfb7f6", slug: "cupom-sams-club", category: "variedades" },
-    { id: 156, name: "Life Vivara", img: "56f1201a-4464-4b15-a0af-382477054fe8", slug: "life-vivara", category: "variedades" }
-];
-
-   let currentCategory = 'all';
-    const grid = document.getElementById('product-grid');
-
-    function setCategory(cat, el) {
-        currentCategory = cat;
-        // Remove active de todos e adiciona no clicado
-        document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
-        el.classList.add('active');
-        filterAll();
-    }
-
-    function filterAll() {
-        const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-        const sortBy = document.getElementById('sortSelect').value;
-
-        // 1. Filtra por Categoria e por Busca
-        let filtered = products.filter(p => {
-            const matchesCat = currentCategory === 'all' || p.category === currentCategory;
-            const matchesSearch = p.name.toLowerCase().includes(searchTerm);
-            return matchesCat && matchesSearch;
-        });
-
-        // 2. Aplica a Ordenação
-        if (sortBy === 'az') {
-            filtered.sort((a, b) => a.name.localeCompare(b.name));
-        } 
-        else if (sortBy === 'za') {
-            filtered.sort((a, b) => b.name.localeCompare(a.name));
-        } 
-        else if (sortBy === 'recent') {
-            /** * MANTÉM A ORDEM ORIGINAL: 
-             * Como você já organizou o array 'products' com os mais vendidos no topo,
-             * não aplicamos nenhum sort aqui para preservar essa ordem manual.
-             */
-        }
-
-        render(filtered);
-    }
-
-    function render(list) {
-        grid.innerHTML = '';
-        
-        if (list.length === 0) {
-            grid.innerHTML = '<p style="text-align:center; grid-column: 1/-1; padding: 40px; color: #666;">Nenhum Gift Card encontrado.</p>';
-            return;
-        }
-
-        list.forEach(p => {
-            const card = document.createElement('a');
-            card.className = 'card';
-            card.href = `gift-card/${p.slug}.html`;
-            card.innerHTML = `
-                <div class="image-wrapper">
-                    <img src="https://marketplace.bancointer.com.br/gift-card/v2/images/${p.img}" alt="${p.name}" loading="lazy">
-                </div>
-                <div class="info">
-                    <h3>${p.name}</h3>
-                    <div class="buy-btn">Resgatar</div>
-                </div>
-            `;
-            grid.appendChild(card);
-        });
-    }
-
-    // Inicializa a página
-    filterAll();
-</script>
-</body>
+   <head>
+      <!-- Google tag (gtag.js) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-005G8DEBYQ"></script>
+      <script>
+         window.dataLayer = window.dataLayer || [];
+         function gtag(){dataLayer.push(arguments);}
+         gtag('js', new Date());
+         
+         gtag('config', 'G-005G8DEBYQ');
+      </script>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+      <link rel="canonical" href="https://recargasplay.com.br/" />
+      <title>Recargas Play | Comprar Gift Cards via PIX</title>
+      <meta name="description" content="Compre Gift Cards da Uber, PlayStation, Roblox, Netflix e muito mais na Recargas Play. Entrega digital imediata com pagamento via PIX. Resgate seus créditos agora!">
+      <meta name="keywords" content="Comprar Gift Card, Resgatar Gift Card, Cartão Presente, Minecraft, Xbox, Roblox, PlayStation, PIX, Recargas Play">
+      <meta name="author" content="Recargas Play">
+      <link rel="icon" type="image/png" href="favicon.png">
+      <link rel="apple-touch-icon" href="favicon.png">
+      <meta property="og:title" content="Recargas Play | Compre Gift Cards com Entrega Imediata">
+      <meta property="og:description" content="Os melhores Gift Cards de Games e Streaming estão aqui. Compre via PIX com total segurança.">
+      <meta property="og:image" content="https://seusite.com.br/logo.png">
+      <meta property="og:type" content="website">
+      <meta property="og:url" content="https://recargasplay.com.br">
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+      <style>
+         :root {
+         --primary-mint: #00ffcc;
+         --accent-purple: #a855f7; 
+         --bg-dark: #111111;
+         --bg-gradient: linear-gradient(180deg, #1a0b2e 0%, #111111 100%);
+         --card-bg: rgba(26, 26, 26, 0.8);
+         --card-border: var(--primary-mint); 
+         --input-bg: rgba(255, 255, 255, 0.05);
+         }
+         ::-webkit-scrollbar { width: 6px; height: 6px; }
+         ::-webkit-scrollbar-track { background: #0a0a0a; }
+         ::-webkit-scrollbar-thumb { background: var(--accent-purple); border-radius: 10px; }
+         ::-webkit-scrollbar-thumb:hover { background: var(--primary-mint); }
+         * { scrollbar-width: thin; scrollbar-color: var(--accent-purple) #0a0a0a; margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+         body { 
+         background: var(--bg-gradient);
+         background-attachment: fixed;
+         color: #fff;
+         min-height: 100vh;
+         padding-bottom: 120px;
+         }
+         header { padding: 40px 20px 20px; display: flex; justify-content: center; }
+         .logo-container {
+         display: flex;
+         align-items: center;
+         gap: 8px;
+         }
+         .logo-img { width: 55px; height: auto; }
+         header h1 { 
+         font-size: 2.5rem; 
+         font-weight: 800; 
+         text-transform: uppercase; 
+         letter-spacing: -2px; 
+         line-height: 1;
+         background: linear-gradient(90deg, var(--primary-mint) 0%, var(--accent-purple) 100%);
+         -webkit-background-clip: text;
+         -webkit-text-fill-color: transparent;
+         display: flex;
+         align-items: center;
+         }
+         .container { max-width: 1300px; margin: 0 auto; padding: 0 20px; }
+         .toolbar {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         gap: 15px;
+         margin-bottom: 40px;
+         width: 100%;
+         }
+         .search-box { width: 100%; max-width: 600px; position: relative; }
+         .search-box i { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--primary-mint); z-index: 10; }
+         .search-box input {
+         width: 100%; background: var(--input-bg); border: 1px solid var(--primary-mint);
+         padding: 12px 12px 12px 45px; border-radius: 12px; color: #fff; outline: none; transition: 0.3s;
+         }
+         .search-box input:focus { border-color: var(--accent-purple); box-shadow: 0 0 20px rgba(168, 85, 247, 0.4); }
+         .filter-select {
+         background: #1a1a1a; border: 1px solid var(--primary-mint); color: var(--primary-mint);
+         padding: 10px 20px; border-radius: 12px; outline: none; cursor: pointer; font-weight: 600;
+         }
+         .product-grid {
+         display: grid;
+         grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+         gap: 25px;
+         }
+         .card {
+         background: var(--card-bg);
+         border: 1px solid var(--primary-mint);
+         border-radius: 24px;
+         text-decoration: none;
+         color: inherit;
+         transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+         display: flex;
+         flex-direction: column;
+         overflow: hidden;
+         backdrop-filter: blur(10px);
+         }
+         .card:hover {
+         transform: translateY(-10px);
+         border-color: var(--accent-purple);
+         box-shadow: 0 15px 40px rgba(168, 85, 247, 0.4);
+         }
+         .image-wrapper { 
+         width: 100%; height: 200px; 
+         display: flex; justify-content: center; align-items: center;
+         padding: 30px; background: rgba(0,0,0,0.2);
+         }
+         .image-wrapper img { max-width: 100%; max-height: 100%; object-fit: contain; }
+         .info { padding: 20px; text-align: center; }
+         .info h3 { font-size: 0.95rem; margin-bottom: 15px; font-weight: 700; height: 2.5rem; display: flex; align-items: center; justify-content: center; }
+         .buy-btn {
+         background: linear-gradient(90deg, #6a11cb, #45108a);
+         color: white; padding: 12px 0; border-radius: 12px;
+         font-size: 0.8rem; font-weight: 800; text-transform: uppercase; transition: 0.3s;
+         width: 100%; display: block;
+         }
+         .mac-nav {
+         position: fixed; bottom: 0; left: 0; right: 0;
+         background: rgba(10, 10, 10, 0.95); border-top: 1px solid rgba(255,255,255,0.1);
+         display: flex; justify-content: center; z-index: 10000; backdrop-filter: blur(20px);
+         }
+         .nav-list { 
+         display: flex; 
+         list-style: none; 
+         padding: 10px 15px; 
+         gap: 15px; 
+         max-width: 100%; 
+         overflow-x: auto;
+         scroll-behavior: smooth;
+         -webkit-overflow-scrolling: touch;
+         }
+         .nav-list::-webkit-scrollbar { height: 4px; }
+         .nav-list::-webkit-scrollbar-thumb { background: var(--accent-purple); border-radius: 10px; }
+         .nav-item { 
+         display: flex; 
+         flex-direction: column; 
+         align-items: center; 
+         color: #555; 
+         min-width: 70px; 
+         transition: 0.3s;
+         cursor: pointer;
+         }
+         .nav-item:hover, .nav-item.active { color: var(--primary-mint); }
+         .nav-item i { font-size: 1.2rem; margin-bottom: 4px; }
+         .nav-item span { font-size: 9px; font-weight: 700; text-transform: uppercase; white-space: nowrap; }
+         @media (max-width: 600px) {
+         header h1 { font-size: 1.8rem; }
+         .product-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; padding: 0 5px; }
+         .card { border-radius: 12px; }
+         .image-wrapper { height: 80px; padding: 10px; }
+         .info { padding: 10px 5px; }
+         .info h3 { font-size: 0.6rem; height: 1.5rem; margin-bottom: 8px; line-height: 1.1; }
+         .buy-btn { padding: 6px 0; font-size: 0.55rem; border-radius: 6px; }
+         }
+      </style>
+   </head>
+   <body>
+      <header>
+         <div class="logo-container">
+            <img src="logo.png" alt="Recargas Play - Comprar Gift Cards Online" class="logo-img">
+            <h1>RECARGASPLAY</h1>
+         </div>
+      </header>
+      <div class="container">
+         <div class="toolbar">
+            <div class="search-box">
+               <i class="fa-solid fa-magnifying-glass"></i>
+               <input type="text" id="searchInput" placeholder="Buscar Gift Card (Ex: Google Play)..." oninput="filterAll()">
+            </div>
+            <select id="sortSelect" class="filter-select" onchange="filterAll()">
+               <option value="popular">✨ Mais Vendidos</option>
+               <option value="az">🔤 Ordem Alfabética (A-Z)</option>
+               <option value="za">🔤 Ordem Alfabética (Z-A)</option>
+            </select>
+         </div>
+         <div class="product-grid" id="product-grid"></div>
+      </div>
+      <nav class="mac-nav">
+         <ul class="nav-list">
+            <li class="nav-item active" onclick="setCategory('all', this)"><i class="fa-solid fa-house"></i><span>Início</span></li>
+            <li class="nav-item" onclick="setCategory('games', this)"><i class="fa-solid fa-gamepad"></i><span>Games</span></li>
+            <li class="nav-item" onclick="setCategory('streaming', this)"><i class="fa-solid fa-play"></i><span>Vídeo</span></li>
+            <li class="nav-item" onclick="setCategory('delivery', this)"><i class="fa-solid fa-truck"></i><span>Delivery</span></li>
+            <li class="nav-item" onclick="setCategory('comida', this)"><i class="fa-solid fa-utensils"></i><span>Comida</span></li>
+            <li class="nav-item" onclick="setCategory('moda', this)"><i class="fa-solid fa-shirt"></i><span>Moda</span></li>
+            <li class="nav-item" onclick="setCategory('variedades', this)"><i class="fa-solid fa-tags"></i><span>Outros</span></li>
+         </ul>
+      </nav>
+      <script>
+         const products = [
+         // --- TOP VENDAS (OS MAIS POPULARES PRIMEIRO) ---
+         { id: 59, name: "Uber", img: "6f436aa7-ef6e-4832-9d7a-99d68f4e422e", slug: "uber", category: "delivery" },
+         { id: 60, name: "Cupom 99 Food", img: "5737c5b5-9e11-46bc-a8a0-4edfbba19889", slug: "cupom-99-food", category: "delivery" },
+         { id: 52, name: "Google Play", img: "658d4ca2-050d-4d3c-a6b8-ac9ac50e49fc", slug: "google-play", category: "streaming" },
+         { id: 51, name: "App Store", img: "52da4f28-ccba-4c53-a3fd-9cd62ea614e0", slug: "app-store", category: "streaming" },
+         { id: 4, name: "Roblox", img: "265c588f-ebf0-472a-9df4-f56461a2e01c", slug: "roblox", category: "games" },
+         { id: 1, name: "Sony PlayStation", img: "690ca50b-0d59-41cf-9413-5202e3f66ec9", slug: "sony-playstation", category: "games" },
+         { id: 53, name: "Netflix", img: "b617afc8-b3e8-490f-914a-e8d5ebc715c8", slug: "netflix", category: "streaming" },
+         { id: 5, name: "Free Fire", img: "7767258f-cf71-4b2c-986c-28303cfe522c", slug: "free-fire", category: "games" },
+         { id: 118, name: "Cupom Shopee", img: "9f4e8427-5bc1-4067-9250-22ef8eb85ddc", slug: "cupom-shopee", category: "variedades" },
+         { id: 85, name: "McDonald's", img: "c535b5bd-a040-45c3-950f-a8a1b0b8fd88", slug: "mcdonalds", category: "comida" },
+         { id: 116, name: "Airbnb", img: "86664843-fbed-400f-9c17-b3170ffb151a", slug: "airbnb", category: "variedades" },
+         { id: 54, name: "Spotify", img: "be523ba6-2bc2-4225-bbcc-1a67bb9612e3", slug: "spotify", category: "streaming" },
+         
+         // --- GAMES ---
+         { id: 2, name: "Xbox Game Pass Ultimate", img: "54e2a747-e2b4-420a-8137-3db7736b974d", slug: "xbox-game-pass-ultimate", category: "games" },
+         { id: 3, name: "Xbox", img: "cfb4bbba-086d-47d8-b937-2278e2e27983", slug: "xbox", category: "games" },
+         { id: 9, name: "Razer Gold", img: "36c0a2b6-7154-41c2-940c-872ca8482662", slug: "razer-gold", category: "games" },
+         { id: 11, name: "Valorant", img: "75007748-dfd6-4555-a58c-762e6931e138", slug: "valorant", category: "games" },
+         { id: 12, name: "League of Legends", img: "f77d2fa0-357e-4f98-b83d-a3a3ce22d7bd", slug: "league-of-legends", category: "games" },
+         { id: 10, name: "Minecraft", img: "b5cab84a-0cd8-4ba1-aedf-277089e2f860", slug: "minecraft", category: "games" },
+         { id: 6, name: "Nintendo eShop", img: "cb12aafe-36d3-4c9e-a0f2-d05b72c41699", slug: "nintendo-eshop", category: "games" },
+         { id: 49, name: "CoD: Black Ops 7", img: "8e987e60-49ba-4a52-8cf0-79dc208e3cf5", slug: "call-of-duty-black-ops-7", category: "games" },
+         { id: 17, name: "EA FC 26 Standard", img: "669c04a8-2f50-4961-92d1-b6767dee0dde", slug: "ea-fc-26-standard-edition", category: "games" },
+         { id: 18, name: "EA FC 26 Ultimate", img: "7e4cb5ee-71c1-41d6-bb66-58553d7d7c39", slug: "ea-fc-26-ultimate-edition", category: "games" },
+         { id: 7, name: "Xbox Game Pass Premium", img: "05efc6b8-297f-4df1-bccf-a06b3988e3d7", slug: "xbox-game-pass-premium", category: "games" },
+         { id: 8, name: "Xbox Game Pass Essential", img: "feb2515c-25a3-4668-acc6-63846a56f0d0", slug: "xbox-game-pass-essential", category: "games" },
+         { id: 13, name: "Minecraft Minecoins", img: "1440b9c1-bbb7-465f-9795-b0ccad5dae85", slug: "minecraft-minecoins", category: "games" },
+         { id: 14, name: "Mobile Legends", img: "4a7f0b4a-5229-49dc-8303-8da6802b367e", slug: "mobile-legends", category: "games" },
+         { id: 16, name: "Zelda Tears of the Kingdom", img: "b559e29f-cc52-4185-b70b-d64a0b13ed3e", slug: "the-legend-of-zelda-tears-of-the-kingdom", category: "games" },
+         { id: 19, name: "FIFA Points", img: "1889da26-5a65-4e99-8f28-2ef83deadadd", slug: "fifa-points", category: "games" },
+         { id: 27, name: "Blizzard/Battle.net", img: "98a17c4a-5dc0-44f1-968e-c95b91802bbb", slug: "blizzardbattlenet", category: "games" },
+         { id: 26, name: "Rainbow Six® Siege", img: "113", slug: "tom-clancys-rainbow-six-siege", category: "games" },
+         { id: 39, name: "Blood Strike", img: "275f6f42-07eb-4641-9e01-1488efeb340c", slug: "blood-strike", category: "games" },
+         { id: 41, name: "Elden Ring Nightreign", img: "cf714d3a-d818-4eab-a35c-286e4ea0b5d3", slug: "elden-ring-nightreign", category: "games" },
+         { id: 48, name: "Mario Party Jamboree", img: "b81cf256-087e-4c57-8a60-ac0b52dedb69", slug: "super-mario-party-jamboree", category: "games" },
+         { id: 43, name: "Zelda: Breath of the Wild", img: "6c6636ec-2a19-4af5-a411-7362ed9acf38", slug: "the-legend-of-zelda-breath-of-the-wild", category: "games" },
+         { id: 44, name: "Mario Kart World", img: "223f032b-37ed-4dc4-815b-c6275aaed150", slug: "mario-kart-world", category: "games" },
+         { id: 38, name: "Garena Delta Force", img: "347b677f-e21d-4396-9c87-8395206baad7", slug: "garena-delta-force", category: "games" },
+         { id: 15, name: "Minecraft Legends Console", img: "70135c8e-f527-48e4-829a-40549ea91376", slug: "minecraft-legends-console", category: "games" },
+         { id: 22, name: "Level Up", img: "9", slug: "level-up", category: "games" },
+         { id: 23, name: "Warner Bros. Games", img: "2691b65d-86c9-413f-91da-af1f21981916", slug: "warner-bros-games", category: "games" },
+         { id: 25, name: "IMVU", img: "71", slug: "imvu", category: "games" },
+         { id: 37, name: "Doom: The Dark Ages", img: "0b4f92c1-c384-4c2f-910b-5d465d46f012", slug: "doom-the-dark-ages", category: "games" },
+         { id: 35, name: "Assassin's Creed Shadows", img: "f2efc8d9-78aa-4316-bde2-ac8747f01f76", slug: "assassins-creed-shadows", category: "games" },
+         { id: 20, name: "Wario Ware: Move It", img: "7a964c9b-c403-4e28-bff1-bd7e1082eed9", slug: "wario-ware-move-it", category: "games" },
+         { id: 21, name: "Mario Golf: Super Rush", img: "cca34713-3309-45a1-9ef8-08978f11d6a3", slug: "mario-golf-super-rush", category: "games" },
+         { id: 24, name: "Perfect World", img: "161", slug: "perfect-world", category: "games" },
+         { id: 28, name: "Minecraft Legends PC", img: "de4275b9-5371-48e3-a556-902e77a06cc9", slug: "minecraft-legends-pc", category: "games" },
+         { id: 29, name: "Xenoblade Chronicles 2", img: "de806966-cdbe-4e90-9287-2f59a7192565", slug: "xenoblade-chronicles-2", category: "games" },
+         { id: 30, name: "Minecraft Dungeons", img: "f4f2e1be-2da2-4275-b7a0-afe022a1f882", slug: "minecraft-dungeons", category: "games" },
+         { id: 31, name: "Zelda: Link's Awakening", img: "790cda83-9c36-4b1a-b2de-bcde3d0c7b0e", slug: "legend-of-zelda-link-awakening", category: "games" },
+         { id: 32, name: "Battle.Net", img: "ddc481e6-8911-44f3-90df-eb4abbe3ac09", slug: "battlenet", category: "games" },
+         { id: 33, name: "Avowed", img: "5fb66de1-07bd-4773-b711-0a9d6343dca9", slug: "avowed", category: "games" },
+         { id: 34, name: "Minecraft Triple Bundle", img: "1bd2397e-e218-4ed7-9820-58b8585ae2be", slug: "minecraft-triple-bundle", category: "games" },
+         { id: 36, name: "South of Midnight", img: "fa826a4e-fd29-4536-ae33-72cfc9300688", slug: "south-of-midnight", category: "games" },
+         { id: 40, name: "Fórmula 1 25", img: "9075b81f-fa6b-41df-a849-8b5029d0c7d3", slug: "formula-1-25", category: "games" },
+         { id: 42, name: "Zelda: Tears of the Kingdom Up", img: "4df8aa48-f9ab-4622-bfa5-4b18703841ce", slug: "pacote-de-melhoria-the-legend-of-zelda-tears-of-the-kingdom", category: "games" },
+         { id: 45, name: "Zelda: BotW Upgrade", img: "a37573fd-8969-41a8-a68c-613107d3ae3c", slug: "pacote-de-melhoria-the-legend-of-zelda-breath-of-the-wild", category: "games" },
+         { id: 46, name: "Mario Party Jamboree Up", img: "dd0651d8-79d2-4825-b284-9cc47331613e", slug: "pacote-de-melhoria-super-mario-party-jamboree-up", category: "games" },
+         { id: 47, name: "Donkey Kong Bananza", img: "f70c6dbf-7290-47d2-87b0-52bbdd850250", slug: "donkey-kong-bananza", category: "games" },
+         { id: 50, name: "Rainbow Six", img: "c98a252a-6efd-4aa3-a0b9-d77f5153a635", slug: "rainbow-six", category: "games" },
+         
+         // --- STREAMING & APPS ---
+         { id: 55, name: "Nintendo Switch Online", img: "a9c3f7e9-9af1-41e2-8651-749f8859ee46", slug: "nintendo-switch-online", category: "streaming" },
+         { id: 58, name: "Claro TV+", img: "b5ba0d51-953e-4019-8fae-84f2e860252f", slug: "claro-tv", category: "streaming" },
+         { id: 57, name: "Sky +", img: "06cc1d47-52b7-4b32-9c06-77f48580194a", slug: "sky--", category: "streaming" },
+         { id: 56, name: "Looke", img: "6", slug: "looke", category: "streaming" },
+         
+         // --- DELIVERY & TRANSPORTE ---
+         { id: 63, name: "Zé Delivery", img: "6e05cabb-1fcb-4ee1-9cff-ed9f388fd692", slug: "ze-delivery", category: "delivery" },
+         { id: 61, name: "Rappi", img: "922094cb-f4fc-4d8c-a09e-4baba50dbcba", slug: "rappi", category: "delivery" },
+         { id: 62, name: "Buser", img: "141", slug: "buser", category: "delivery" },
+         
+         // --- ALIMENTAÇÃO (COMIDA) ---
+         { id: 84, name: "Cacau Show", img: "4c72fbee-0d39-41c0-82fb-5fbcccb619ad", slug: "cacau-show", category: "comida" },
+         { id: 65, name: "Outback Steakhouse", img: "c417f31e-6eeb-4e35-a638-c0ab74dcd3cd", slug: "outback-steakhouse", category: "comida" },
+         { id: 64, name: "Assaí", img: "a35c6490-0172-4005-baeb-b86edeb168d7", slug: "assai", category: "comida" },
+         { id: 89, name: "Lindt", img: "fc6d2748-eb85-4256-a998-2213a5ea726e", slug: "cupom-lindt", category: "comida" },
+         { id: 81, name: "Bacio di Latte", img: "e426a008-0ae6-45fd-a7ad-be0d31e61346", slug: "bacio-di-latte", category: "comida" },
+         { id: 67, name: "Coco Bambu", img: "cef04188-6515-4013-9948-c9113f337c57", slug: "coco-bambu", category: "comida" },
+         { id: 66, name: "Madero", img: "70211879-6613-47c2-b862-18e949e3ce24", slug: "madero", category: "comida" },
+         { id: 73, name: "Kopenhagen", img: "f7c11bbc-7fd4-409d-b613-00c716bdc447", slug: "kopenhagen", category: "comida" },
+         { id: 88, name: "Jeronimo", img: "c8c6e2d9-be25-4cdd-a078-f190ea2c3282", slug: "jeronimo", category: "comida" },
+         { id: 68, name: "Abbraccio", img: "822b6fa9-28c9-48cb-b361-4ba840793b2e", slug: "abbraccio", category: "comida" },
+         { id: 86, name: "We Coffee", img: "e82fec6a-bc3a-401a-aaa7-01cc1fa29b59", slug: "we-coffee", category: "comida" },
+         { id: 69, name: "Dengo", img: "ac990fc3-236e-438b-bbe2-863e442e98bc", slug: "dengo", category: "comida" },
+         { id: 70, name: "Supernosso", img: "16f1eff2-e594-4ad2-a619-9274ed26fe4b", slug: "supernosso", category: "comida" },
+         { id: 71, name: "St. Marche", img: "282cf8a0-b9a3-4399-93e1-b0a9d0193f69", slug: "st-marche", category: "comida" },
+         { id: 72, name: "Evino", img: "afa08731-b554-4a5e-b9f0-fc12e0347251", slug: "evino", category: "comida" },
+         { id: 74, name: "Camarada Camarão", img: "bfa3a802-066d-4150-8edf-0411f3edc295", slug: "camarada-camarao", category: "comida" },
+         { id: 75, name: "Aussie Grill", img: "fe8be4b8-d483-4f44-85fd-0ad429415094", slug: "aussie-grill", category: "comida" },
+         { id: 76, name: "Pobre Juan", img: "b696e7eb-0234-4669-8c31-e84e8c5ee3e7", slug: "pobre-juan", category: "comida" },
+         { id: 77, name: "Fogo de Chão", img: "d06e8aa3-63a0-4d5e-a36f-44fddc52f3fd", slug: "fogo-de-chao", category: "comida" },
+         { id: 78, name: "Applebee's", img: "01716d70-e9de-4ad3-bfd7-cbda09dfb470", slug: "applebees", category: "comida" },
+         { id: 79, name: "Casa Santa Luzia", img: "116438be-ebf8-4386-862a-9af738fe69ee", slug: "casa-santa-luzia", category: "comida" },
+         { id: 80, name: "Brasil Cacau", img: "0a8ea798-8436-482c-8edf-839f91d5f087", slug: "brasil-cacau", category: "comida" },
+         { id: 82, name: "Di Paolo", img: "addf1730-6c0a-46bb-bab7-13cce0a6e587", slug: "di-paolo", category: "comida" },
+         { id: 83, name: "Gurumê", img: "e3ec5410-f350-4316-9215-39b001cb3aa5", slug: "gurume", category: "comida" },
+         { id: 87, name: "Ao Gosto", img: "45a7f214-f291-4256-b375-4c3be6e41f5c", slug: "ao-gosto", category: "comida" },
+         
+         // --- MODA & BELEZA ---
+         { id: 109, name: "Nike", img: "2826155d-5f0f-4d6c-9a56-373059a3403a", slug: "nike", category: "moda" },
+         { id: 90, name: "O Boticário", img: "b28c7912-1cfc-4041-ac8f-e8a82c28590f", slug: "o-boticario", category: "moda" },
+         { id: 99, name: "Renner", img: "d557ae57-baab-4b26-b101-c46d018a03e3", slug: "renner", category: "moda" },
+         { id: 91, name: "C&A", img: "1346fa44-f153-44c9-8680-39071531c41d", slug: "ca", category: "moda" },
+         { id: 92, name: "Riachuelo", img: "9f20e1a2-a4f8-4cb7-8b10-3d4c15099503", slug: "riachuelo", category: "moda" },
+         { id: 110, name: "Vans", img: "ed9bfc63-9ba6-490e-8139-3040112e63f6", slug: "vans", category: "moda" },
+         { id: 107, name: "Arezzo", img: "ed7d455e-4b58-4df2-b7e4-8565d4ca9a76", slug: "arezzo", category: "moda" },
+         { id: 104, name: "Havaianas", img: "0afe6926-c363-4d5b-b117-ffd779910561", slug: "havaianas", category: "moda" },
+         { id: 108, name: "Granado", img: "6c136389-ae29-4596-a7b6-c1b06a7ea7b5", slug: "granado", category: "moda" },
+         { id: 93, name: "Crocs", img: "b376ee41-e73b-4ead-840f-5a2b8856e51e", slug: "crocs", category: "moda" },
+         { id: 95, name: "Eudora", img: "eddef300-e758-446a-8a40-2e2667034a42", slug: "eudora", category: "moda" },
+         { id: 111, name: "Santa Lolla", img: "f614abe3-38d7-4cd3-8f1b-40ba42990d12", slug: "santa-lolla", category: "moda" },
+         { id: 105, name: "Chilli Beans", img: "a28f1d1e-5d81-4b9d-94f0-b344e6c12e62", slug: "chilli-beans", category: "moda" },
+         { id: 94, name: "Anacapri", img: "d84baac4-5bd9-45fc-b26b-d919f3f7a58a", slug: "anacapri", category: "moda" },
+         { id: 96, name: "Mizuno", img: "d3d6e71f-a466-4561-8d7e-447ab47dbdc6", slug: "mizuno", category: "moda" },
+         { id: 97, name: "Olympikus", img: "d949e103-a47c-4cfc-bdcb-c8a4cbceedec", slug: "olympikus", category: "moda" },
+         { id: 98, name: "Quem Disse, Berenice?", img: "420b0259-af83-4fd8-8c6f-325b0ae26f86", slug: "quem-disse-berenice", category: "moda" },
+         { id: 100, name: "Democrata", img: "04e6ddab-c9eb-4d11-9ff2-f7b87ec355f0", slug: "democrata", category: "moda" },
+         { id: 101, name: "Zattini", img: "409981a4-2da8-4f88-8d45-fd99d79ed34c", slug: "zattini", category: "moda" },
+         { id: 102, name: "Vila Romana", img: "f84517b4-ba6f-483f-a7cd-24807bb35164", slug: "vila-romana", category: "moda" },
+         { id: 103, name: "Schutz", img: "190ea2bb-6530-4090-923a-916813142a77", slug: "schutz", category: "moda" },
+         { id: 106, name: "Loungerie", img: "90c39195-171d-445a-b939-73ac12fa4e6c", slug: "loungerie", category: "moda" },
+         { id: 112, name: "Under Armour", img: "a1360fe1-6577-4a60-a68e-085825f46a68", slug: "under-armour", category: "moda" },
+         { id: 113, name: "Beleza Quem Disse Berenice", img: "b69fd434-9888-4636-b556-43b5359764bf", slug: "experiencia-de-beleza-quem-disse-berenice", category: "moda" },
+         { id: 114, name: "Beleza O Boticário", img: "2b9e8cce-3077-47c7-9281-b2c47d1daa71", slug: "experiencia-de-beleza-o-boticario", category: "moda" },
+         
+         // --- VARIEDADES, CASA & LOJAS ---
+         { id: 115, name: "Zift - Multimarcas", img: "3eb9e9b3-d29b-4cb5-af4c-9c5208ef889f", slug: "zift-cartao-multimarcas", category: "variedades" },
+         { id: 132, name: "Carrefour", img: "a72a2fd9-0600-459f-875a-b1d38ea6dcde", slug: "carrefour", category: "variedades" },
+         { id: 120, name: "Centauro", img: "f5e9911f-5ff1-4791-8291-5f65067236f5", slug: "centauro", category: "variedades" },
+         { id: 133, name: "Netshoes", img: "97bf1e33-390f-4de9-aa69-0fa20ef29913", slug: "netshoes", category: "variedades" },
+         { id: 119, name: "Casas Bahia", img: "afc5a7f3-e92c-4d7f-a15b-2a9d5a87ab08", slug: "casas-bahia", category: "variedades" },
+         { id: 117, name: "Petlove", img: "54be4c2c-a457-4a43-aafe-0c94fd276ed3", slug: "petlove", category: "variedades" },
+         { id: 147, name: "Petz", img: "63a7fad5-d350-43dd-a637-ab1f89e09764", slug: "cupom-petz", category: "variedades" },
+         { id: 155, name: "Vivara", img: "cec4efe8-f378-40b2-9db2-01ae6aa8370b", slug: "vivara", category: "variedades" },
+         { id: 148, name: "Cinemark", img: "b8a14d69-78b6-4ffa-9106-bbf328967e13", slug: "cinemark", category: "variedades" },
+         { id: 121, name: "Tok&Stok", img: "f1b41530-9ac0-4736-811d-a93d98be9fee", slug: "tokstok", category: "variedades" },
+         { id: 123, name: "Decathlon", img: "6bd8e631-ab0d-415c-8aaf-bdfe475bfc40", slug: "decathlon", category: "variedades" },
+         { id: 125, name: "Pague Menos", img: "a92247d1-618a-4b9f-a78c-cba859c43617", slug: "pague-menos", category: "variedades" },
+         { id: 141, name: "UCI Cinemas", img: "490fea53-bbf5-4f6a-8d53-e0fff17785d1", slug: "uci", category: "variedades" },
+         { id: 151, name: "LEGO", img: "12ee4811-c351-4311-b97e-fbb678f9b7a2", slug: "lego", category: "variedades" },
+         { id: 134, name: "Reserva", img: "16d806ff-fb96-4572-9fca-125b7b6f3aa2", slug: "cupom-reserva", category: "variedades" },
+         { id: 122, name: "Sorte Online", img: "a2e0d2a8-f153-47ee-93a8-e2ba8f7e9336", slug: "sorte-online", category: "variedades" },
+         { id: 124, name: "Ri Happy", img: "4675c41f-7f50-4468-99a6-d592a1edaf32", slug: "ri-happy", category: "variedades" },
+         { id: 126, name: "Bem Estar", img: "0acb59ca-d17f-4637-bc18-128d27319a53", slug: "bem-estar", category: "variedades" },
+         { id: 127, name: "Fazer a festa", img: "d441e5d1-362b-4a89-9549-e75c2493193c", slug: "fazer-a-festa", category: "variedades" },
+         { id: 128, name: "Brinquedos Estrela", img: "b8f9abbb-d330-4c33-8998-c98d1029b2f6", slug: "brinquedos-estrela", category: "variedades" },
+         { id: 129, name: "McAfee", img: "f83f2563-89f7-40de-98fc-1812327b5f91", slug: "mcafee", category: "variedades" },
+         { id: 130, name: "Monte Carlo", img: "53bbd053-5490-4ae8-ad01-02d666f1b60d", slug: "monte-carlo", category: "variedades" },
+         { id: 131, name: "ZZ Mall", img: "731db2d6-a018-41e9-92b0-718d528634f5", slug: "zz-mall", category: "variedades" },
+         { id: 135, name: "Farmácias Nissei", img: "9b581f15-fd47-4594-89e8-a0fffad832f7", slug: "farmacias-nissei", category: "variedades" },
+         { id: 136, name: "Extra", img: "ff92676c-03bc-48e6-8e37-24dab31af9bf", slug: "extra", category: "variedades" },
+         { id: 137, name: "Ponto Frio", img: "6a864542-9ef0-476a-931f-55c7b5efada6", slug: "ponto-frio", category: "variedades" },
+         { id: 138, name: "Microsoft 365 + McAfee", img: "8e255b34-8ddb-45d3-96c1-0e6884d51895", slug: "microsoft-365-family--antivirus-mcafee", category: "variedades" },
+         { id: 139, name: "Technos", img: "2df423c0-d696-4bc4-b7f4-1c606149054f", slug: "technos", category: "variedades" },
+         { id: 140, name: "Bagaggio", img: "2a7774aa-434e-4fcd-8ad8-57a195ebca2b", slug: "bagaggio", category: "variedades" },
+         { id: 142, name: "Camicado", img: "bb2bfec4-0cc8-403f-8159-9771feb334cb", slug: "camicado", category: "variedades" },
+         { id: 143, name: "Spicy", img: "f2962636-ec1c-4c10-931d-6b6a214c9e8c", slug: "spicy", category: "variedades" },
+         { id: 144, name: "L'Occitane au Brésil", img: "4d9b23de-290e-4bdc-9a19-97ca165072d3", slug: "cupom-loccitane-au-bresil", category: "variedades" },
+         { id: 145, name: "MAC by Renner", img: "87625baa-e376-47d6-82bf-5c469e1efab6", slug: "mac-by-renner", category: "variedades" },
+         { id: 146, name: "Renner Perfumes", img: "86978b85-b8b2-4f34-a61e-adf51131cf55", slug: "renner-perfumes", category: "variedades" },
+         { id: 149, name: "L'Occitane en Provence", img: "009f4a69-a5bc-40e4-8968-8ba08e280fbc", slug: "cupom-loccitane-en-provence", category: "variedades" },
+         { id: 150, name: "Dolce Gusto", img: "4d733ccc-1673-48c3-9467-ad0c9e3684d5", slug: "dolce-gusto-by-americanas", category: "variedades" },
+         { id: 152, name: "Nespresso", img: "ddd7f1b7-01f6-48b2-8ce3-eb1f12ed0653", slug: "nespresso-by-americanas", category: "variedades" },
+         { id: 153, name: "Giuliana Flores", img: "d227177a-b7f4-49db-891c-20c612eac384", slug: "cupom-giuliana-flores", category: "variedades" },
+         { id: 154, name: "Sam’s Club", img: "aff344da-48f8-4e2c-a9fd-859018dfb7f6", slug: "cupom-sams-club", category: "variedades" },
+         { id: 156, name: "Life Vivara", img: "56f1201a-4464-4b15-a0af-382477054fe8", slug: "life-vivara", category: "variedades" }
+         ];
+         
+         let currentCategory = 'all';
+         const grid = document.getElementById('product-grid');
+         
+         function setCategory(cat, el) {
+             currentCategory = cat;
+             document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+             el.classList.add('active');
+             filterAll();
+         }
+         
+         function filterAll() {
+             const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+             const sortBy = document.getElementById('sortSelect').value;
+         
+             let filtered = products.filter(p => {
+                 const matchesCat = currentCategory === 'all' || p.category === currentCategory;
+                 const matchesSearch = p.name.toLowerCase().includes(searchTerm);
+                 return matchesCat && matchesSearch;
+             });
+         
+             if (sortBy === 'az') filtered.sort((a, b) => a.name.localeCompare(b.name));
+             else if (sortBy === 'za') filtered.sort((a, b) => b.name.localeCompare(a.name));
+         
+             render(filtered);
+         }
+         
+         function render(list) {
+             grid.innerHTML = '';
+             if (list.length === 0) {
+                 grid.innerHTML = '<p style="text-align:center; grid-column: 1/-1; padding: 40px; color: #666;">Nenhum Gift Card encontrado.</p>';
+                 return;
+             }
+         
+             list.forEach(p => {
+                 const card = document.createElement('a');
+                 card.className = 'card';
+                 card.href = `gift-card/${p.slug}.html`;
+                 
+                 // SEO DINÂMICO: Inserindo 'Comprar' no Alt e 'Resgatar' no botão
+                 card.innerHTML = `
+                     <div class="image-wrapper">
+                         <img src="https://marketplace.bancointer.com.br/gift-card/v2/images/${p.img}" alt="Comprar Gift Card ${p.name}" loading="lazy">
+                     </div>
+                     <div class="info">
+                         <h3>Gift Card ${p.name}</h3>
+                         <div class="buy-btn" aria-label="Resgatar Gift Card ${p.name}">Resgatar</div>
+                     </div>
+                 `;
+                 grid.appendChild(card);
+             });
+         }
+         
+         filterAll();
+      </script>
+   </body>
 </html>
