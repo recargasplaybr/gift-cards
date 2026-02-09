@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Compre Gift Card Vivara | Recargas Play via PIX</title>
+<meta content="Adquira seu Gift Card Vivara na Recargas Play. Pagamento facilitado via PIX, entrega rápida e segurança total. Compre agora seu crédito Vivara!" name="description"/>
+<link href="../favicon.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+
+    <link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+<header>
+<div class="logo-container">
+<img alt="Logo" class="logo-img" src="../logo.png"/>
+<h1>RECARGASPLAY</h1>
+</div>
+</header>
+<div class="main-container">
+<div class="product-card">
+<div class="product-left"><div class="product-img-container"><img alt="Gift Card Vivara" src="https://marketplace.bancointer.com.br/gift-card/v2/images/cec4efe8-f378-40b2-9db2-01ae6aa8370b"/></div>
+
+
+<div class="info-block block-purple"><h3 class="txt-mint">Como utilizar</h3>
+                <div class="limit-text" id="desc-como"><ol><li>Loja: Apresente como forma de pagamento, juntamente com a senha, nos caixas.</li><li>Site: Acesse o site https://www.vivara.com.br/, clique na opção de pagamento "Adicionar Cartão-Presente Vivara" para a utilização de apenas 1 (um) Cartão Presente, inserindo o código e senha recebidos. Para utilizar mais de | (um) Cartão Presente ou complementar o valor da compra com cartão de crédito, clique na opção "Cartão de crédito" e selecione "Pagar usando dois cartões". O sistema irá identificar que é um Cartão Presente e pedirá a senha (não pedirá os outros dados que são de cartão de crédito).</li></ol></div>
+                <button class="btn-toggle btn-purple" onclick="toggleText('desc-como')">VEJA MAIS</button>
+            </div>
+</div>
+<div class="product-right">
+<div class="info-block block-mint"><h2 class="block-title txt-mint">Gift Card Vivara</h2>
+                <div class="limit-text" id="desc-produto">A Vivara é a marca que associa momentos especiais com qualidade, diferencial e exclusividade. Comemorações se transformam em momentos inesquecíveis com os produtos desenvolvidos com cuidado e precisão. Com o Cartão Presente Vivara a pessoa amada tem a possibilidade de escolher entre relógios, brincos, pulseiras e joias exclusivas.</div>
+                <button class="btn-toggle btn-mint" onclick="toggleText('desc-produto')">VEJA MAIS</button>
+            </div>
+
+<div class="buy-box">
+<label>Selecione o Valor</label>
+<select id="sel"><option value="R$ 50,00">R$ 50,00</option><option value="R$ 100,00">R$ 100,00</option><option value="R$ 200,00">R$ 200,00</option><option value="R$ 250,00">R$ 250,00</option><option value="R$ 500,00">R$ 500,00</option><option value="Consultar outros valores">Consultar outros valores</option></select>
+<button class="btn-buy" onclick="buy()">Comprar via PIX</button>
+</div>
+</div>
+</div>
+</div>
+<nav class="mac-nav">
+<ul class="nav-list">
+<a class="nav-item" href="../"><i class="fa-solid fa-house"></i><span>Início</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-play"></i><span>Vídeo</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-truck"></i><span>Delivery</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-utensils"></i><span>Comida</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-shirt"></i><span>Moda</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-tags"></i><span>Outros</span></a>
+</ul>
+</nav>
+<script src="script.js"></script>
+
+<script>
+    function buy() {
+        const v = document.getElementById('sel').value;
+        let msg = "";
+        if(v === "Consultar outros valores") {
+            msg = encodeURIComponent("Olá! Gostaria de consultar outros valores para o Gift Card Vivara. Poderia me ajudar?");
+        } else {
+            msg = encodeURIComponent("Olá! Quero comprar o Gift Card Vivara no valor de " + v + ". Poderia me enviar o pix?");
+        }
+        window.open("https://api.whatsapp.com/send?phone=5532999561915&text=" + msg);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Compre Gift Card Ponto Frio | Recargas Play via PIX</title>
+<meta content="Adquira seu Gift Card Ponto Frio na Recargas Play. Pagamento facilitado via PIX, entrega rápida e segurança total. Compre agora seu crédito Ponto Frio!" name="description"/>
+<link href="../favicon.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+
+    <link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+<header>
+<div class="logo-container">
+<img alt="Logo" class="logo-img" src="../logo.png"/>
+<h1>RECARGASPLAY</h1>
+</div>
+</header>
+<div class="main-container">
+<div class="product-card">
+<div class="product-left"><div class="product-img-container"><img alt="Gift Card Ponto Frio" src="https://marketplace.bancointer.com.br/gift-card/v2/images/6a864542-9ef0-476a-931f-55c7b5efada6"/></div>
+
+
+<div class="info-block block-purple"><h3 class="txt-mint">Como utilizar</h3>
+                <div class="limit-text" id="desc-como"><ol><li>1. Acesse o site do Ponto Frio através do link (https://www.pontofrio.com.br)</li><li>2. Adicione suas compras ao carrinho</li><li>3. Na tela de checkout, no Pagamento, selecione 'Cartão presente' e insira o número do cartão e a senha para adicionar o valor como saldo</li><li>4. Pronto! Você poderá aproveitar o saldo em uma ou mais compras dentro da loja. Você também pode complementar o pagamento do seu pedido se exceder o valor do seu saldo com outras formas de pagamento disponíveis no site, porém não é permitido o uso de dois cartões presente na mesma compra.</li></ol></div>
+                <button class="btn-toggle btn-purple" onclick="toggleText('desc-como')">VEJA MAIS</button>
+            </div>
+</div>
+<div class="product-right">
+<div class="info-block block-mint"><h2 class="block-title txt-mint">Gift Card Ponto Frio</h2>
+                <div class="limit-text" id="desc-produto">O Pontofrio é a maior loja de eletrônicos e eletrodomésticos do Brasil. Com o Cartão Presente Pontofrio você encontra o que deseja de eletrônicos, eletrodomésticos, celulares, notebooks, câmeras digitais e tudo mais para sua casa com um Cupom de Desconto exclusivo! O Cartão Presente Pontofrio pode ser utilizado em diversas compras até o término do saldo. Você também poderá complementar o pagamento com 1 (um) cartão de crédito. Problemas relacionados ao cancelamento da compra devem ser tratados diretamente com o SAC da marca. Seu saldo não poderá ser cancelado, trocado, devolvido ou ser convertido em dinheiro. O Cartão Presente Pontofrio é ao portador e não é recarregável. Não é possível a transferência de saldo para outro Cartão Presente.</div>
+                <button class="btn-toggle btn-mint" onclick="toggleText('desc-produto')">VEJA MAIS</button>
+            </div>
+
+<div class="buy-box">
+<label>Selecione o Valor</label>
+<select id="sel"><option value="Consultar outros valores">Consultar outros valores</option></select>
+<button class="btn-buy" onclick="buy()">Comprar via PIX</button>
+</div>
+</div>
+</div>
+</div>
+<nav class="mac-nav">
+<ul class="nav-list">
+<a class="nav-item" href="../"><i class="fa-solid fa-house"></i><span>Início</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-play"></i><span>Vídeo</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-truck"></i><span>Delivery</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-utensils"></i><span>Comida</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-shirt"></i><span>Moda</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-tags"></i><span>Outros</span></a>
+</ul>
+</nav>
+<script src="script.js"></script>
+
+<script>
+    function buy() {
+        const v = document.getElementById('sel').value;
+        let msg = "";
+        if(v === "Consultar outros valores") {
+            msg = encodeURIComponent("Olá! Gostaria de consultar outros valores para o Gift Card Ponto Frio. Poderia me ajudar?");
+        } else {
+            msg = encodeURIComponent("Olá! Quero comprar o Gift Card Ponto Frio no valor de " + v + ". Poderia me enviar o pix?");
+        }
+        window.open("https://api.whatsapp.com/send?phone=5532999561915&text=" + msg);
+    }
+</script>
+</body>
+</html>

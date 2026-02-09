@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Compre Gift Card Zattini | Recargas Play via PIX</title>
+<meta content="Adquira seu Gift Card Zattini na Recargas Play. Pagamento facilitado via PIX, entrega rápida e segurança total. Compre agora seu crédito Zattini!" name="description"/>
+<link href="../favicon.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+
+    <link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+<header>
+<div class="logo-container">
+<img alt="Logo" class="logo-img" src="../logo.png"/>
+<h1>RECARGASPLAY</h1>
+</div>
+</header>
+<div class="main-container">
+<div class="product-card">
+<div class="product-left"><div class="product-img-container"><img alt="Gift Card Zattini" src="https://marketplace.bancointer.com.br/gift-card/v2/images/409981a4-2da8-4f88-8d45-fd99d79ed34c"/></div>
+
+
+<div class="info-block block-purple"><h3 class="txt-mint">Como utilizar</h3>
+                <div class="limit-text" id="desc-como"><ol><li>Acesse: www.zattini.com.br/epay</li><li>O usuário precisa se cadastrar na Zattini (caso não tenha cadastro) e depois vincular o código a um CPF. Caso haja uma sessão ativa na loja, é necessário fazer logoff antes de iniciar o processo.</li><li>Digite o código informado no seu cartão presente</li><li>Após vincular o código a um CPF, o código ficará disponível no menu vales e o saldo será apresentado na hora de escolher a forma de pagamento.</li></ol></div>
+                <button class="btn-toggle btn-purple" onclick="toggleText('desc-como')">VEJA MAIS</button>
+            </div>
+</div>
+<div class="product-right">
+<div class="info-block block-mint"><h2 class="block-title txt-mint">Gift Card Zattini</h2>
+                <div class="limit-text" id="desc-produto">O cartão presente Zattini é a opção ideal para quem quer ser elegante e estar na moda em qualquer ocasião. São mais de 37 mil opções disponíveis para agradar a todos os gostos. Na Zattini você encontra roupas, calçados, bolsas, relógios e muito mais em moda feminina e masculina pelos melhores preços. Faça suas compras no site www.zattini.com.br/epay e aproveite.</div>
+                <button class="btn-toggle btn-mint" onclick="toggleText('desc-produto')">VEJA MAIS</button>
+            </div>
+
+<div class="buy-box">
+<label>Selecione o Valor</label>
+<select id="sel"><option value="R$ 50,00">R$ 50,00</option><option value="R$ 100,00">R$ 100,00</option><option value="Consultar outros valores">Consultar outros valores</option></select>
+<button class="btn-buy" onclick="buy()">Comprar via PIX</button>
+</div>
+</div>
+</div>
+</div>
+<nav class="mac-nav">
+<ul class="nav-list">
+<a class="nav-item" href="../index.html"><i class="fa-solid fa-house"></i><span>Início</span></a>
+<a class="nav-item" href="../index.html"><i class="fa-solid fa-gamepad"></i><span>Games</span></a>
+<a class="nav-item" href="../index.html"><i class="fa-solid fa-play"></i><span>Vídeo</span></a>
+<a class="nav-item" href="../index.html"><i class="fa-solid fa-truck"></i><span>Delivery</span></a>
+<a class="nav-item" href="../index.html"><i class="fa-solid fa-utensils"></i><span>Comida</span></a>
+<a class="nav-item" href="../index.html"><i class="fa-solid fa-shirt"></i><span>Moda</span></a>
+<a class="nav-item" href="../index.html"><i class="fa-solid fa-tags"></i><span>Outros</span></a>
+</ul>
+</nav>
+<script src="script.js"></script>
+
+<script>
+    function buy() {
+        const v = document.getElementById('sel').value;
+        let msg = "";
+        if(v === "Consultar outros valores") {
+            msg = encodeURIComponent("Olá! Gostaria de consultar outros valores para o Gift Card Zattini. Poderia me ajudar?");
+        } else {
+            msg = encodeURIComponent("Olá! Quero comprar o Gift Card Zattini no valor de " + v + ". Poderia me enviar o pix?");
+        }
+        window.open("https://api.whatsapp.com/send?phone=5532999561915&text=" + msg);
+    }
+</script>
+</body>
+</html>

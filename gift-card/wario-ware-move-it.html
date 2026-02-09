@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Compre Gift Card Wario Ware: Move It | Recargas Play via PIX</title>
+<meta content="Adquira seu Gift Card Wario Ware: Move It na Recargas Play. Pagamento facilitado via PIX, entrega rápida e segurança total. Compre agora seu crédito Wario Ware: Move It!" name="description"/>
+<link href="../favicon.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+
+    <link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+<header>
+<div class="logo-container">
+<img alt="Logo" class="logo-img" src="../logo.png"/>
+<h1>RECARGASPLAY</h1>
+</div>
+</header>
+<div class="main-container">
+<div class="product-card">
+<div class="product-left"><div class="product-img-container"><img alt="Gift Card Wario Ware: Move It" src="https://marketplace.bancointer.com.br/gift-card/v2/images/7a964c9b-c403-4e28-bff1-bd7e1082eed9"/></div>
+
+
+<div class="info-block block-purple"><h3 class="txt-mint">Como utilizar</h3>
+                <div class="limit-text" id="desc-como"><ol><li>Se você ainda não o fez, configure uma conexão de internet no seu console Nintendo Switch.</li><li>Certifique-se que o seu console Nintendo Switch tenha a atualização mais recente.</li><li>A partir do menu HOME do Nintendo Switch, selecione o ícone do Nintendo eShop.</li><li>Selecione “Inserir código”.</li><li>Insira seu código de download e clique em “OK”.</li></ol></div>
+                <button class="btn-toggle btn-purple" onclick="toggleText('desc-como')">VEJA MAIS</button>
+            </div>
+</div>
+<div class="product-right">
+<div class="info-block block-mint"><h2 class="block-title txt-mint">Gift Card Wario Ware: Move It</h2>
+                <div class="limit-text" id="desc-produto">Divirta-se com uma infinidade de minijogos baseados no controle de movimentos em uma aventura inédita da série WarioWare! Com um par de controles Joy-Con™, comece a se mexer balançando, dando socos, dançando, requebrando e até mesmo fazendo reverência em mais de 200 minijogos que duram apenas alguns (hilários) segundos! Faça poses chamadas “forms”, incluindo a Ba-kaw (para imitar uma galinha) ou a confiante pose Fashionista e comece a se mexer! Um segundo jogador pode usar um outro par de controles Joy-Con para se divertir bicando minhocas e girando ovelhas. Compartilhe o caos frenético no Party Mode para 2 a 4 jogadores! Enfrente de 2 a 4 jogadores*, cada um com um controle Joy-Con, no Party Mode local. Alcance o objetivo sem ser pego pela Medusa ou encare um jogo de tabuleiro que usa dados com regras determinadas pelo Wario. Acompanhe seus amigos nessas disputas divertidas, onde todos podem se divertir. Faça poses em mais de 200 minijogos baseados no controle de movimentos e que duram apenas alguns segundos. Faça poses chamadas “forms”, como Ba-kaw (que imita uma galinha) e Fashionista (autêntico e confiante) Cace minhocas, fuja da prisão, retribua uma reverência e muito mais enquanto domina movimentos. Compartilhe essa diversão hilária com um amigo no modo cooperativo local para 2 jogadores *De 2 a 4 jogadores* podem se divertir juntos em vários minijogos no Party Mode, incluindo um jogo de tabuleiro* Acessórios adicionais, vendidos separadamente, podem ser necessários para o modo multijogador. USANDO A ALÇA Joy-Con™Ao jogar com um controle que não estiver acoplado ao console Nintendo Switch, use a alça. Aperte e trave a alça com segurança. Segure o controle firmemente. Não o deixe cair. Permita que haja espaço suficiente ao seu redor quando estiver jogando.</div>
+                <button class="btn-toggle btn-mint" onclick="toggleText('desc-produto')">VEJA MAIS</button>
+            </div>
+
+<div class="buy-box">
+<label>Selecione o Valor</label>
+<select id="sel"><option value="R$ 299,00">R$ 299,00</option><option value="Consultar outros valores">Consultar outros valores</option></select>
+<button class="btn-buy" onclick="buy()">Comprar via PIX</button>
+</div>
+</div>
+</div>
+</div>
+<nav class="mac-nav">
+<ul class="nav-list">
+<a class="nav-item" href="../"><i class="fa-solid fa-house"></i><span>Início</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-gamepad"></i><span>Games</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-play"></i><span>Vídeo</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-truck"></i><span>Delivery</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-utensils"></i><span>Comida</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-shirt"></i><span>Moda</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-tags"></i><span>Outros</span></a>
+</ul>
+</nav>
+<script src="script.js"></script>
+
+<script>
+    function buy() {
+        const v = document.getElementById('sel').value;
+        let msg = "";
+        if(v === "Consultar outros valores") {
+            msg = encodeURIComponent("Olá! Gostaria de consultar outros valores para o Gift Card Wario Ware: Move It. Poderia me ajudar?");
+        } else {
+            msg = encodeURIComponent("Olá! Quero comprar o Gift Card Wario Ware: Move It no valor de " + v + ". Poderia me enviar o pix?");
+        }
+        window.open("https://api.whatsapp.com/send?phone=5532999561915&text=" + msg);
+    }
+</script>
+</body>
+</html>

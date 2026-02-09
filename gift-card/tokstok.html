@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Compre Gift Card Tok&amp;Stok | Recargas Play via PIX</title>
+<meta content="Adquira seu Gift Card Tok&amp;Stok na Recargas Play. Pagamento facilitado via PIX, entrega rápida e segurança total. Compre agora seu crédito Tok&amp;Stok!" name="description"/>
+<link href="../favicon.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+
+    <link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+<header>
+<div class="logo-container">
+<img alt="Logo" class="logo-img" src="../logo.png"/>
+<h1>RECARGASPLAY</h1>
+</div>
+</header>
+<div class="main-container">
+<div class="product-card">
+<div class="product-left"><div class="product-img-container"><img alt="Gift Card Tok&amp;Stok" src="https://marketplace.bancointer.com.br/gift-card/v2/images/f1b41530-9ac0-4736-811d-a93d98be9fee"/></div>
+
+
+<div class="info-block block-purple"><h3 class="txt-mint">Como utilizar</h3>
+                <div class="limit-text" id="desc-como"><ol><li>O cartão presente Tok&amp;Stok pode ser utilizado no site ou apresentando o código ao atendente do caixa nas lojas físicas.</li><li>A utilização do cartão ocorre através do nº do cartão (16 dígitos) e senha (6 dígitos), por isso não compartilhe essas informações com terceiros.</li><li>Para compras online, após selecionar os produtos, selecione a opção "Ir para o pagamento", clique no campo "Adicionar Vale-presente" e insira o código e senha recebidos. Todas as lojas físicas e e-commerce"</li></ol></div>
+                <button class="btn-toggle btn-purple" onclick="toggleText('desc-como')">VEJA MAIS</button>
+            </div>
+</div>
+<div class="product-right">
+<div class="info-block block-mint"><h2 class="block-title txt-mint">Gift Card Tok&amp;Stok</h2>
+                <div class="limit-text" id="desc-produto">A Tok&amp;Stok é referência no varejo de móveis e decoração com lojas espalhadas por todo Brasil, além da plataforma de site e aplicativo. Com curadoria e itens de design exclusivo, a Tok&amp;Stok oferece soluções práticas para decorar e mobiliar espaços de forma descomplicada, com personalidade, preços acessíveis e foco em inovação ao longo de toda a jornada do cliente.</div>
+                <button class="btn-toggle btn-mint" onclick="toggleText('desc-produto')">VEJA MAIS</button>
+            </div>
+
+<div class="buy-box">
+<label>Selecione o Valor</label>
+<select id="sel"><option value="Consultar outros valores">Consultar outros valores</option></select>
+<button class="btn-buy" onclick="buy()">Comprar via PIX</button>
+</div>
+</div>
+</div>
+</div>
+<nav class="mac-nav">
+<ul class="nav-list">
+<a class="nav-item" href="../index.html"><i class="fa-solid fa-house"></i><span>Início</span></a>
+<a class="nav-item" href="../index.html"><i class="fa-solid fa-gamepad"></i><span>Games</span></a>
+<a class="nav-item" href="../index.html"><i class="fa-solid fa-play"></i><span>Vídeo</span></a>
+<a class="nav-item" href="../index.html"><i class="fa-solid fa-truck"></i><span>Delivery</span></a>
+<a class="nav-item" href="../index.html"><i class="fa-solid fa-utensils"></i><span>Comida</span></a>
+<a class="nav-item" href="../index.html"><i class="fa-solid fa-shirt"></i><span>Moda</span></a>
+<a class="nav-item" href="../index.html"><i class="fa-solid fa-tags"></i><span>Outros</span></a>
+</ul>
+</nav>
+<script src="script.js"></script>
+
+<script>
+    function buy() {
+        const v = document.getElementById('sel').value;
+        let msg = "";
+        if(v === "Consultar outros valores") {
+            msg = encodeURIComponent("Olá! Gostaria de consultar outros valores para o Gift Card Tok&Stok. Poderia me ajudar?");
+        } else {
+            msg = encodeURIComponent("Olá! Quero comprar o Gift Card Tok&Stok no valor de " + v + ". Poderia me enviar o pix?");
+        }
+        window.open("https://api.whatsapp.com/send?phone=5532999561915&text=" + msg);
+    }
+</script>
+</body>
+</html>

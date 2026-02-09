@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Compre Gift Card Warner Bros. Games | Recargas Play via PIX</title>
+<meta content="Adquira seu Gift Card Warner Bros. Games na Recargas Play. Pagamento facilitado via PIX, entrega rápida e segurança total. Compre agora seu crédito Warner Bros. Games!" name="description"/>
+<link href="../favicon.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+
+    <link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+<header>
+<div class="logo-container">
+<img alt="Logo" class="logo-img" src="../logo.png"/>
+<h1>RECARGASPLAY</h1>
+</div>
+</header>
+<div class="main-container">
+<div class="product-card">
+<div class="product-left"><div class="product-img-container"><img alt="Gift Card Warner Bros. Games" src="https://marketplace.bancointer.com.br/gift-card/v2/images/2691b65d-86c9-413f-91da-af1f21981916"/></div>
+
+
+<div class="info-block block-purple"><h3 class="txt-mint">Como utilizar</h3>
+                <div class="limit-text" id="desc-como"><ol><li>Após concluir a compra do jogo, você receberá um link para o Redeem, disponível em redeem.hype.games/</li><li>No Redeem, você precisará fornecer alguns dados, como nome, CPF e e-mail, para concluir o resgate do seu jogo.</li><li>Após informar os dados cadastrais, você receberá a chave digital do jogo e o link da plataforma para ativação.</li><li>Acesse o site store.steampowered.com/ e faça login na sua conta Steam. Se você não possui uma conta, crie uma gratuitamente.</li><li>Na página inicial da Steam, vá até a sua Biblioteca e encontre a opção "Ativar um código de produto".</li><li>Insira a chave digital do jogo que você recebeu e clique em "Ativar". O jogo será adicionado automaticamente à sua biblioteca.</li><li>Agora é só aproveitar! Inicie o jogo na sua biblioteca e divirta-se com a experiência imersiva que ele oferece.</li><li>Lembre-se: uma vez que a chave digital for revelada, o produto não pode mais ser estornado, portanto, certifique-se de que está resgatando a chave correta.</li></ol></div>
+                <button class="btn-toggle btn-purple" onclick="toggleText('desc-como')">VEJA MAIS</button>
+            </div>
+</div>
+<div class="product-right">
+<div class="info-block block-mint"><h2 class="block-title txt-mint">Gift Card Warner Bros. Games</h2>
+                <div class="limit-text" id="desc-produto">Desperte a paixão pelos jogos com o gift card da Warner Bros. Games! Presenteie seus amigos, familiares ou até mesmo a si mesmo com acesso instantâneo a um universo repleto de aventuras emocionantes. Com este poderoso cartão, você poderá explorar os melhores jogos com itens exclusivos. Não perca tempo, adquira já o gift card da Warner Bros. Games e desbloqueie infinitas possibilidades de entretenimento!</div>
+                <button class="btn-toggle btn-mint" onclick="toggleText('desc-produto')">VEJA MAIS</button>
+            </div>
+
+<div class="buy-box">
+<label>Selecione o Valor</label>
+<select id="sel"><option value="R$ 8,49">R$ 8,49</option><option value="R$ 19,49">R$ 19,49</option><option value="R$ 20,99">R$ 20,99</option><option value="R$ 71,90">R$ 71,90</option><option value="R$ 89,99">R$ 89,99</option><option value="R$ 115,49">R$ 115,49</option><option value="Consultar outros valores">Consultar outros valores</option></select>
+<button class="btn-buy" onclick="buy()">Comprar via PIX</button>
+</div>
+</div>
+</div>
+</div>
+<nav class="mac-nav">
+<ul class="nav-list">
+<a class="nav-item" href="../"><i class="fa-solid fa-house"></i><span>Início</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-gamepad"></i><span>Games</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-play"></i><span>Vídeo</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-truck"></i><span>Delivery</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-utensils"></i><span>Comida</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-shirt"></i><span>Moda</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-tags"></i><span>Outros</span></a>
+</ul>
+</nav>
+<script src="script.js"></script>
+
+<script>
+    function buy() {
+        const v = document.getElementById('sel').value;
+        let msg = "";
+        if(v === "Consultar outros valores") {
+            msg = encodeURIComponent("Olá! Gostaria de consultar outros valores para o Gift Card Warner Bros. Games. Poderia me ajudar?");
+        } else {
+            msg = encodeURIComponent("Olá! Quero comprar o Gift Card Warner Bros. Games no valor de " + v + ". Poderia me enviar o pix?");
+        }
+        window.open("https://api.whatsapp.com/send?phone=5532999561915&text=" + msg);
+    }
+</script>
+</body>
+</html>
