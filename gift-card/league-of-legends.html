@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Compre Gift Card League of Legends | Recargas Play via PIX</title>
+<meta content="Adquira seu Gift Card League of Legends na Recargas Play. Pagamento facilitado via PIX, entrega rápida e segurança total. Compre agora seu crédito League of Legends!" name="description"/>
+<link href="../favicon.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+
+    <link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+<header>
+<div class="logo-container">
+<img alt="Logo" class="logo-img" src="../logo.png"/>
+<h1>RECARGASPLAY</h1>
+</div>
+</header>
+<div class="main-container">
+<div class="product-card">
+<div class="product-left"><div class="product-img-container"><img alt="Gift Card League of Legends" src="https://marketplace.bancointer.com.br/gift-card/v2/images/f77d2fa0-357e-4f98-b83d-a3a3ce22d7bd"/></div>
+
+
+<div class="info-block block-purple"><h3 class="txt-mint">Como utilizar</h3>
+                <div class="limit-text" id="desc-como"><ol><li>Após a compra, você receberá um código PIN em seu e-mail para fazer o resgate:</li><li>Copie o código PIN que você recebeu</li><li>Entre na sua conta do League of Legends</li><li>Vá até a loja e clique em “Compre RP”, escolha” Cartões e Codigos Pré-Pagos”</li><li>Cole o código PIN no campo indicado, clique no botão “enviar” e pronto”</li></ol></div>
+                <button class="btn-toggle btn-purple" onclick="toggleText('desc-como')">VEJA MAIS</button>
+            </div>
+</div>
+<div class="product-right">
+<div class="info-block block-mint"><h2 class="block-title txt-mint">Gift Card League of Legends</h2>
+                <div class="limit-text" id="desc-produto">League of Legends é o Multiplayer Online Battle Arena (MOBA) de maior sucesso da produtora Riot Games. O cartão pré-pago (Gift Card) permite a compra de 2200 Riot Points para que você possa sair na frente em suas batalhas. League of Legends é um jogo online competitivo que mistura a velocidade e a intensidade de um RTS com elementos de RPG. Duas equipes de poderosos campeões, cada um com design e estilo único, lutam em diversos campos de batalha e modos de jogo. Com um elenco de campeões em constante expansão, atualizações frequentes e uma cena competitiva exuberante, League of Legends oferece diversão incessante para jogadores de todos os níveis de habilidade. Código de resgate para servidores do Brasil.</div>
+                <button class="btn-toggle btn-mint" onclick="toggleText('desc-produto')">VEJA MAIS</button>
+            </div>
+
+<div class="buy-box">
+<label>Selecione o Valor</label>
+<select id="sel"><option value="R$ 20,00">R$ 20,00</option><option value="R$ 50,00">R$ 50,00</option><option value="R$ 100,00">R$ 100,00</option><option value="R$ 170,00">R$ 170,00</option><option value="Consultar outros valores">Consultar outros valores</option></select>
+<button class="btn-buy" onclick="buy()">Comprar via PIX</button>
+</div>
+</div>
+</div>
+</div>
+<nav class="mac-nav">
+<ul class="nav-list">
+<a class="nav-item" href="../"><i class="fa-solid fa-house"></i><span>Início</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-gamepad"></i><span>Games</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-play"></i><span>Vídeo</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-truck"></i><span>Delivery</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-utensils"></i><span>Comida</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-shirt"></i><span>Moda</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-tags"></i><span>Outros</span></a>
+</ul>
+</nav>
+<script src="script.js"></script>
+
+<script>
+    function buy() {
+        const v = document.getElementById('sel').value;
+        let msg = "";
+        if(v === "Consultar outros valores") {
+            msg = encodeURIComponent("Olá! Gostaria de consultar outros valores para o Gift Card League of Legends. Poderia me ajudar?");
+        } else {
+            msg = encodeURIComponent("Olá! Quero comprar o Gift Card League of Legends no valor de " + v + ". Poderia me enviar o pix?");
+        }
+        window.open("https://api.whatsapp.com/send?phone=5532999561915&text=" + msg);
+    }
+</script>
+</body>
+</html>

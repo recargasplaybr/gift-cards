@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Compre Gift Card EA FC 26 Ultimate Edition | Recargas Play via PIX</title>
+<meta content="Adquira seu Gift Card EA FC 26 Ultimate Edition na Recargas Play. Pagamento facilitado via PIX, entrega rápida e segurança total. Compre agora seu crédito EA FC 26 Ultimate Edition!" name="description"/>
+<link href="../favicon.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+
+    <link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+<header>
+<div class="logo-container">
+<img alt="Logo" class="logo-img" src="../logo.png"/>
+<h1>RECARGASPLAY</h1>
+</div>
+</header>
+<div class="main-container">
+<div class="product-card">
+<div class="product-left"><div class="product-img-container"><img alt="Gift Card EA FC 26 Ultimate Edition" src="https://marketplace.bancointer.com.br/gift-card/v2/images/7e4cb5ee-71c1-41d6-bb66-58553d7d7c39"/></div>
+
+
+<div class="info-block block-purple"><h3 class="txt-mint">Como utilizar</h3>
+                <div class="limit-text" id="desc-como"><ol><li>Resgate em microsoft.com/redeem</li></ol></div>
+                <button class="btn-toggle btn-purple" onclick="toggleText('desc-como')">VEJA MAIS</button>
+            </div>
+</div>
+<div class="product-right">
+<div class="info-block block-mint"><h2 class="block-title txt-mint">Gift Card EA FC 26 Ultimate Edition</h2>
+                <div class="limit-text" id="desc-produto">O Clube é Seu no EA SPORTS FC™ 26. Jogue do seu jeito com uma experiência de jogabilidade reformulada
+impulsionada pelos comentários da comunidade. Desafios de Manager ao Vivo que trazem novos enredos
+para a nova temporada e Arquétipos inspirados em craques do esporte.
+
+"6000 FC Points (3 entregas de 2k FC Points em um período de 2 meses);
+2X slot EVO;
+1 slot adicional de Evolução de Jogador do Ultimate Team™;
+Conteúdo de Clubes e Carreira da Edição Padrão;
+
+Incentivos de Carreira: 3X Times com jogadores Lendários;
+Incentivos de Carreira: Técnico 5 estrelas;
+Incentivos de Carreira: Olheiro de jovens 5 estrelas;
+Incentivos de Carreira: Conteúdo de Desafio ao Vivo do Manager;
+Incentivos de Clubes: 1X Consumível de Desbloqueio de Arquétipo (Completo);
+Incentivos de Clubes: 2X Consumível de XP Duplo (Completo);
+
++++
+JOGO BASE</div>
+                <button class="btn-toggle btn-mint" onclick="toggleText('desc-produto')">VEJA MAIS</button>
+            </div>
+
+<div class="buy-box">
+<label>Selecione o Valor</label>
+<select id="sel"><option value="R$ 499,00">R$ 499,00</option><option value="Consultar outros valores">Consultar outros valores</option></select>
+<button class="btn-buy" onclick="buy()">Comprar via PIX</button>
+</div>
+</div>
+</div>
+</div>
+<nav class="mac-nav">
+<ul class="nav-list">
+<a class="nav-item" href="../"><i class="fa-solid fa-house"></i><span>Início</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-gamepad"></i><span>Games</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-play"></i><span>Vídeo</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-truck"></i><span>Delivery</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-utensils"></i><span>Comida</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-shirt"></i><span>Moda</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-tags"></i><span>Outros</span></a>
+</ul>
+</nav>
+<script src="script.js"></script>
+
+<script>
+    function buy() {
+        const v = document.getElementById('sel').value;
+        let msg = "";
+        if(v === "Consultar outros valores") {
+            msg = encodeURIComponent("Olá! Gostaria de consultar outros valores para o Gift Card EA FC 26 Ultimate Edition. Poderia me ajudar?");
+        } else {
+            msg = encodeURIComponent("Olá! Quero comprar o Gift Card EA FC 26 Ultimate Edition no valor de " + v + ". Poderia me enviar o pix?");
+        }
+        window.open("https://api.whatsapp.com/send?phone=5532999561915&text=" + msg);
+    }
+</script>
+</body>
+</html>

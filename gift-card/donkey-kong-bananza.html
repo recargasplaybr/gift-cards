@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Compre Gift Card Donkey Kong Bananza | Recargas Play via PIX</title>
+<meta content="Adquira seu Gift Card Donkey Kong Bananza na Recargas Play. Pagamento facilitado via PIX, entrega rápida e segurança total. Compre agora seu crédito Donkey Kong Bananza!" name="description"/>
+<link href="../favicon.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+
+    <link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+<header>
+<div class="logo-container">
+<img alt="Logo" class="logo-img" src="../logo.png"/>
+<h1>RECARGASPLAY</h1>
+</div>
+</header>
+<div class="main-container">
+<div class="product-card">
+<div class="product-left"><div class="product-img-container"><img alt="Gift Card Donkey Kong Bananza" src="https://marketplace.bancointer.com.br/gift-card/v2/images/f70c6dbf-7290-47d2-87b0-52bbdd850250"/></div>
+
+
+<div class="info-block block-purple"><h3 class="txt-mint">Como utilizar</h3>
+                <div class="limit-text" id="desc-como"><ol><li>Selecione Nintendo eShop no Menu HOME para abrir a Nintendo eShop</li><li>Selecione a conta que pretende usar</li><li>Selecione Utilizar Código no lado esquerdo da tela</li><li>Informe o código de download de 16 caracteres</li></ol></div>
+                <button class="btn-toggle btn-purple" onclick="toggleText('desc-como')">VEJA MAIS</button>
+            </div>
+</div>
+<div class="product-right">
+<div class="info-block block-mint"><h2 class="block-title txt-mint">Gift Card Donkey Kong Bananza</h2>
+                <div class="limit-text" id="desc-produto">Com os músculos do DK e a poderosa voz da Pauline, você poderá derrubar paredes, escavar túneis com seus punhos, golpear direto no chão e até arrancar pedaços do terreno para arremessar durante as suas explorações. Quanto mais você destruir, mais áreas se abrirão para você percorrer.
+
+Mergulhe na diversão!
+Junte-se a DK e sua parceira, Pauline, enquanto exploram as profundezas do subterrâneo e descobrem que esse mundo é muito mais do que parece ser. Descubra uma série de ecossistemas como cânions áridos, florestas verdejantes e tundras geladas enquanto você descasca a crosta terrestre!
+
+Junte-se a Pauline
+Pauline é uma jovem de 13 anos com uma voz tão poderosa que pode destruir rochas e até mesmo influenciar os poderes do Donkey Kong!
+Oh banana!
+O canto de Pauline pode ampliar os poderes de DK com diferentes transformações Bananza, cada uma com seu próprio poder especial. Aumente a força de DK, a velocidade e muito mais!
+
+Galera da superfície
+Donkey Kong e Pauline encontram muitos personagens interessantes pelo caminho e alguns podem até ajudá-los em sua aventura!
+
+Void Company
+Dizem que o Núcleo do planeta tem o poder de realizar qualquer desejo, e Void Kong, o terrível presidente da gananciosa Void Company, não vai parar até chegar lá e se apropriar de todas as riquezas do mundo. Abra caminho até o Núcleo do planeta antes que a gananciosa Void Company chegue primeiro!
+
+Junte-se a um amigo
+No modo cooperativo para dois jogadores, um jogador controla Donkey Kong, enquanto o outro pode ser Pauline. Pegue uma carona no ombro de DK, dispare projéteis vocais para abrir caminho e eliminar os vilões. (Experimente o Joy-Con™ 2 no modo mouse para mirar com mais precisão!) Pauline também pode copiar o terreno ao seu redor e alterar o tipo de projétil que ela dispara. Quando DK e Pauline trabalham juntos, os vilões não têm nenhuma chance!</div>
+                <button class="btn-toggle btn-mint" onclick="toggleText('desc-produto')">VEJA MAIS</button>
+            </div>
+
+<div class="buy-box">
+<label>Selecione o Valor</label>
+<select id="sel"><option value="R$ 439,90">R$ 439,90</option><option value="Consultar outros valores">Consultar outros valores</option></select>
+<button class="btn-buy" onclick="buy()">Comprar via PIX</button>
+</div>
+</div>
+</div>
+</div>
+<nav class="mac-nav">
+<ul class="nav-list">
+<a class="nav-item" href="../"><i class="fa-solid fa-house"></i><span>Início</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-play"></i><span>Vídeo</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-truck"></i><span>Delivery</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-utensils"></i><span>Comida</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-shirt"></i><span>Moda</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-tags"></i><span>Outros</span></a>
+</ul>
+</nav>
+<script src="script.js"></script>
+
+<script>
+    function buy() {
+        const v = document.getElementById('sel').value;
+        let msg = "";
+        if(v === "Consultar outros valores") {
+            msg = encodeURIComponent("Olá! Gostaria de consultar outros valores para o Gift Card Donkey Kong Bananza. Poderia me ajudar?");
+        } else {
+            msg = encodeURIComponent("Olá! Quero comprar o Gift Card Donkey Kong Bananza no valor de " + v + ". Poderia me enviar o pix?");
+        }
+        window.open("https://api.whatsapp.com/send?phone=5532999561915&text=" + msg);
+    }
+</script>
+</body>
+</html>

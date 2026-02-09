@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Compre Gift Card MINECRAFT MINECOINS | Recargas Play via PIX</title>
+<meta content="Adquira seu Gift Card MINECRAFT MINECOINS na Recargas Play. Pagamento facilitado via PIX, entrega rápida e segurança total. Compre agora seu crédito MINECRAFT MINECOINS!" name="description"/>
+<link href="../favicon.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+
+    <link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+<header>
+<div class="logo-container">
+<img alt="Logo" class="logo-img" src="../logo.png"/>
+<h1>RECARGASPLAY</h1>
+</div>
+</header>
+<div class="main-container">
+<div class="product-card">
+<div class="product-left"><div class="product-img-container"><img alt="Gift Card MINECRAFT MINECOINS" src="https://marketplace.bancointer.com.br/gift-card/v2/images/1440b9c1-bbb7-465f-9795-b0ccad5dae85"/></div>
+
+
+<div class="info-block block-purple"><h3 class="txt-mint">Como utilizar</h3>
+                <div class="limit-text" id="desc-como"><ol><li>Crie uma conta no site http://minecraft.net/pt-br/redeem/minecoins/ ou, caso já tenha uma conta, faça o login.</li><li>Insira o código.</li><li>Siga as instruções da tela. Se for informado que o código está inativo durante o resgate, entre em contato com seu revendedor. Caso tenha problemas com sua conta da Mojang, entre em contato com a Mojangg em https://www.minecraft.net/pt-br/help.</li></ol></div>
+                <button class="btn-toggle btn-purple" onclick="toggleText('desc-como')">VEJA MAIS</button>
+            </div>
+</div>
+<div class="product-right">
+<div class="info-block block-mint"><h2 class="block-title txt-mint">Gift Card MINECRAFT MINECOINS</h2>
+                <div class="limit-text" id="desc-produto">Use Minecoins para comprar novos conteúdos emocionantes dos Criadores do Minecraft por meio da loja Minecraft no jogo! Você pode utilizar as Minecoins nos dispositivos Android, iOS, Windows 10, Xbox SeriesX|S, Xbox One e Nintendo Switch.Navegue na loja Minecraft para descobrir conteúdo completamente novo toda semana, incluindo pacotes de skin, pacotes de mash-up, minijogos e mapas de aventura para explorar. Uma vez trocadas e vinculadas com a sua conta da Microsoft, você poderá acessar as suas Minecoins e compras por meio de todos os dispositivos compatíveis que executem o Minecraft. As Minecoins são presentes perfeito para os jogadores do Minecraft!</div>
+                <button class="btn-toggle btn-mint" onclick="toggleText('desc-produto')">VEJA MAIS</button>
+            </div>
+
+<div class="buy-box">
+<label>Selecione o Valor</label>
+<select id="sel"><option value="R$ 37,95">R$ 37,95</option><option value="R$ 77,45">R$ 77,45</option><option value="Consultar outros valores">Consultar outros valores</option></select>
+<button class="btn-buy" onclick="buy()">Comprar via PIX</button>
+</div>
+</div>
+</div>
+</div>
+<nav class="mac-nav">
+<ul class="nav-list">
+<a class="nav-item" href="../index.html"><i class="fa-solid fa-house"></i><span>Início</span></a>
+<a class="nav-item" href="../index.html"><i class="fa-solid fa-gamepad"></i><span>Games</span></a>
+<a class="nav-item" href="../index.html"><i class="fa-solid fa-play"></i><span>Vídeo</span></a>
+<a class="nav-item" href="../index.html"><i class="fa-solid fa-truck"></i><span>Delivery</span></a>
+<a class="nav-item" href="../index.html"><i class="fa-solid fa-utensils"></i><span>Comida</span></a>
+<a class="nav-item" href="../index.html"><i class="fa-solid fa-shirt"></i><span>Moda</span></a>
+<a class="nav-item" href="../index.html"><i class="fa-solid fa-tags"></i><span>Outros</span></a>
+</ul>
+</nav>
+<script src="script.js"></script>
+
+<script>
+    function buy() {
+        const v = document.getElementById('sel').value;
+        let msg = "";
+        if(v === "Consultar outros valores") {
+            msg = encodeURIComponent("Olá! Gostaria de consultar outros valores para o Gift Card MINECRAFT MINECOINS. Poderia me ajudar?");
+        } else {
+            msg = encodeURIComponent("Olá! Quero comprar o Gift Card MINECRAFT MINECOINS no valor de " + v + ". Poderia me enviar o pix?");
+        }
+        window.open("https://api.whatsapp.com/send?phone=5532999561915&text=" + msg);
+    }
+</script>
+</body>
+</html>

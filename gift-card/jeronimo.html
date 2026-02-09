@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Compre Gift Card Jeronimo | Recargas Play via PIX</title>
+<meta content="Adquira seu Gift Card Jeronimo na Recargas Play. Pagamento facilitado via PIX, entrega rápida e segurança total. Compre agora seu crédito Jeronimo!" name="description"/>
+<link href="../favicon.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+
+    <link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+<header>
+<div class="logo-container">
+<img alt="Logo" class="logo-img" src="../logo.png"/>
+<h1>RECARGASPLAY</h1>
+</div>
+</header>
+<div class="main-container">
+<div class="product-card">
+<div class="product-left"><div class="product-img-container"><img alt="Gift Card Jeronimo" src="https://marketplace.bancointer.com.br/gift-card/v2/images/c8c6e2d9-be25-4cdd-a078-f190ea2c3282"/></div>
+
+
+<div class="info-block block-purple"><h3 class="txt-mint">Como utilizar</h3>
+                <div class="limit-text" id="desc-como"><ol><li>No momento do pagamento insira o código e senha no campo "Cartão Presente" ou informe ao atendente nos restaurantes</li></ol></div>
+                <button class="btn-toggle btn-purple" onclick="toggleText('desc-como')">VEJA MAIS</button>
+            </div>
+</div>
+<div class="product-right">
+<div class="info-block block-mint"><h2 class="block-title txt-mint">Gift Card Jeronimo</h2>
+                <div class="limit-text" id="desc-produto">Fundado pelo Chef Junior Durski, o Grupo Madero é uma das redes de restaurantes que mais cresce no Brasil. O Jeronimo foi pensado pra garantir uma experiência única, com um novo jeito de fazer burguer, que combina com o seu jeito de comer! Com o Cartão Presente Jeronimo, você saboreia um hamburger suculento, feito com carnes certificadas, pão brioche toasted, saladas especiais, maionese artesanal do chef e preparado na hora pra você!</div>
+                <button class="btn-toggle btn-mint" onclick="toggleText('desc-produto')">VEJA MAIS</button>
+            </div>
+
+<div class="buy-box">
+<label>Selecione o Valor</label>
+<select id="sel"><option value="R$ 50,00">R$ 50,00</option><option value="R$ 100,00">R$ 100,00</option><option value="R$ 150,00">R$ 150,00</option><option value="Consultar outros valores">Consultar outros valores</option></select>
+<button class="btn-buy" onclick="buy()">Comprar via PIX</button>
+</div>
+</div>
+</div>
+</div>
+<nav class="mac-nav">
+<ul class="nav-list">
+<a class="nav-item" href="../"><i class="fa-solid fa-house"></i><span>Início</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-play"></i><span>Vídeo</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-truck"></i><span>Delivery</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-utensils"></i><span>Comida</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-shirt"></i><span>Moda</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-tags"></i><span>Outros</span></a>
+</ul>
+</nav>
+<script src="script.js"></script>
+
+<script>
+    function buy() {
+        const v = document.getElementById('sel').value;
+        let msg = "";
+        if(v === "Consultar outros valores") {
+            msg = encodeURIComponent("Olá! Gostaria de consultar outros valores para o Gift Card Jeronimo. Poderia me ajudar?");
+        } else {
+            msg = encodeURIComponent("Olá! Quero comprar o Gift Card Jeronimo no valor de " + v + ". Poderia me enviar o pix?");
+        }
+        window.open("https://api.whatsapp.com/send?phone=5532999561915&text=" + msg);
+    }
+</script>
+</body>
+</html>

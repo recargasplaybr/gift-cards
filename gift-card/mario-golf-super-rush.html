@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Compre Gift Card Mario Golf: Super Rush | Recargas Play via PIX</title>
+<meta content="Adquira seu Gift Card Mario Golf: Super Rush na Recargas Play. Pagamento facilitado via PIX, entrega rápida e segurança total. Compre agora seu crédito Mario Golf: Super Rush!" name="description"/>
+<link href="../favicon.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+
+    <link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+<header>
+<div class="logo-container">
+<img alt="Logo" class="logo-img" src="../logo.png"/>
+<h1>RECARGASPLAY</h1>
+</div>
+</header>
+<div class="main-container">
+<div class="product-card">
+<div class="product-left"><div class="product-img-container"><img alt="Gift Card Mario Golf: Super Rush" src="https://marketplace.bancointer.com.br/gift-card/v2/images/cca34713-3309-45a1-9ef8-08978f11d6a3"/></div>
+
+
+<div class="info-block block-purple"><h3 class="txt-mint">Como utilizar</h3>
+                <div class="limit-text" id="desc-como"><ol><li>Configure uma conexão de internet no seu console Nintendo Switch.</li><li>Certifique-se que o seu console Nintendo Switch tenha a atualização mais recente.</li><li>A partir do menu HOME do Nintendo Switch, selecione o ícone do Nintendo eShop.</li><li>Selecione “Inserir código”.</li><li>Insira seu código de download e clique em “OK”.</li></ol></div>
+                <button class="btn-toggle btn-purple" onclick="toggleText('desc-como')">VEJA MAIS</button>
+            </div>
+</div>
+<div class="product-right">
+<div class="info-block block-mint"><h2 class="block-title txt-mint">Gift Card Mario Golf: Super Rush</h2>
+                <div class="limit-text" id="desc-produto">Prepare-se para jogar golfe com personagens populares do Reino Cogumelo na série Mario Golf. Com suporte para até quatro jogadores no modo local ou online, os modos de jogo oferecem variedades desde a jogabilidade padrão do golfe até o Speed Golf e a aventura de estilo RPG no modo história. Com controles intuitivos e um medidor de tacadas adaptável às curvas do campo, novos e experientes jogadores podem dar tacadas poderosas com facilidade. No Speed Golf, você pode jogar e correr simultaneamente para chegar à bola mais rápido e atrapalhar os outros jogadores. No modo história, você pode colocar seu personagem Mii™ em um clube de campo e ganhar pontos de experiência melhorando as estatísticas. É necessário alguns acessórios, jogos e consoles adicionais para jogar o modo multijogador. Requer assinatura do Nintendo Switch Online e conta Nintendo para partidas online. A Nintendo e CAMELOT são detentoras dos direitos autorais da série e Mario Golf e Nintendo Switch são marcas registradas da Nintendo.</div>
+                <button class="btn-toggle btn-mint" onclick="toggleText('desc-produto')">VEJA MAIS</button>
+            </div>
+
+<div class="buy-box">
+<label>Selecione o Valor</label>
+<select id="sel"><option value="R$ 349,00">R$ 349,00</option><option value="Consultar outros valores">Consultar outros valores</option></select>
+<button class="btn-buy" onclick="buy()">Comprar via PIX</button>
+</div>
+</div>
+</div>
+</div>
+<nav class="mac-nav">
+<ul class="nav-list">
+<a class="nav-item" href="../"><i class="fa-solid fa-house"></i><span>Início</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-gamepad"></i><span>Games</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-play"></i><span>Vídeo</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-truck"></i><span>Delivery</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-utensils"></i><span>Comida</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-shirt"></i><span>Moda</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-tags"></i><span>Outros</span></a>
+</ul>
+</nav>
+<script src="script.js"></script>
+
+<script>
+    function buy() {
+        const v = document.getElementById('sel').value;
+        let msg = "";
+        if(v === "Consultar outros valores") {
+            msg = encodeURIComponent("Olá! Gostaria de consultar outros valores para o Gift Card Mario Golf: Super Rush. Poderia me ajudar?");
+        } else {
+            msg = encodeURIComponent("Olá! Quero comprar o Gift Card Mario Golf: Super Rush no valor de " + v + ". Poderia me enviar o pix?");
+        }
+        window.open("https://api.whatsapp.com/send?phone=5532999561915&text=" + msg);
+    }
+</script>
+</body>
+</html>

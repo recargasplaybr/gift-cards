@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Compre Gift Card Extra | Recargas Play via PIX</title>
+<meta content="Adquira seu Gift Card Extra na Recargas Play. Pagamento facilitado via PIX, entrega rápida e segurança total. Compre agora seu crédito Extra!" name="description"/>
+<link href="../favicon.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+
+    <link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+<header>
+<div class="logo-container">
+<img alt="Logo" class="logo-img" src="../logo.png"/>
+<h1>RECARGASPLAY</h1>
+</div>
+</header>
+<div class="main-container">
+<div class="product-card">
+<div class="product-left"><div class="product-img-container"><img alt="Gift Card Extra" src="https://marketplace.bancointer.com.br/gift-card/v2/images/ff92676c-03bc-48e6-8e37-24dab31af9bf"/></div>
+
+
+<div class="info-block block-purple"><h3 class="txt-mint">Como utilizar</h3>
+                <div class="limit-text" id="desc-como"><ol><li>Para utilizar, basta inserir o código e senha no campo "Cartão presente" na tela de pagamento.</li></ol></div>
+                <button class="btn-toggle btn-purple" onclick="toggleText('desc-como')">VEJA MAIS</button>
+            </div>
+</div>
+<div class="product-right">
+<div class="info-block block-mint"><h2 class="block-title txt-mint">Gift Card Extra</h2>
+                <div class="limit-text" id="desc-produto">O Extra.com.br oferece uma grande variedade de produtos para toda a família e tudo o que você precisa para estar e se conectar com quem você ama. Com o Cartão Presente Extra.com.br você tem acesso a diversas opções de produtos como móveis, eletrônicos, celulares, notebooks, tudo com facilidade na hora de comprar e com um Cupom de Desconto exclusivo*! *Os descontos são válidos somente para produtos comercializados pelo Extra. Itens de Marketplace não entram na promoção.
+Como utilizar:
+Utilização exclusiva no site https://www.extra.com.br, com acesso pelo Desktop e APP (não é aceito na versão mobile).
+
+Válido também para pagamento de frete. Não é válido para a área de Mercado do site e para compra de outro Cartão Presente.
+
+Não é aceito para compra de alimentos ou outros itens do site https://www.clubeextra.com.br/.
+
+As ofertas são válidas para compras realizadas com o Cartão Presente e podem sofrer alteração sem prévio aviso. Descontos não cumulativos.
+
+O crédito do seu Cartão Presente Extra.com.br poderá ser utilizado no valor parcial, total ou você poderá complementar o pagamento com 1 (um) cartão de crédito.
+
+Limite de 1 (um) Cartão por compra. Não é permitido utilizar Vale e Cartão Presente na mesma compra.
+
+O Cartão Presente Extra.com.br pode ser utilizado em diversas compras, até o término do saldo.
+
+Problemas relacionados ao cancelamento da compra devem ser tratados diretamente com o SAC da marca.</div>
+                <button class="btn-toggle btn-mint" onclick="toggleText('desc-produto')">VEJA MAIS</button>
+            </div>
+
+<div class="buy-box">
+<label>Selecione o Valor</label>
+<select id="sel"><option value="Consultar outros valores">Consultar outros valores</option></select>
+<button class="btn-buy" onclick="buy()">Comprar via PIX</button>
+</div>
+</div>
+</div>
+</div>
+<nav class="mac-nav">
+<ul class="nav-list">
+<a class="nav-item" href="../"><i class="fa-solid fa-house"></i><span>Início</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-gamepad"></i><span>Games</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-play"></i><span>Vídeo</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-truck"></i><span>Delivery</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-utensils"></i><span>Comida</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-shirt"></i><span>Moda</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-tags"></i><span>Outros</span></a>
+</ul>
+</nav>
+<script src="script.js"></script>
+
+<script>
+    function buy() {
+        const v = document.getElementById('sel').value;
+        let msg = "";
+        if(v === "Consultar outros valores") {
+            msg = encodeURIComponent("Olá! Gostaria de consultar outros valores para o Gift Card Extra. Poderia me ajudar?");
+        } else {
+            msg = encodeURIComponent("Olá! Quero comprar o Gift Card Extra no valor de " + v + ". Poderia me enviar o pix?");
+        }
+        window.open("https://api.whatsapp.com/send?phone=5532999561915&text=" + msg);
+    }
+</script>
+</body>
+</html>

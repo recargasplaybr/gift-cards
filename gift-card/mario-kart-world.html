@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Compre Gift Card Mario Kart World | Recargas Play via PIX</title>
+<meta content="Adquira seu Gift Card Mario Kart World na Recargas Play. Pagamento facilitado via PIX, entrega rápida e segurança total. Compre agora seu crédito Mario Kart World!" name="description"/>
+<link href="../favicon.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+
+    <link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+<header>
+<div class="logo-container">
+<img alt="Logo" class="logo-img" src="../logo.png"/>
+<h1>RECARGASPLAY</h1>
+</div>
+</header>
+<div class="main-container">
+<div class="product-card">
+<div class="product-left"><div class="product-img-container"><img alt="Gift Card Mario Kart World" src="https://marketplace.bancointer.com.br/gift-card/v2/images/223f032b-37ed-4dc4-815b-c6275aaed150"/></div>
+
+
+<div class="info-block block-purple"><h3 class="txt-mint">Como utilizar</h3>
+                <div class="limit-text" id="desc-como"><ol><li>Selecione Nintendo eShop no Menu HOME para abrir a Nintendo eShop</li><li>Selecione a conta que pretende usar.</li><li>Selecione Utilizar Código no lado esquerdo da tela.</li><li>Informe o código de download de 16 caracteres.</li></ol></div>
+                <button class="btn-toggle btn-purple" onclick="toggleText('desc-como')">VEJA MAIS</button>
+            </div>
+</div>
+<div class="product-right">
+<div class="info-block block-mint"><h2 class="block-title txt-mint">Gift Card Mario Kart World</h2>
+                <div class="limit-text" id="desc-produto">Aqueça os motores para um novo e exclusivo jogo do Mario Kart para o console Nintendo Switch™ 2, com um mundo de pistas interconectadas para correr
+O mundo inteiro é sua pista de corrida nesta incrível evolução da série Mario Kart™! As pistas em que você corre são todas interconectadas em um mundo contínuo. Dirija pelos caminhos entre eles para atravessar montanhas, florestas, cidades e muito mais. Aprecie as extensas paisagens enquanto explora no seu próprio ritmo no Modo livre ou observe como uma mudança repentina no clima pode deixar as disputas mais acirradas no modo Grande Prêmio.
+Ande sobre os trilhos, pule de paredes, deslize sobre a água e muito mais enquanto corre para a linha de chegada. Domine estas novas manobras e você poderá reduzir seu tempo até a linha de chegada!
+Participe do clássico Grande Prêmio ou vá até o fim no modo de eliminação, Eliminatória
+Acelere em uma pista e depois dirija para a próxima em um rali constante que se estende de um canto a outro do mundo no modo Eliminatória cheio de adrenalina! Nesse incrível modo com 24 pilotos , os carros são eliminados constantemente em cada ponto de eliminação, até que reste apenas um. Com o Grande Prêmio também compatível com até 24 pilotos, a competição nunca foi tão acirrada!
+Corra online* em todos os modos com até outros 23 jogadores ou converse com seus amigos usando o GameChat enquanto corre ou se desloca.
+Acelere a todo vapor com novos pilotos, veículos, pistas, trajes, itens e muito mais!
+Corra em pistas totalmente novas, bem como em pistas conhecidas que foram reinventadas com rotas adicionais e outros detalhes. Escolha seu piloto favorito ou tente outras opções, algumas das novas adições podem te surpreender! (Aquilo é uma vaca?!)</div>
+                <button class="btn-toggle btn-mint" onclick="toggleText('desc-produto')">VEJA MAIS</button>
+            </div>
+
+<div class="buy-box">
+<label>Selecione o Valor</label>
+<select id="sel"><option value="R$ 499,90">R$ 499,90</option><option value="Consultar outros valores">Consultar outros valores</option></select>
+<button class="btn-buy" onclick="buy()">Comprar via PIX</button>
+</div>
+</div>
+</div>
+</div>
+<nav class="mac-nav">
+<ul class="nav-list">
+<a class="nav-item" href="../"><i class="fa-solid fa-house"></i><span>Início</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-play"></i><span>Vídeo</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-truck"></i><span>Delivery</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-utensils"></i><span>Comida</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-shirt"></i><span>Moda</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-tags"></i><span>Outros</span></a>
+</ul>
+</nav>
+<script src="script.js"></script>
+
+<script>
+    function buy() {
+        const v = document.getElementById('sel').value;
+        let msg = "";
+        if(v === "Consultar outros valores") {
+            msg = encodeURIComponent("Olá! Gostaria de consultar outros valores para o Gift Card Mario Kart World. Poderia me ajudar?");
+        } else {
+            msg = encodeURIComponent("Olá! Quero comprar o Gift Card Mario Kart World no valor de " + v + ". Poderia me enviar o pix?");
+        }
+        window.open("https://api.whatsapp.com/send?phone=5532999561915&text=" + msg);
+    }
+</script>
+</body>
+</html>

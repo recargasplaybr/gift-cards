@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Compre Gift Card Crocs | Recargas Play via PIX</title>
+<meta content="Adquira seu Gift Card Crocs na Recargas Play. Pagamento facilitado via PIX, entrega rápida e segurança total. Compre agora seu crédito Crocs!" name="description"/>
+<link href="../favicon.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+
+    <link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+<header>
+<div class="logo-container">
+<img alt="Logo" class="logo-img" src="../logo.png"/>
+<h1>RECARGASPLAY</h1>
+</div>
+</header>
+<div class="main-container">
+<div class="product-card">
+<div class="product-left"><div class="product-img-container"><img alt="Gift Card Crocs" src="https://marketplace.bancointer.com.br/gift-card/v2/images/b376ee41-e73b-4ead-840f-5a2b8856e51e"/></div>
+
+
+<div class="info-block block-purple"><h3 class="txt-mint">Como utilizar</h3>
+                <div class="limit-text" id="desc-como"><ol><li>Resgate seu gift card no e-commerce Crocs https://www.crocs.com.br/.</li><li>Finalize a compra</li><li>Na forma de pagamento escolher a opção cartão presente</li><li>Basta digitar o nº do cartão e senha e clicar em adicionar. O valor será creditado e subtraído da sua compra.</li></ol></div>
+                <button class="btn-toggle btn-purple" onclick="toggleText('desc-como')">VEJA MAIS</button>
+            </div>
+</div>
+<div class="product-right">
+<div class="info-block block-mint"><h2 class="block-title txt-mint">Gift Card Crocs</h2>
+                <div class="limit-text" id="desc-produto">Desde 2002 a Crocs celebra a diversidade de quem usa a marca e te dá as boas-vindas. "Come as you are" é nosso lema e significa que você pode vir do seu jeitinho, único e especial. A Crocs, Inc. é líder mundial em calçados casuais e inovadores para homens, mulheres e crianças. A Crocs oferece um amplo portfólio de produtos para todas as estações do ano, mantendo sua forte tradição em calçados moldados. Todos os sapatos Crocs são feitos com material Croslite, uma tecnologia revolucionária que os torna macios, confortáveis e leves, sem deixar marcas e nem absorver odores. Os fãs da marca já conhecem e amam essas qualidades.</div>
+                <button class="btn-toggle btn-mint" onclick="toggleText('desc-produto')">VEJA MAIS</button>
+            </div>
+
+<div class="buy-box">
+<label>Selecione o Valor</label>
+<select id="sel"><option value="Consultar outros valores">Consultar outros valores</option></select>
+<button class="btn-buy" onclick="buy()">Comprar via PIX</button>
+</div>
+</div>
+</div>
+</div>
+<nav class="mac-nav">
+<ul class="nav-list">
+<a class="nav-item" href="../index.html"><i class="fa-solid fa-house"></i><span>Início</span></a>
+<a class="nav-item" href="../index.html"><i class="fa-solid fa-gamepad"></i><span>Games</span></a>
+<a class="nav-item" href="../index.html"><i class="fa-solid fa-play"></i><span>Vídeo</span></a>
+<a class="nav-item" href="../index.html"><i class="fa-solid fa-truck"></i><span>Delivery</span></a>
+<a class="nav-item" href="../index.html"><i class="fa-solid fa-utensils"></i><span>Comida</span></a>
+<a class="nav-item" href="../index.html"><i class="fa-solid fa-shirt"></i><span>Moda</span></a>
+<a class="nav-item" href="../index.html"><i class="fa-solid fa-tags"></i><span>Outros</span></a>
+</ul>
+</nav>
+<script src="script.js"></script>
+
+<script>
+    function buy() {
+        const v = document.getElementById('sel').value;
+        let msg = "";
+        if(v === "Consultar outros valores") {
+            msg = encodeURIComponent("Olá! Gostaria de consultar outros valores para o Gift Card Crocs. Poderia me ajudar?");
+        } else {
+            msg = encodeURIComponent("Olá! Quero comprar o Gift Card Crocs no valor de " + v + ". Poderia me enviar o pix?");
+        }
+        window.open("https://api.whatsapp.com/send?phone=5532999561915&text=" + msg);
+    }
+</script>
+</body>
+</html>

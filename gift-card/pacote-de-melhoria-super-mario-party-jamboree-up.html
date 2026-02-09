@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Compre Gift Card Pacote de melhoria Super Mario Party Jamboree Up | Recargas Play via PIX</title>
+<meta content="Adquira seu Gift Card Pacote de melhoria Super Mario Party Jamboree Up na Recargas Play. Pagamento facilitado via PIX, entrega rápida e segurança total. Compre agora seu crédito Pacote de melhoria Super Mario Party Jamboree Up!" name="description"/>
+<link href="../favicon.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+
+    <link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+<header>
+<div class="logo-container">
+<img alt="Logo" class="logo-img" src="../logo.png"/>
+<h1>RECARGASPLAY</h1>
+</div>
+</header>
+<div class="main-container">
+<div class="product-card">
+<div class="product-left"><div class="product-img-container"><img alt="Gift Card Pacote de melhoria Super Mario Party Jamboree Up" src="https://marketplace.bancointer.com.br/gift-card/v2/images/dd0651d8-79d2-4825-b284-9cc47331613e"/></div>
+
+
+<div class="info-block block-purple"><h3 class="txt-mint">Como utilizar</h3>
+                <div class="limit-text" id="desc-como"><ol><li>Selecione Nintendo eShop no Menu HOME para abrir a Nintendo eShop.</li><li>Selecione a conta que pretende usar.</li><li>Selecione Utilizar Código no lado esquerdo da tela.</li><li>Informe o código de download de 16 caracteres.</li></ol></div>
+                <button class="btn-toggle btn-purple" onclick="toggleText('desc-como')">VEJA MAIS</button>
+            </div>
+</div>
+<div class="product-right">
+<div class="info-block block-mint"><h2 class="block-title txt-mint">Gift Card Pacote de melhoria Super Mario Party Jamboree Up</h2>
+                <div class="limit-text" id="desc-produto">• Seja a superestrela no Jamboree TV, um programa apresentado por Toad exclusivo para a versão Nintendo Switch 2 Edition
+
+• Curta os minijogos que usam o controle Joy-Con™ 2* no modo mouse, o microfone embutido do console para responder aos seus sons e muito mais
+
+• Conecte a câmera do Nintendo Switch 2 ou outra câmera USB-C® compatível** ao console Nintendo Switch 2 e traga todos para o jogo
+
+• Curta o Jamboree TV em resolução maior nos modos TV e portátil
+
+*É necessário um controle Joy-Con 2 para minijogos com controle de movimento. Esses minijogos dinâmicos não são compatíveis com os modos Brigada anti-Bowser e Bowserathlon ou com o Nintendo Switch Lite. **Internet, assinatura do Nintendo Switch Online e uma conta Nintendo são necessárias para funcionalidades online, incluindo o GameChat. Câmera USB compatível necessária para recursos de vídeo. Não disponível em todos os países. Termos e requerimentos se aplicam. support.nintendo.com Até o dia 31 de março de 2026, não será necessário ter uma assinatura do Nintendo Switch Online para aproveitar o GameChat. Após o período de acesso livre ao GameChat, será necessária uma assinatura do Nintendo Switch Online. Jogos, consoles e alguns acessórios são vendidos separadamente.</div>
+                <button class="btn-toggle btn-mint" onclick="toggleText('desc-produto')">VEJA MAIS</button>
+            </div>
+
+<div class="buy-box">
+<label>Selecione o Valor</label>
+<select id="sel"><option value="R$ 119,90">R$ 119,90</option><option value="Consultar outros valores">Consultar outros valores</option></select>
+<button class="btn-buy" onclick="buy()">Comprar via PIX</button>
+</div>
+</div>
+</div>
+</div>
+<nav class="mac-nav">
+<ul class="nav-list">
+<a class="nav-item" href="../"><i class="fa-solid fa-house"></i><span>Início</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-play"></i><span>Vídeo</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-truck"></i><span>Delivery</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-utensils"></i><span>Comida</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-shirt"></i><span>Moda</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-tags"></i><span>Outros</span></a>
+</ul>
+</nav>
+<script src="script.js"></script>
+
+<script>
+    function buy() {
+        const v = document.getElementById('sel').value;
+        let msg = "";
+        if(v === "Consultar outros valores") {
+            msg = encodeURIComponent("Olá! Gostaria de consultar outros valores para o Gift Card Pacote de melhoria Super Mario Party Jamboree Up. Poderia me ajudar?");
+        } else {
+            msg = encodeURIComponent("Olá! Quero comprar o Gift Card Pacote de melhoria Super Mario Party Jamboree Up no valor de " + v + ". Poderia me enviar o pix?");
+        }
+        window.open("https://api.whatsapp.com/send?phone=5532999561915&text=" + msg);
+    }
+</script>
+</body>
+</html>

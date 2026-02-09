@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Compre Gift Card Fogo de Chão | Recargas Play via PIX</title>
+<meta content="Adquira seu Gift Card Fogo de Chão na Recargas Play. Pagamento facilitado via PIX, entrega rápida e segurança total. Compre agora seu crédito Fogo de Chão!" name="description"/>
+<link href="../favicon.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+
+    <link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+<header>
+<div class="logo-container">
+<img alt="Logo" class="logo-img" src="../logo.png"/>
+<h1>RECARGASPLAY</h1>
+</div>
+</header>
+<div class="main-container">
+<div class="product-card">
+<div class="product-left"><div class="product-img-container"><img alt="Gift Card Fogo de Chão" src="https://marketplace.bancointer.com.br/gift-card/v2/images/d06e8aa3-63a0-4d5e-a36f-44fddc52f3fd"/></div>
+
+
+<div class="info-block block-purple"><h3 class="txt-mint">Como utilizar</h3>
+                <div class="limit-text" id="desc-como"><ol><li>O crédito do seu cartão presente poderá ser utilizado totalmente, parcialmente e ainda complementar o pagamento com as formas disponíveis nos restaurantes. É possível utilizar quantos cartões quiser como forma de pagamento, basta apresentar ao atendente no momento do pagamento. A utilização do cartão ocorre através do nº do cartão (16 dígitos) e senha (6 dígitos), por isso não compartilhe essas informações com terceiros. https://fogodechao.com.br/restaurantes/</li></ol></div>
+                <button class="btn-toggle btn-purple" onclick="toggleText('desc-como')">VEJA MAIS</button>
+            </div>
+</div>
+<div class="product-right">
+<div class="info-block block-mint"><h2 class="block-title txt-mint">Gift Card Fogo de Chão</h2>
+                <div class="limit-text" id="desc-produto">"Sobre a marca: O Fogo de Chão é uma dos principais restaurantes do mundo especializadao na culinária secular do churrasco brasileiro. Fundado no sul do Brasil em 1979, atualmente existem 54 localidades em todo o Brasil, Estados Unidos, México e Oriente Médio. As unidades oferecem uma ampla variedade de cortes de carnes nobres, além de farta mesa de salada, sobremesas, coquetéis exclusivos e uma carta de vinho premiada. Além da experiência do rodízio completo, os clientes podem optar pelo Fogo Gourmet ou ainda
+ou ainda aproveitar a experiência do Bar Fogo, ideal para um Happy Hour.""Sobre a marca: O Fogo de Chão é uma dos principais restaurantes do mundo especializadao na culinária secular do churrasco brasileiro. Fundado no sul do Brasil em 1979, atualmente existem 54 localidades em todo o Brasil, Estados Unidos, México e Oriente Médio. As unidades oferecem uma ampla variedade de cortes de carnes nobres, além de farta mesa de salada, sobremesas, coquetéis exclusivos e uma carta de vinho premiada. Além da experiência do rodízio completo, os clientes podem optar pelo Fogo Gourmet ou ainda
+ou ainda aproveitar a experiência do Bar Fogo, ideal para um Happy Hour."</div>
+                <button class="btn-toggle btn-mint" onclick="toggleText('desc-produto')">VEJA MAIS</button>
+            </div>
+
+<div class="buy-box">
+<label>Selecione o Valor</label>
+<select id="sel"><option value="Consultar outros valores">Consultar outros valores</option></select>
+<button class="btn-buy" onclick="buy()">Comprar via PIX</button>
+</div>
+</div>
+</div>
+</div>
+<nav class="mac-nav">
+<ul class="nav-list">
+<a class="nav-item" href="../"><i class="fa-solid fa-house"></i><span>Início</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-gamepad"></i><span>Games</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-play"></i><span>Vídeo</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-truck"></i><span>Delivery</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-utensils"></i><span>Comida</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-shirt"></i><span>Moda</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-tags"></i><span>Outros</span></a>
+</ul>
+</nav>
+<script src="script.js"></script>
+
+<script>
+    function buy() {
+        const v = document.getElementById('sel').value;
+        let msg = "";
+        if(v === "Consultar outros valores") {
+            msg = encodeURIComponent("Olá! Gostaria de consultar outros valores para o Gift Card Fogo de Chão. Poderia me ajudar?");
+        } else {
+            msg = encodeURIComponent("Olá! Quero comprar o Gift Card Fogo de Chão no valor de " + v + ". Poderia me enviar o pix?");
+        }
+        window.open("https://api.whatsapp.com/send?phone=5532999561915&text=" + msg);
+    }
+</script>
+</body>
+</html>
