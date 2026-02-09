@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Compre Gift Card Airbnb | Recargas Play via PIX</title>
+<meta content="Adquira seu Gift Card Airbnb na Recargas Play. Pagamento facilitado via PIX, entrega rápida e segurança total. Compre agora seu crédito Airbnb!" name="description"/>
+<link href="../favicon.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+
+    <link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+<header>
+<div class="logo-container">
+<img alt="Logo" class="logo-img" src="../logo.png"/>
+<h1>RECARGASPLAY</h1>
+</div>
+</header>
+<div class="main-container">
+<div class="product-card">
+<div class="product-left"><div class="product-img-container"><img alt="Gift Card Airbnb" src="https://marketplace.bancointer.com.br/gift-card/v2/images/86664843-fbed-400f-9c17-b3170ffb151a"/></div>
+
+
+<div class="info-block block-purple"><h3 class="txt-mint">Como utilizar</h3>
+                <div class="limit-text" id="desc-como"><ol><li>Cadastre-se ou faça login em www.airbnb.com.br/presente</li><li>Siga as instruções que aparecem na tela</li><li>Aplicaremos o crédito automaticamente quando você fizer uma reserva.</li></ol></div>
+                <button class="btn-toggle btn-purple" onclick="toggleText('desc-como')">VEJA MAIS</button>
+            </div>
+</div>
+<div class="product-right">
+<div class="info-block block-mint"><h2 class="block-title txt-mint">Gift Card Airbnb</h2>
+                <div class="limit-text" id="desc-produto">Dê aquela estadia perfeita de presente — seja em uma cabana à beira do lago, uma casa de praia isolada ou um apartamento no coração da cidade.
+
+Dê experiências imersivas de presente — de visitas guiadas a aulas e degustações, tudo oferecido por especialistas locais.
+
+Os cartões de presente do Airbnb nunca expiram.
+
+Você pode usá-los para reservar acomodações ou experiências — em uma reserva só ou em várias.</div>
+                <button class="btn-toggle btn-mint" onclick="toggleText('desc-produto')">VEJA MAIS</button>
+            </div>
+
+<div class="buy-box">
+<label>Selecione o Valor</label>
+<select id="sel"><option value="R$ 150,00">R$ 150,00</option><option value="R$ 250,00">R$ 250,00</option><option value="R$ 500,00">R$ 500,00</option><option value="Consultar outros valores">Consultar outros valores</option></select>
+<button class="btn-buy" onclick="buy()">Comprar via PIX</button>
+</div>
+</div>
+</div>
+</div>
+<nav class="mac-nav">
+<ul class="nav-list">
+<a class="nav-item" href="../index.html"><i class="fa-solid fa-house"></i><span>Início</span></a>
+<a class="nav-item" href="../index.html"><i class="fa-solid fa-gamepad"></i><span>Games</span></a>
+<a class="nav-item" href="../index.html"><i class="fa-solid fa-play"></i><span>Vídeo</span></a>
+<a class="nav-item" href="../index.html"><i class="fa-solid fa-truck"></i><span>Delivery</span></a>
+<a class="nav-item" href="../index.html"><i class="fa-solid fa-utensils"></i><span>Comida</span></a>
+<a class="nav-item" href="../index.html"><i class="fa-solid fa-shirt"></i><span>Moda</span></a>
+<a class="nav-item" href="../index.html"><i class="fa-solid fa-tags"></i><span>Outros</span></a>
+</ul>
+</nav>
+<script src="script.js"></script>
+
+<script>
+    function buy() {
+        const v = document.getElementById('sel').value;
+        let msg = "";
+        if(v === "Consultar outros valores") {
+            msg = encodeURIComponent("Olá! Gostaria de consultar outros valores para o Gift Card Airbnb. Poderia me ajudar?");
+        } else {
+            msg = encodeURIComponent("Olá! Quero comprar o Gift Card Airbnb no valor de " + v + ". Poderia me enviar o pix?");
+        }
+        window.open("https://api.whatsapp.com/send?phone=5532999561915&text=" + msg);
+    }
+</script>
+</body>
+</html>

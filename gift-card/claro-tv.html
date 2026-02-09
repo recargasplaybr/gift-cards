@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Compre Gift Card Claro TV+ | Recargas Play via PIX</title>
+<meta content="Adquira seu Gift Card Claro TV+ na Recargas Play. Pagamento facilitado via PIX, entrega rápida e segurança total. Compre agora seu crédito Claro TV+!" name="description"/>
+<link href="../favicon.png" rel="icon" type="image/png"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+
+    <link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+<header>
+<div class="logo-container">
+<img alt="Logo" class="logo-img" src="../logo.png"/>
+<h1>RECARGASPLAY</h1>
+</div>
+</header>
+<div class="main-container">
+<div class="product-card">
+<div class="product-left"><div class="product-img-container"><img alt="Gift Card Claro TV+" src="https://marketplace.bancointer.com.br/gift-card/v2/images/b5ba0d51-953e-4019-8fae-84f2e860252f"/></div>
+
+
+<div class="info-block block-purple"><h3 class="txt-mint">Como utilizar</h3>
+                <div class="limit-text" id="desc-como"><ol><li>Acesse o site da Claro TV Mais através deste link: clarotvmais.com.br/cartaopresente.</li><li>Procure pela opção de cadastro no site e preencha com suas informações pessoais, como CPF, e-mail e data de nascimento. É importante fornecer dados precisos e atualizados.</li><li>Após o cadastro, procure pela área específica para resgatar o cartão presente da Claro TV Mais.</li><li>Digite o código de resgate do seu cartão presente no campo indicado e certifique-se de digitá-lo corretamente.</li><li>Clique em "Confirmar" ou em qualquer botão semelhante para validar o resgate do cartão presente.</li><li>Aguarde alguns instantes para que o sistema processe o seu resgate e confira as instruções adicionais, se houver.</li><li>Pronto! Você terá resgatado com sucesso o seu cartão presente da Claro TV Mais.</li></ol></div>
+                <button class="btn-toggle btn-purple" onclick="toggleText('desc-como')">VEJA MAIS</button>
+            </div>
+</div>
+<div class="product-right">
+<div class="info-block block-mint"><h2 class="block-title txt-mint">Gift Card Claro TV+</h2>
+                <div class="limit-text" id="desc-produto">O Cartão Presente Claro TV+ é um cartão que permite acesso ao conteúdo do App Claro TV+ com Globoplay, por 30 dias, pelo valor único de R$ 74,90.
+Com o Cartão Presente, tenha acesso a mais de 120 canais da TV por assinatura (como Sportv, GloboNews, ESPN, Discovery, TNT, Megapix, AXN, Cartoon Network, Gloob e muito mais), além de mais de 50 mil conteúdos on demand para assistir quando quiser, e acesso ao app Globoplay, com milhares de séries, filmes, novelas, entre outros conteúdos de destaque.
+O App Claro TV+ é o melhor da TV e do streaming juntos, pra você maratonar mais, se informar mais, não perder nenhum lance do seu time do coração, e garantir a diversão de toda a família. É mais acessível e muito mais fácil de assinar. Aproveite!</div>
+                <button class="btn-toggle btn-mint" onclick="toggleText('desc-produto')">VEJA MAIS</button>
+            </div>
+
+<div class="buy-box">
+<label>Selecione o Valor</label>
+<select id="sel"><option value="R$ 74,90">R$ 74,90</option><option value="Consultar outros valores">Consultar outros valores</option></select>
+<button class="btn-buy" onclick="buy()">Comprar via PIX</button>
+</div>
+</div>
+</div>
+</div>
+<nav class="mac-nav">
+<ul class="nav-list">
+<a class="nav-item" href="../"><i class="fa-solid fa-house"></i><span>Início</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-gamepad"></i><span>Games</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-play"></i><span>Vídeo</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-truck"></i><span>Delivery</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-utensils"></i><span>Comida</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-shirt"></i><span>Moda</span></a>
+<a class="nav-item" href="../"><i class="fa-solid fa-tags"></i><span>Outros</span></a>
+</ul>
+</nav>
+<script src="script.js"></script>
+
+<script>
+    function buy() {
+        const v = document.getElementById('sel').value;
+        let msg = "";
+        if(v === "Consultar outros valores") {
+            msg = encodeURIComponent("Olá! Gostaria de consultar outros valores para o Gift Card Claro TV+. Poderia me ajudar?");
+        } else {
+            msg = encodeURIComponent("Olá! Quero comprar o Gift Card Claro TV+ no valor de " + v + ". Poderia me enviar o pix?");
+        }
+        window.open("https://api.whatsapp.com/send?phone=5532999561915&text=" + msg);
+    }
+</script>
+</body>
+</html>
