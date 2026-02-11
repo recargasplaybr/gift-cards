@@ -1,25 +1,3 @@
-// Funções globais do Recargas Play (não mexe no buy() de cada página)
-function toggleText(id){
-  const el = document.getElementById(id);
-  if(!el) return;
-  const btn = el.nextElementSibling;
-  el.classList.toggle("expanded");
-  if(btn && btn.tagName === "BUTTON"){
-    btn.innerText = el.classList.contains("expanded") ? "VER MENOS" : "VEJA MAIS";
-  }
-}
-
-// Funções globais do Recargas Play
-function toggleText(id){
-  const el = document.getElementById(id);
-  if(!el) return;
-  const btn = el.nextElementSibling;
-  el.classList.toggle("expanded");
-  if(btn && btn.tagName === "BUTTON"){
-    btn.innerText = el.classList.contains("expanded") ? "VER MENOS" : "VEJA MAIS";
-  }
-}
-
 // Funções globais do Recargas Play
 function toggleText(id){
   const el = document.getElementById(id);
@@ -48,14 +26,14 @@ document.addEventListener("DOMContentLoaded", function() {
         .shake-error {
             animation: shake 0.4s ease-in-out;
             border-color: #ff4d4d !important;
-            box-shadow: 0 0 10px rgba(255, 77, 77, 0.5);
+            box-shadow: 0 0 15px rgba(255, 77, 77, 0.6);
         }
     `;
     document.head.appendChild(styleSheet);
 
     // 2. Criar o container do Checkbox (Caixinha Roxa)
     const containerCheck = document.createElement('div');
-    containerCheck.style.background = 'rgba(106, 27, 154, 0.2)'; 
+    containerCheck.style.background = 'rgba(106, 27, 154, 0.25)'; 
     containerCheck.style.border = '2px solid #7b2cbf'; 
     containerCheck.style.padding = '12px';
     containerCheck.style.borderRadius = '8px';
@@ -91,34 +69,30 @@ document.addEventListener("DOMContentLoaded", function() {
     containerCheck.appendChild(label);
     btnBuy.parentNode.insertBefore(containerCheck, btnBuy);
 
-    // Estado inicial do botão
-    btnBuy.style.opacity = '0.5';
-    btnBuy.style.filter = 'grayscale(1)';
+    // 5. Estado inicial do botão (Mantém o Roxo, apenas levemente transparente)
+    btnBuy.style.opacity = '0.6';
+    btnBuy.style.transition = 'opacity 0.3s';
 
     // Evento para validar e liberar
     checkbox.addEventListener('change', function() {
         if (this.checked) {
             btnBuy.style.opacity = '1';
-            btnBuy.style.filter = 'none';
             containerCheck.style.borderColor = '#00ffcc'; 
-            containerCheck.style.background = 'rgba(0, 255, 204, 0.1)';
+            containerCheck.style.background = 'rgba(0, 255, 204, 0.15)';
         } else {
-            btnBuy.style.opacity = '0.5';
-            btnBuy.style.filter = 'grayscale(1)';
+            btnBuy.style.opacity = '0.6';
             containerCheck.style.borderColor = '#7b2cbf';
-            containerCheck.style.background = 'rgba(106, 27, 154, 0.2)';
+            containerCheck.style.background = 'rgba(106, 27, 154, 0.25)';
         }
     });
 
-    // 5. Efeito de Tremida ao tentar comprar sem marcar
+    // 6. Efeito de Tremida ao tentar comprar sem marcar
     const originalOnClick = btnBuy.onclick;
     btnBuy.onclick = function(e) {
         if (!checkbox.checked) {
             e.preventDefault();
-            // Adiciona a classe de erro para tremer
             containerCheck.classList.add('shake-error');
             
-            // Remove a classe após a animação para poder repetir depois
             setTimeout(() => {
                 containerCheck.classList.remove('shake-error');
             }, 400);
