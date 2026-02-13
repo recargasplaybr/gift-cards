@@ -53,23 +53,30 @@ document.addEventListener("DOMContentLoaded", function() {
     checkbox.style.accentColor = '#00ffcc'; 
     checkbox.style.width = '20px';
     checkbox.style.height = '20px';
+    checkbox.style.flexShrink = '0'; // Impede o checkbox de espremer em telas menores
 
-    // 4. Criar o texto do aviso
+    // 4. Criar o texto do aviso (Com a observação de Região Brasil)
     const label = document.createElement('label');
     label.htmlFor = 'check-reembolso';
-    label.innerText = 'Estou ciente que após a entrega do Gift Card, o dinheiro não pode ser reembolsado.';
+    // Inserindo o aviso de reembolso e o aviso de região
+    label.innerHTML = `
+        Estou ciente que após a entrega do Gift Card, não há reembolso.<br>
+        <span style="color: #00ffcc; font-size: 11px; text-transform: uppercase;">
+            ⚠️ Válido apenas para contas brasileiras.
+        </span>
+    `;
     label.style.fontSize = '12px';
     label.style.color = '#fff';
     label.style.fontFamily = "'Inter', sans-serif";
     label.style.cursor = 'pointer';
     label.style.fontWeight = '600';
-    label.style.lineHeight = '1.3';
+    label.style.lineHeight = '1.4';
 
     containerCheck.appendChild(checkbox);
     containerCheck.appendChild(label);
     btnBuy.parentNode.insertBefore(containerCheck, btnBuy);
 
-    // 5. Estado inicial do botão (Mantém o Roxo, apenas levemente transparente)
+    // 5. Estado inicial do botão
     btnBuy.style.opacity = '0.6';
     btnBuy.style.transition = 'opacity 0.3s';
 
