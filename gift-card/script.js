@@ -213,7 +213,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 margin-bottom:16px;
                 text-align:center;
             ">
-                👾 TERMO DE SEGURANÇA - RECARGAS PLAY
+                TERMO DE SEGURANÇA
             </div>
 
             <div style="margin-bottom:16px;">
