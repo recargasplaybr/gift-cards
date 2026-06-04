@@ -240,7 +240,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 font-weight:700;
                 color:#fff;
             ">
-                Para liberarmos o seu Gift Card, responda a esta mensagem digitando apenas:
+                Ao clicar em "SIM , ESTOU DE ACORDO", você confirma que leu e concorda com os termos acima para prosseguir com a compra:
                 <br><br>
 
                 <span style="
@@ -248,7 +248,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     font-size:15px;
                     font-weight:900;
                 ">
-                    SIM, ESTOU DE ACORDO.
+                   ESTOU DE ACORDO.
                 </span>
             </div>
 
@@ -269,11 +269,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const btnConfirm = document.createElement('button');
     btnConfirm.className = 'modal-btn btn-confirm';
-    btnConfirm.innerText = '✅ ESTOU CIENTE';
+    btnConfirm.innerText = '✅ ESTOU DE ACORDO';
 
     const btnCancel = document.createElement('button');
     btnCancel.className = 'modal-btn btn-cancel';
-    btnCancel.innerText = '❌ NÃO ESTOU CIENTE';
+    btnCancel.innerText = '❌ NÃO ESTOU DE ACORDO';
 
     modalButtons.appendChild(btnConfirm);
     modalButtons.appendChild(btnCancel);
