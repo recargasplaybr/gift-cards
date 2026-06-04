@@ -36,7 +36,7 @@ header h1 {
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
 
-.main-container { flex: 1; display: flex; align-items: flex-start; justify-content: center; width: 100%; zoom: 85%; }
+.main-container { flex: 1; display: flex; align-items: flex-start; justify-content: center; width: 100%; zoom: 82%; }
 
 .product-card { 
     background: var(--card-bg); width: 100%; max-width: 460px; border-radius: 28px; 
