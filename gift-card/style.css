@@ -27,7 +27,7 @@ body {
 }
 
 header { padding: 40px 10px 20px; display: flex; justify-content: center; width: 100%; }
-.logo-container { display: flex; align-items: center; gap: 8px; }
+.logo-container { display: flex; align-items: center; gap: 8px;margin-top: -2%; }
 .logo-img { width: 50px; height: auto; }
 header h1 { 
     font-size: 2rem; font-weight: 800; text-transform: uppercase; 
@@ -36,7 +36,7 @@ header h1 {
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
 
-.main-container { flex: 1; display: flex; align-items: flex-start; justify-content: center; width: 100%; zoom: 82%; }
+.main-container { flex: 1; display: flex; align-items: flex-start; justify-content: center; width: 100%; zoom: 85%; }
 
 .product-card { 
     background: var(--card-bg); width: 100%; max-width: 460px; border-radius: 28px; 
