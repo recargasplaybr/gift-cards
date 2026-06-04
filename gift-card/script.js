@@ -306,11 +306,24 @@ document.addEventListener("DOMContentLoaded", function() {
 
     containerCheck.addEventListener('click', function(e){
 
+        // impede checkbox automático
+        e.preventDefault();
+        e.stopPropagation();
+
+        // se já estiver marcado, ignora
         if (checkbox.checked) return;
 
-        e.preventDefault();
+        // garante desmarcado
+        checkbox.checked = false;
 
+        // abre modal
         modalOverlay.classList.add('active');
+    });
+
+    // impede clicar direto no checkbox
+    checkbox.addEventListener('click', function(e){
+        e.preventDefault();
+        this.checked = false;
     });
 
     // =========================
