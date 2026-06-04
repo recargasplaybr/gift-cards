@@ -30,14 +30,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
         @keyframes shake {
             0% { transform: translateX(0); }
-            25% { transform: translateX(-8px); }
-            50% { transform: translateX(8px); }
-            75% { transform: translateX(-8px); }
+            20% { transform: translateX(-8px); }
+            40% { transform: translateX(8px); }
+            60% { transform: translateX(-8px); }
+            80% { transform: translateX(8px); }
             100% { transform: translateX(0); }
         }
 
         .shake-error {
-            animation: shake 0.4s ease-in-out;
+            animation: shake 0.45s ease-in-out;
             border-color: #ff4d4d !important;
             box-shadow: 0 0 15px rgba(255, 77, 77, 0.4);
         }
@@ -212,7 +213,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 margin-bottom:16px;
                 text-align:center;
             ">
-                TERMO DE SEGURANÇA
+                👾 TERMO DE SEGURANÇA - RECARGAS PLAY
             </div>
 
             <div style="margin-bottom:16px;">
@@ -296,14 +297,6 @@ document.addEventListener("DOMContentLoaded", function() {
     btnBuy.parentNode.insertBefore(regionNotice, btnBuy);
 
     // =========================
-    // BOTÃO DESABILITADO
-    // =========================
-
-    btnBuy.style.opacity = '0.6';
-    btnBuy.style.transition = '0.3s';
-    btnBuy.style.pointerEvents = 'none';
-
-    // =========================
     // ABRIR MODAL
     // =========================
 
@@ -319,7 +312,7 @@ document.addEventListener("DOMContentLoaded", function() {
         modalOverlay.classList.add('active');
     });
 
-    // impede clicar direto no checkbox
+    // impede marcar direto
     checkbox.addEventListener('click', function(e){
         e.preventDefault();
         this.checked = false;
@@ -332,9 +325,6 @@ document.addEventListener("DOMContentLoaded", function() {
     btnConfirm.addEventListener('click', function(){
 
         checkbox.checked = true;
-
-        btnBuy.style.opacity = '1';
-        btnBuy.style.pointerEvents = 'auto';
 
         containerCheck.style.borderColor = '#00ffcc';
         containerCheck.style.background = 'rgba(0,255,204,0.08)';
@@ -350,11 +340,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
         checkbox.checked = false;
 
-        btnBuy.style.opacity = '0.6';
-        btnBuy.style.pointerEvents = 'none';
-
         containerCheck.style.borderColor = '#7b2cbf';
-        containerCheck.style.background = 'rgba(106, 27, 154, 0.25)';
+        containerCheck.style.background = 'rgba(106,27,154,0.25)';
 
         modalOverlay.classList.remove('active');
     });
@@ -371,26 +358,29 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // =========================
-    // IMPEDIR COMPRA
+    // BOTÃO COMPRAR
     // =========================
 
     const originalOnClick = btnBuy.onclick;
 
     btnBuy.onclick = function(e){
 
+        // se NÃO confirmou
         if (!checkbox.checked){
 
             e.preventDefault();
 
-            containerCheck.classList.add('shake-error');
+            // reinicia animação
+            containerCheck.classList.remove('shake-error');
 
-            setTimeout(() => {
-                containerCheck.classList.remove('shake-error');
-            }, 400);
+            void containerCheck.offsetWidth;
+
+            containerCheck.classList.add('shake-error');
 
             return false;
         }
 
+        // segue compra normal
         if (typeof originalOnClick === 'function'){
             originalOnClick.apply(this, arguments);
         }
