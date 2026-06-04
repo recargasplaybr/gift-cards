@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function() {
         .modal-buttons {
             display: flex;
             gap: 10px;
-            margin-top: 22px;
+            margin-top: 20px;
         }
 
         .modal-btn {
@@ -209,13 +209,13 @@ document.addEventListener("DOMContentLoaded", function() {
                 font-size:16px;
                 font-weight:900;
                 color:#00ffcc;
-                margin-bottom:14px;
+                margin-bottom:16px;
                 text-align:center;
             ">
                 👾 TERMO DE SEGURANÇA - RECARGAS PLAY
             </div>
 
-            <div style="margin-bottom:14px;">
+            <div style="margin-bottom:16px;">
                 Por ser um produto digital de envio imediato,
                 <span style="color:#ff4d4d;font-weight:800;">
                     NÃO há reembolso ou cancelamento
@@ -223,42 +223,45 @@ document.addEventListener("DOMContentLoaded", function() {
                 após a entrega do código.
             </div>
 
-            <div style="margin-bottom:14px;">
-                Ao responder
-                <span style="color:#00ffcc;font-weight:800;">
-                    "SIM"
-                </span>,
-                você declara estar ciente de que a entrega do produto é definitiva e que abrir contestação falsa ou MED no banco após receber o card configura fraude, sendo o seu IP e dados acionados judicialmente.
+            <div style="margin-bottom:18px;">
+                Ao continuar, você declara estar ciente de que a entrega do produto é definitiva e que abrir contestação falsa ou MED no banco após receber o card configura fraude, podendo gerar medidas judiciais.
             </div>
 
             <div style="
                 background:rgba(0,255,204,0.08);
                 border:1px solid rgba(0,255,204,0.25);
-                padding:12px;
+                padding:14px;
                 border-radius:10px;
                 margin-bottom:14px;
-                font-weight:700;
                 color:#fff;
             ">
-                Ao clicar em "SIM , ESTOU DE ACORDO", você confirma que leu e concorda com os termos acima para prosseguir com a compra:
-                <br><br>
 
-                <span style="
+                <div style="
+                    font-size:14px;
+                    font-weight:800;
                     color:#00ffcc;
-                    font-size:15px;
-                    font-weight:900;
+                    margin-bottom:8px;
                 ">
-                   ESTOU DE ACORDO.
-                </span>
+                    ✔ CONFIRMAÇÃO NECESSÁRIA
+                </div>
+
+                <div style="
+                    font-size:13px;
+                    line-height:1.5;
+                    color:#d8d8d8;
+                ">
+                    Clique em <b>"ESTOU DE ACORDO"</b> apenas se você concordar com os termos acima e desejar prosseguir com a compra.
+                </div>
+
             </div>
 
             <div style="
                 text-align:center;
                 font-size:12px;
-                color:#aaa;
+                color:#8f8f8f;
                 font-style:italic;
             ">
-                (Aguardando sua confirmação para prosseguir com o atendimento...)
+                Sua confirmação será necessária para liberar o botão de compra.
             </div>
 
         </div>
@@ -306,17 +309,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
     containerCheck.addEventListener('click', function(e){
 
-        // impede checkbox automático
         e.preventDefault();
         e.stopPropagation();
 
-        // se já estiver marcado, ignora
         if (checkbox.checked) return;
 
-        // garante desmarcado
         checkbox.checked = false;
 
-        // abre modal
         modalOverlay.classList.add('active');
     });
 
