@@ -1,193 +1,248 @@
 
 <!DOCTYPE html>
+
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    
-    <title>Compre Gift Card KaBuM! | Recargas Play via PIX</title>
-    <meta name="description" content="Adquira seu Gift Card KaBuM! na Recargas Play. Pagamento facilitado via PIX, entrega rápida e segurança total. Compre agora seu crédito KaBuM!!">
-    <link rel="icon" type="image/png" href="../favicon.png">
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        :root {
-            --primary-mint: #00ffcc;
-            --accent-purple: #a855f7; 
-            --bg-dark: #111111;
-            --bg-gradient: linear-gradient(180deg, #1a0b2e 0%, #111111 100%);
-            --card-bg: rgba(26, 26, 26, 0.9);
-        }
+<meta charset="utf-8"/>
 
-        /* BARRA DE ROLAGEM COM FUNDO PRETO */
-        ::-webkit-scrollbar { width: 6px; height: 6px; }
-        ::-webkit-scrollbar-track { background: #000000; }
-        ::-webkit-scrollbar-thumb { background: var(--accent-purple); border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: var(--primary-mint); }
-        * { scrollbar-width: thin; scrollbar-color: var(--accent-purple) #000000; }
+<meta
+content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+name="viewport"
+/>
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        
-        body { 
-            background: var(--bg-gradient);
-            background-attachment: fixed;
-            color: #fff;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            padding-bottom: 120px;
-            overflow-x: hidden;
-        }
+<title>Compre Gift Card KaBuM! | Recargas Play via PIX</title>
 
-        header { padding: 40px 10px 20px; display: flex; justify-content: center; width: 100%; }
-        .logo-container { display: flex; align-items: center; gap: 8px; }
-        .logo-img { width: 50px; height: auto; }
-        header h1 { 
-            font-size: 2rem; font-weight: 800; text-transform: uppercase; 
-            letter-spacing: -2px; line-height: 1;
-            background: linear-gradient(90deg, var(--primary-mint) 0%, var(--accent-purple) 100%);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
+<meta
+content="Adquira seu Gift Card KaBuM! na Recargas Play. Pagamento facilitado via PIX, entrega rápida e segurança total. Compre agora seu crédito KaBuM!!"
+name="description"
+/>
 
-        .main-container { flex: 1; display: flex; align-items: flex-start; justify-content: center; padding: 20px; width: 100%; }
+<link
+href="../favicon.png"
+rel="icon"
+type="image/png"
+/>
 
-        .product-card { 
-            background: var(--card-bg); width: 100%; max-width: 450px; border-radius: 28px; 
-            padding: 25px; border: 1px solid var(--primary-mint); backdrop-filter: blur(15px); 
-            display: flex; flex-direction: column; gap: 20px; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-        }
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+rel="stylesheet"
+/>
 
-        @media (min-width: 900px) {
-            header h1 { font-size: 2.5rem; }
-            .product-card { max-width: 1000px; flex-direction: row; padding: 45px; }
-            .product-left { flex: 1.1; border-right: 1px solid rgba(255,255,255,0.1); padding-right: 35px; }
-            .product-right { flex: 1; padding-left: 35px; }
-        }
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+rel="stylesheet"
+/>
 
-        .product-img-container { width: 100%; text-align: center; margin-bottom: 20px; }
-        .product-img { width: 100%; max-width: 320px; border-radius: 20px; background: rgba(0,0,0,0.5); padding: 15px; border: 1px solid rgba(255,255,255,0.1); }
-        
-        .info-block { background: rgba(0,0,0,0.4); padding: 20px; border-radius: 16px; margin-bottom: 20px; }
-        .block-purple { border-left: 4px solid var(--accent-purple); }
-        .block-mint { border-left: 4px solid var(--primary-mint); }
-        
-        .txt-mint { color: var(--primary-mint); font-weight: 800; }
-        .block-title { font-size: 1.8rem; margin-bottom: 12px; }
-        
-        .how-to h3 { font-size: 13px; text-transform: uppercase; margin-bottom: 10px; font-weight: 800; }
-        .how-to ol { padding-left: 18px; color: #aaa; font-size: 14px; line-height: 1.6; }
+<link
+href="style.css"
+rel="stylesheet"
+/>
 
-        .limit-text { color: #ccc; font-size: 15px; line-height: 1.6; }
-
-        .buy-box { margin-top: 10px; background: rgba(255,255,255,0.03); padding: 25px; border-radius: 24px; border: 1px solid rgba(0, 255, 204, 0.1); }
-        label { display: block; margin-bottom: 10px; font-size: 11px; font-weight: 800; color: var(--accent-purple); text-transform: uppercase; }
-        
-        select { 
-            width: 100%; padding: 16px; background: #1a1a1a; border: 1px solid var(--primary-mint); 
-            color: #fff; border-radius: 14px; font-size: 16px; margin-bottom: 20px; outline: none; cursor: pointer;
-        }
-
-        .region-badge { display: flex; align-items: center; gap: 10px; font-size: 11px; font-weight: 700; margin-bottom: 15px; color: #fff; }
-
-        .btn-buy { 
-            background: linear-gradient(90deg, #6a11cb, #45108a); 
-            color: white; border: none; width: 100%; padding: 18px; border-radius: 14px; 
-            font-weight: 800; text-transform: uppercase; cursor: pointer; transition: 0.3s;
-        }
-        .btn-buy:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(168, 85, 247, 0.5); }
-        
-        #area-check { background: rgba(106, 27, 154, 0.25); border: 2px solid rgb(123, 44, 191); padding: 14px; border-radius: 8px; margin-bottom: 15px; display: flex; align-items: center; cursor: pointer; }
-
-        .mac-nav {
-            position: fixed; bottom: 0; left: 0; right: 0;
-            background: rgba(10, 10, 10, 0.95); border-top: 1px solid rgba(255,255,255,0.1);
-            display: flex; justify-content: center; z-index: 10000; backdrop-filter: blur(20px);
-        }
-        .nav-list { display: flex; list-style: none; padding: 10px 15px; gap: 15px; max-width: 100%; overflow-x: auto; }
-        .nav-item { display: flex; flex-direction: column; align-items: center; color: #555; min-width: 70px; transition: 0.3s; text-decoration: none; }
-        .nav-item:hover { color: var(--primary-mint); }
-        .nav-item i { font-size: 1.2rem; margin-bottom: 4px; }
-        .nav-item span { font-size: 9px; font-weight: 700; text-transform: uppercase; }
-    </style>
 </head>
+
 <body>
 
 <header>
-    <div class="logo-container">
-        <img src="../logo.png" alt="Logo" class="logo-img">
-        <h1>RECARGASPLAY</h1>
-    </div>
+
+<div class="logo-container">
+
+<img
+alt="Logo"
+class="logo-img"
+src="../logo.png"
+/>
+
+<h1>RECARGASPLAY</h1>
+
+</div>
+
 </header>
 
 <div class="main-container">
-    <div class="product-card">
-        <div class="product-left">
-            <div class="product-img-container">
-                <img src="https://marketplace.bancointer.com.br/gift-card/v2/images/d49d147b-5d0f-4679-973a-3b41b45c25d4" class="product-img" alt="Gift Card KaBuM!">
-            </div>
-            <div class="info-block block-purple how-to">
-                <h3 class="txt-mint">Como utilizar</h3>
-                <div class="limit-text" id="desc-como">
-                    <ol><li>Faça login no KaBuM! ou, caso ainda não possua, crie sua conta.</li><li>Vá até “Minha Conta” e clique em “Ver minha carteira”.</li><li>Em “Resgate seu Gift Card”, digite o código disponibilizado no e-mail</li><li>O valor do Gift Card será creditado no login do usuário que efetuou o resgate e utilizado como forma de pagamento na primeira compra realizada por ele.</li><li>Use ou presenteie quem quiser.</li></ol>
-                </div>
-            </div>
-        </div>
-        <div class="product-right">
-            <div class="info-block block-mint">
-                <h2 class="block-title txt-mint">Gift Card KaBuM!</h2>
-                <div class="limit-text" id="desc-produto">Só no KaBuM! você encontra Gift Cards Ninjas para aproveitar o que há de melhor no universo tech: hardware, periféricos, games, pc gamer, smart tv, smartphone e muito mais.<br><br>Sonhando com aquele upgrade insano? Peça já seu Gift Card KaBuM! e tenha acesso total a milhares de itens no maior e-commerce de tecnologia e games da América Latina.<br><br>Quer acertar em cheio no presente de um amigo fantech? Vem de vale-presente Ninja.</div>
-            </div>
 
-            <div class="buy-box">
-                <label>Selecione o Valor</label>
-                <select id="sel"><option value="R$ 25">R$ 25</option><option value="R$ 50">R$ 50</option><option value="R$ 100">R$ 100</option><option value="R$ 200">R$ 200</option><option value="R$ 500">R$ 500</option><option value="R$ 700">R$ 700</option><option value="R$ 1.000">R$ 1.000</option><option value="Consultar outros valores">Consultar outros valores</option></select>
-                
-                <div id="area-check">
-                    <input type="checkbox" id="check-reembolso" style="margin-right: 12px; cursor: pointer; accent-color: #00ffcc; width: 18px; height: 18px; flex-shrink: 0;">
-                    <label for="check-reembolso" style="font-size: 11px; color: #fff; cursor: pointer; font-weight: 700; line-height: 1.2; margin:0;">ESTOU CIENTE QUE APÓS A ENTREGA DO GIFT CARD, NÃO HÁ REEMBOLSO.</label>
-                </div>
-                
-                <div class="region-badge">
-                    <img src="https://flagcdn.com/w40/br.png" width="18" alt="Brasil" style="border-radius:2px;">
-                    VÁLIDO APENAS PARA CONTAS BRASILEIRAS.
-                </div>
-                
-                <button class="btn-buy" onclick="buy()">Comprar via PIX</button>
-            </div>
-        </div>
-    </div>
+<div class="product-card">
+
+<div class="product-left">
+
+<div class="product-img-container">
+
+<img
+alt="Gift Card KaBuM!"
+src="https://marketplace.bancointer.com.br/gift-card/v2/images/d49d147b-5d0f-4679-973a-3b41b45c25d4"
+/>
+
+</div>
+
+<div class="info-block block-purple">
+
+<h3 class="txt-mint">
+Como utilizar
+</h3>
+
+<div
+class="limit-text"
+id="desc-como"
+>
+
+<ol>
+
+<li>Faça login no KaBuM! ou, caso ainda não possua, crie sua conta.</li><li>Vá até “Minha Conta” e clique em “Ver minha carteira”.</li><li>Em “Resgate seu Gift Card”, digite o código disponibilizado no e-mail</li><li>O valor do Gift Card será creditado no login do usuário que efetuou o resgate e utilizado como forma de pagamento na primeira compra realizada por ele.</li><li>Use ou presenteie quem quiser.</li>
+
+</ol>
+
+</div>
+
+<button
+class="btn-toggle btn-purple"
+onclick="toggleText('desc-como')"
+>
+
+VEJA MAIS
+
+</button>
+
+</div>
+
+</div>
+
+<div class="product-right">
+
+<div class="info-block block-mint">
+
+<h2 class="block-title txt-mint">
+Gift Card KaBuM!
+</h2>
+
+<div
+class="limit-text"
+id="desc-produto"
+>
+
+<p>Só no KaBuM! você encontra Gift Cards Ninjas para aproveitar o que há de melhor no universo tech: hardware, periféricos, games, pc gamer, smart tv, smartphone e muito mais.
+
+Sonhando com aquele upgrade insano? Peça já seu Gift Card KaBuM! e tenha acesso total a milhares de itens no maior e-commerce de tecnologia e games da América Latina.
+
+Quer acertar em cheio no presente de um amigo fantech? Vem de vale-presente Ninja.</p>
+
+</div>
+
+<button
+class="btn-toggle btn-mint"
+onclick="toggleText('desc-produto')"
+>
+
+VEJA MAIS
+
+</button>
+
+</div>
+
+<div class="buy-box">
+
+<label>
+Selecione o Valor
+</label>
+
+<select id="sel">
+
+<option value="R$ 25,00">R$ 25,00</option><option value="R$ 50,00">R$ 50,00</option><option value="R$ 100,00">R$ 100,00</option><option value="R$ 200,00">R$ 200,00</option><option value="R$ 500,00">R$ 500,00</option><option value="R$ 700,00">R$ 700,00</option><option value="R$ 1.000,00">R$ 1.000,00</option><option value="Consultar outros valores">Consultar outros valores</option>
+
+</select>
+
+<button
+class="btn-buy"
+onclick="buy()"
+>
+
+Comprar via PIX
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 <nav class="mac-nav">
-    <ul class="nav-list">
-        <a href="../" class="nav-item"><i class="fa-solid fa-house"></i><span>Início</span></a>
-        <a href="../" class="nav-item"><i class="fa-solid fa-play"></i><span>Vídeo</span></a>
-        <a href="../" class="nav-item"><i class="fa-solid fa-truck"></i><span>Delivery</span></a>
-        <a href="../" class="nav-item"><i class="fa-solid fa-utensils"></i><span>Comida</span></a>
-        <a href="../" class="nav-item"><i class="fa-solid fa-shirt"></i><span>Moda</span></a>
-        <a href="../" class="nav-item"><i class="fa-solid fa-tags"></i><span>Outros</span></a>
-    </ul>
+
+<ul class="nav-list">
+
+<a class="nav-item" href="../">
+<i class="fa-solid fa-house"></i>
+<span>Início</span>
+</a>
+
+<a class="nav-item" href="../">
+<i class="fa-solid fa-gamepad"></i>
+<span>Games</span>
+</a>
+
+<a class="nav-item" href="../">
+<i class="fa-solid fa-play"></i>
+<span>Vídeo</span>
+</a>
+
+<a class="nav-item" href="../">
+<i class="fa-solid fa-truck"></i>
+<span>Delivery</span>
+</a>
+
+<a class="nav-item" href="../">
+<i class="fa-solid fa-utensils"></i>
+<span>Comida</span>
+</a>
+
+<a class="nav-item" href="../">
+<i class="fa-solid fa-shirt"></i>
+<span>Moda</span>
+</a>
+
+<a class="nav-item" href="../">
+<i class="fa-solid fa-tags"></i>
+<span>Outros</span>
+</a>
+
+</ul>
+
 </nav>
 
-<script>
-    function buy() {
-        const checkbox = document.getElementById('check-reembolso');
-        if (!checkbox.checked) {
-            alert('Por favor, marque a caixa confirmando que está ciente sobre a política de reembolso.');
-            return;
-        }
+<script src="script.js"></script>
 
-        const v = document.getElementById('sel').value;
-        let msg = "";
-        if(v === "Consultar outros valores") {
-            msg = encodeURIComponent("Olá! Gostaria de consultar outros valores para o Gift Card KaBuM!. Poderia me ajudar?");
-        } else {
-            msg = encodeURIComponent("Olá! Quero comprar o Gift Card KaBuM! no valor de " + v + ". Poderia me enviar o pix?");
-        }
-        window.open("https://api.whatsapp.com/send?phone=5532999561915&text=" + msg);
+<script>
+
+function buy() {
+
+    const v =
+        document.getElementById('sel').value;
+
+    let msg = "";
+
+    if(v === "Consultar outros valores") {
+
+        msg = encodeURIComponent(
+            "Olá! Gostaria de consultar outros valores para o Gift Card KaBuM!. Poderia me ajudar?"
+        );
+
+    } else {
+
+        msg = encodeURIComponent(
+            "Olá! Quero comprar o Gift Card KaBuM! no valor de " + v + ". Poderia me enviar o pix?"
+        );
+
     }
+
+    window.open(
+        "https://api.whatsapp.com/send?phone=5532999561915&text=" + msg
+    );
+}
+
 </script>
+
 </body>
+
 </html>
