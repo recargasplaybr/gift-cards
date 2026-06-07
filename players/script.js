@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.head.appendChild(styleSheet);
 
     // =========================
-    // CHECKBOX (Adaptado para Gift Cards)
+    // CHECKBOX (Texto Alterado para Foco no Player)
     // =========================
 
     const containerCheck = document.createElement('div');
@@ -160,7 +160,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const label = document.createElement('label');
     label.htmlFor = 'check-reembolso';
-    label.innerText = 'ESTOU CIENTE QUE NÃO HÁ REEMBOLSO APÓS O RESGATE OU ENVIO DO GIFT CARD.';
+    label.innerText = 'ESTOU CIENTE QUE ESTOU COMPRANDO APENAS A ATIVAÇÃO DO APLICATIVO E QUE A RECARGAS PLAY NÃO FORNECE CANAIS, FILMES OU LISTAS.';
     label.style.fontSize = '11px';
     label.style.color = '#fff';
     label.style.fontFamily = "'Inter', sans-serif";
@@ -172,7 +172,7 @@ document.addEventListener("DOMContentLoaded", function() {
     containerCheck.appendChild(label);
 
     // =========================
-    // AVISO (Adaptado para Gift Cards)
+    // AVISO
     // =========================
 
     const regionNotice = document.createElement('div');
@@ -180,7 +180,7 @@ document.addEventListener("DOMContentLoaded", function() {
     regionNotice.innerHTML = `NÃO ACEITAMOS REEMBOLSO APÓS O ENVIO DO CÓDIGO DO GIFT CARD.`;
 
     // =========================
-    // MODAL (Adaptado para Gift Cards)
+    // MODAL (Texto Alterado para Esclarecimento de IPTV)
     // =========================
 
     const modalOverlay = document.createElement('div');
@@ -193,25 +193,21 @@ document.addEventListener("DOMContentLoaded", function() {
     modalText.innerHTML = `
         <div style="text-align:left; line-height:1.6; color:#d8d8d8; font-size:13px;">
             <div style="font-size:16px; font-weight:900; color:#00ffcc; margin-bottom:16px; text-align:center;">
-                TERMO DE SEGURANÇA
+                AVISO IMPORTANTE: SOBRE O PRODUTO
             </div>
-            <div style="margin-bottom:16px;">
-                Após o envio ou resgate do código do produto, 
-                <span style="color:#ff4d4d; font-weight:800;">NÃO há reembolso ou cancelamento.</span>
+            <div style="margin-bottom:16px; text-align: center;">
+                Este produto trata-se <span style="color:#00ffcc; font-weight:800;">EXCLUSIVAMENTE da licença/ativação do aplicativo (Player).</span>
             </div>
-            <div style="margin-bottom:18px;">
-                Ao continuar, você declara estar ciente de que a entrega do Gift Card é definitiva e vinculada ao seu pedido.
+            <div style="margin-bottom:16px; background: rgba(255, 77, 77, 0.1); border: 1px solid rgba(255, 77, 77, 0.3); padding: 12px; border-radius: 8px; color: #fff;">
+                ⚠️ <span style="color:#ff4d4d; font-weight:800;">ATENÇÃO:</span> A Recargas Play <b>NÃO vende listas de canais, não fornece servidores de IPTV, nem conteúdos de TV, filmes ou séries.</b> O fornecimento e a configuração do conteúdo são de responsabilidade total do usuário.
             </div>
             <div style="background:rgba(0,255,204,0.08); border:1px solid rgba(0,255,204,0.25); padding:14px; border-radius:10px; margin-bottom:14px; color:#fff;">
                 <div style="font-size:14px; font-weight:800; color:#00ffcc; margin-bottom:8px;">
-                    ✔ CONFIRMAÇÃO NECESSÁRIA
+                    ✔ CONFIRMAÇÃO DO CLIENTE
                 </div>
                 <div style="font-size:13px; line-height:1.5; color:#d8d8d8;">
-                    Clique em <b>"ESTOU DE ACORDO"</b> apenas se você concordar com os termos acima para este Gift Card.
+                    Ao clicar em <b>"ESTOU DE ACORDO"</b>, você confirma que já possui a sua própria lista de reprodução e entende que está adquirindo apenas a ativação do app.
                 </div>
-            </div>
-            <div style="text-align:center; font-size:12px; color:#8f8f8f; font-style:italic;">
-                Sua confirmação será necessária para liberar o botão de compra.
             </div>
         </div>
     `;
@@ -225,7 +221,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const btnCancel = document.createElement('button');
     btnCancel.className = 'modal-btn btn-cancel';
-    btnCancel.innerText = '❌ NÃO ESTOU DE ACORDO';
+    btnCancel.innerText = '❌ NÃO COMPREENDERAM';
 
     modalButtons.appendChild(btnConfirm);
     modalButtons.appendChild(btnCancel);
@@ -260,7 +256,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // =========================
-    // BOTÃO VERDE
+    // BOTÃO VERDE (Confirmar ciência)
     // =========================
 
     btnConfirm.addEventListener('click', function(){
@@ -271,7 +267,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // =========================
-    // BOTÃO VERMELHO
+    // BOTÃO VERMELHO (Cancelar)
     // =========================
 
     btnCancel.addEventListener('click', function(){
