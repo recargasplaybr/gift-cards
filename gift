@@ -148,6 +148,7 @@
          min-width: 70px; 
          transition: 0.3s;
          cursor: pointer;
+         text-decoration: none;
          }
          .nav-item:hover, .nav-item.active { color: var(--primary-mint); }
          .nav-item i { font-size: 1.2rem; margin-bottom: 4px; }
