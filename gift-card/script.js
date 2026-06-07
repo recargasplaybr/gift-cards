@@ -216,17 +216,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 TERMO DE SEGURANÇA
             </div>
 
-            <div style="margin-bottom:16px;">
-                Por ser um produto digital de envio imediato,
-                <span style="color:#ff4d4d;font-weight:800;">
-                    NÃO hay reembolso ou cancelamento
-                </span>
-                após a entrega do código.
-            </div>
+            <div style="margin-bottom:16px;"> Este é um produto digital com entrega automática e imediata após a confirmação do pagamento. </div> <div style="margin-bottom:16px;"> Todos os códigos enviados são verificados e gerados diretamente pelos canais oficiais. Caso ocorra algum problema técnico na ativação, nossa equipe realizará a análise e suporte necessário. </div>
 
-            <div style="margin-bottom:18px;">
-                Ao continuar, você declara estar ciente de que a entrega do produto é definitiva e que abrir contestação falsa ou MED no banco após receber o card configura fraude, podendo gerar medidas judiciais.
-            </div>
+           <div style="margin-bottom:18px;"> Por se tratar de um produto digital de uso único, não realizamos cancelamentos ou reembolsos após a entrega do código. </div>
 
             <div style="
                 background:rgba(0,255,204,0.08);
