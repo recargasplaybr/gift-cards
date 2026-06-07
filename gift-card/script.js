@@ -1,419 +1,419 @@
 // Funções globais do Recargas Play
 
 function toggleText(id){
-const el = document.getElementById(id);
+  const el = document.getElementById(id);
 
-if(!el) return;
+  if(!el) return;
 
-const btn = el.nextElementSibling;
+  const btn = el.nextElementSibling;
 
-el.classList.toggle("expanded");
+  el.classList.toggle("expanded");
 
-if(btn && btn.tagName === "BUTTON"){
-btn.innerText = el.classList.contains("expanded") ? "VER MENOS" : "VEJA MAIS";
-}
+  if(btn && btn.tagName === "BUTTON"){
+    btn.innerText = el.classList.contains("expanded") ? "VER MENOS" : "VEJA MAIS";
+  }
 }
 
 document.addEventListener("DOMContentLoaded", function() {
 
-```
-const btnBuy = document.querySelector('.btn-buy');
-
-if (!btnBuy) return;
-
-// =========================
-// ESTILOS
-// =========================
-
-const styleSheet = document.createElement("style");
-
-styleSheet.innerText = `
-
-    @keyframes shake {
-        0% { transform: translateX(0); }
-        20% { transform: translateX(-8px); }
-        40% { transform: translateX(8px); }
-        60% { transform: translateX(-8px); }
-        80% { transform: translateX(8px); }
-        100% { transform: translateX(0); }
-    }
-
-    .shake-error {
-        animation: shake 0.45s ease-in-out;
-        border-color: #ff4d4d !important;
-        box-shadow: 0 0 15px rgba(255, 77, 77, 0.4);
-    }
-
-    .region-badge {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        margin-bottom: 15px;
-        font-size: 11px;
-        font-weight: 700;
-        color: #00ffcc;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-    }
-
-    /* MODAL */
-
-    .modal-overlay {
-        position: fixed;
-        inset: 0;
-        background: rgba(0,0,0,0.75);
-        backdrop-filter: blur(4px);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 999999;
-        opacity: 0;
-        visibility: hidden;
-        transition: 0.25s;
-        padding: 20px;
-    }
-
-    .modal-overlay.active {
-        opacity: 1;
-        visibility: visible;
-    }
-
-    .modal-box {
-        width: 100%;
-        max-width: 460px;
-        background: #111;
-        border: 2px solid #7b2cbf;
-        border-radius: 14px;
-        padding: 22px;
-        box-shadow: 0 0 30px rgba(0,0,0,0.6);
-        transform: scale(0.9);
-        transition: 0.25s;
-        max-height: 90vh;
-        overflow-y: auto;
-    }
-
-    .modal-overlay.active .modal-box {
-        transform: scale(1);
-    }
-
-    .modal-buttons {
-        display: flex;
-        gap: 10px;
-        margin-top: 20px;
-    }
-
-    .modal-btn {
-        flex: 1;
-        border: none;
-        border-radius: 10px;
-        padding: 14px;
-        font-weight: 800;
-        cursor: pointer;
-        transition: 0.2s;
-        color: #fff;
-        font-size: 13px;
-    }
-
-    .btn-confirm {
-        background: #00b26f;
-    }
-
-    .btn-confirm:hover {
-        transform: scale(1.03);
-        background: #00cc7f;
-    }
-
-    .btn-cancel {
-        background: #cc2d2d;
-    }
-
-    .btn-cancel:hover {
-        transform: scale(1.03);
-        background: #ff3d3d;
-    }
-
-`;
-
-document.head.appendChild(styleSheet);
-
-// =========================
-// CHECKBOX
-// =========================
-
-const containerCheck = document.createElement('div');
-
-containerCheck.style.background = 'rgba(106, 27, 154, 0.25)';
-containerCheck.style.border = '2px solid #7b2cbf';
-containerCheck.style.padding = '14px';
-containerCheck.style.borderRadius = '8px';
-containerCheck.style.marginBottom = '10px';
-containerCheck.style.display = 'flex';
-containerCheck.style.alignItems = 'center';
-containerCheck.style.cursor = 'pointer';
-containerCheck.style.transition = 'all 0.3s';
-containerCheck.id = 'area-check';
-
-const checkbox = document.createElement('input');
-
-checkbox.type = 'checkbox';
-checkbox.id = 'check-reembolso';
-checkbox.style.marginRight = '12px';
-checkbox.style.cursor = 'pointer';
-checkbox.style.accentColor = '#00ffcc';
-checkbox.style.width = '18px';
-checkbox.style.height = '18px';
-checkbox.style.flexShrink = '0';
-
-const label = document.createElement('label');
-
-label.htmlFor = 'check-reembolso';
-label.innerText = 'ESTOU CIENTE DAS CONDIÇÕES DE ENTREGA E USO DO PRODUTO DIGITAL.';
-label.style.fontSize = '11px';
-label.style.color = '#fff';
-label.style.fontFamily = "'Inter', sans-serif";
-label.style.cursor = 'pointer';
-label.style.fontWeight = '700';
-label.style.lineHeight = '1.2';
-
-containerCheck.appendChild(checkbox);
-containerCheck.appendChild(label);
-
-// =========================
-// AVISO REGIÃO
-// =========================
-
-const regionNotice = document.createElement('div');
-
-regionNotice.className = 'region-badge';
-
-regionNotice.innerHTML = `
-    <img src="https://flagcdn.com/w40/br.png" width="18" alt="Brasil" style="border-radius:2px;">
-    VÁLIDO APENAS PARA CONTAS BRASILEIRAS.
-`;
-
-// =========================
-// MODAL
-// =========================
-
-const modalOverlay = document.createElement('div');
-modalOverlay.className = 'modal-overlay';
-
-const modalBox = document.createElement('div');
-modalBox.className = 'modal-box';
-
-const modalText = document.createElement('div');
-
-modalText.innerHTML = `
-    <div style="text-align:left; line-height:1.6; color:#d8d8d8; font-size:13px;">
-
-        <div style="
-            font-size:16px;
-            font-weight:900;
-            color:#00ffcc;
-            margin-bottom:16px;
-            text-align:center;
-        ">
-            INFORMAÇÕES IMPORTANTES
-        </div>
-
-        <div style="margin-bottom:16px;">
-            Este é um produto digital com entrega automática e imediata após a confirmação do pagamento.
-        </div>
-
-        <div style="margin-bottom:16px;">
-            Todos os códigos enviados são verificados e gerados diretamente pelos canais oficiais. Caso ocorra algum problema técnico na ativação, nossa equipe realizará a análise e suporte necessário.
-        </div>
-
-        <div style="margin-bottom:18px;">
-            Por se tratar de um produto digital de uso único, não realizamos cancelamentos ou reembolsos após a entrega do código.
-        </div>
-
-        <div style="
-            background:rgba(0,255,204,0.08);
-            border:1px solid rgba(0,255,204,0.25);
-            padding:14px;
-            border-radius:10px;
-            margin-bottom:14px;
-            color:#fff;
-        ">
-
-            <div style="
-                font-size:14px;
-                font-weight:800;
-                color:#00ffcc;
-                margin-bottom:8px;
-            ">
-                ✔ CONFIRMAÇÃO NECESSÁRIA
-            </div>
+    const btnBuy = document.querySelector('.btn-buy');
+
+    if (!btnBuy) return;
+
+    // =========================
+    // ESTILOS
+    // =========================
+
+    const styleSheet = document.createElement("style");
+
+    styleSheet.innerText = `
+
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            20% { transform: translateX(-8px); }
+            40% { transform: translateX(8px); }
+            60% { transform: translateX(-8px); }
+            80% { transform: translateX(8px); }
+            100% { transform: translateX(0); }
+        }
+
+        .shake-error {
+            animation: shake 0.45s ease-in-out;
+            border-color: #ff4d4d !important;
+            box-shadow: 0 0 15px rgba(255, 77, 77, 0.4);
+        }
+
+        .region-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 15px;
+            font-size: 11px;
+            font-weight: 700;
+            color: #00ffcc;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* MODAL */
+
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.75);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 999999;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.25s;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-box {
+            width: 100%;
+            max-width: 460px;
+            background: #111;
+            border: 2px solid #7b2cbf;
+            border-radius: 14px;
+            padding: 22px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.6);
+            transform: scale(0.9);
+            transition: 0.25s;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-overlay.active .modal-box {
+            transform: scale(1);
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .modal-btn {
+            flex: 1;
+            border: none;
+            border-radius: 10px;
+            padding: 14px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: 0.2s;
+            color: #fff;
+            font-size: 13px;
+        }
+
+        .btn-confirm {
+            background: #00b26f;
+        }
 
-            <div style="
-                font-size:13px;
-                line-height:1.5;
-                color:#d8d8d8;
-            ">
-                Clique em <b>"ESTOU DE ACORDO"</b> apenas se você concordar com os termos acima e desejar prosseguir com a compra.
-            </div>
+        .btn-confirm:hover {
+            transform: scale(1.03);
+            background: #00cc7f;
+        }
 
-        </div>
+        .btn-cancel {
+            background: #cc2d2d;
+        }
 
-        <div style="
-            text-align:center;
-            font-size:12px;
-            color:#8f8f8f;
-            font-style:italic;
-        ">
-            Sua confirmação será necessária para liberar o botão de compra.
-        </div>
+        .btn-cancel:hover {
+            transform: scale(1.03);
+            background: #ff3d3d;
+        }
 
-    </div>
-`;
-
-const modalButtons = document.createElement('div');
-modalButtons.className = 'modal-buttons';
-
-const btnConfirm = document.createElement('button');
-btnConfirm.className = 'modal-btn btn-confirm';
-btnConfirm.innerText = '✅ ESTOU DE ACORDO';
-
-const btnCancel = document.createElement('button');
-btnCancel.className = 'modal-btn btn-cancel';
-btnCancel.innerText = '❌ CANCELAR';
-
-modalButtons.appendChild(btnConfirm);
-modalButtons.appendChild(btnCancel);
-
-modalBox.appendChild(modalText);
-modalBox.appendChild(modalButtons);
-
-modalOverlay.appendChild(modalBox);
-
-document.body.appendChild(modalOverlay);
-
-// =========================
-// INSERIR ELEMENTOS
-// =========================
-
-btnBuy.parentNode.insertBefore(containerCheck, btnBuy);
-btnBuy.parentNode.insertBefore(regionNotice, btnBuy);
-
-// =========================
-// ABRIR MODAL
-// =========================
-
-containerCheck.addEventListener('click', function(e){
-
-    e.preventDefault();
-    e.stopPropagation();
-
-    if (checkbox.checked) return;
-
-    checkbox.checked = false;
-
-    modalOverlay.classList.add('active');
-});
-
-// impede marcar direto
-checkbox.addEventListener('click', function(e){
-    e.preventDefault();
-    this.checked = false;
-});
-
-// =========================
-// BOTÃO VERDE
-// =========================
-
-btnConfirm.addEventListener('click', function(){
-
-    checkbox.checked = true;
-
-    containerCheck.style.borderColor = '#00ffcc';
-    containerCheck.style.background = 'rgba(0,255,204,0.08)';
-
-    modalOverlay.classList.remove('active');
-});
-
-// =========================
-// BOTÃO VERMELHO
-// =========================
-
-btnCancel.addEventListener('click', function(){
-
-    checkbox.checked = false;
-
-    containerCheck.style.borderColor = '#7b2cbf';
-    containerCheck.style.background = 'rgba(106,27,154,0.25)';
-
-    modalOverlay.classList.remove('active');
-});
-
-// =========================
-// FECHAR CLICANDO FORA
-// =========================
-
-modalOverlay.addEventListener('click', function(e){
-
-    if(e.target === modalOverlay){
-        modalOverlay.classList.remove('active');
-    }
-});
-
-// =========================
-// BOTÃO COMPRAR
-// =========================
-
-const originalOnClick = btnBuy.onclick;
-
-btnBuy.onclick = function(e){
-
-    // se NÃO confirmou
-    if (!checkbox.checked){
-
-        e.preventDefault();
-
-        // reinicia animação
-        containerCheck.classList.remove('shake-error');
-
-        void containerCheck.offsetWidth;
-
-        containerCheck.classList.add('shake-error');
-
-        return false;
-    }
-
-    // segue compra normal
-    if (typeof originalOnClick === 'function'){
-        originalOnClick.apply(this, arguments);
-    }
-};
-
-// ==========================================
-// INJEÇÃO DINÂMICA DO ITEM "PLAYERS" NO NAV
-// ==========================================
-const navList = document.querySelector('.mac-nav .nav-list');
-
-if (navList) {
-
-    const playerLink = document.createElement('a');
-
-    playerLink.className = 'nav-item';
-    playerLink.href = 'https://recargasplay.com.br/players';
-
-    playerLink.innerHTML = `
-        <i class="fa-solid fa-tv"></i>
-        <span>Players</span>
     `;
 
-    const itemOutros = Array.from(navList.querySelectorAll('.nav-item')).find(el => {
-        return el.querySelector('.fa-tags') !== null;
+    document.head.appendChild(styleSheet);
+
+    // =========================
+    // CHECKBOX
+    // =========================
+
+    const containerCheck = document.createElement('div');
+
+    containerCheck.style.background = 'rgba(106, 27, 154, 0.25)';
+    containerCheck.style.border = '2px solid #7b2cbf';
+    containerCheck.style.padding = '14px';
+    containerCheck.style.borderRadius = '8px';
+    containerCheck.style.marginBottom = '10px';
+    containerCheck.style.display = 'flex';
+    containerCheck.style.alignItems = 'center';
+    containerCheck.style.cursor = 'pointer';
+    containerCheck.style.transition = 'all 0.3s';
+    containerCheck.id = 'area-check';
+
+    const checkbox = document.createElement('input');
+
+    checkbox.type = 'checkbox';
+    checkbox.id = 'check-reembolso';
+    checkbox.style.marginRight = '12px';
+    checkbox.style.cursor = 'pointer';
+    checkbox.style.accentColor = '#00ffcc';
+    checkbox.style.width = '18px';
+    checkbox.style.height = '18px';
+    checkbox.style.flexShrink = '0';
+
+    const label = document.createElement('label');
+
+    label.htmlFor = 'check-reembolso';
+    label.innerText = 'ESTOU CIENTE QUE APÓS A ENTREGA DO GIFT CARD, NÃO HÁ REEMBOLSO.';
+    label.style.fontSize = '11px';
+    label.style.color = '#fff';
+    label.style.fontFamily = "'Inter', sans-serif";
+    label.style.cursor = 'pointer';
+    label.style.fontWeight = '700';
+    label.style.lineHeight = '1.2';
+
+    containerCheck.appendChild(checkbox);
+    containerCheck.appendChild(label);
+
+    // =========================
+    // AVISO REGIÃO
+    // =========================
+
+    const regionNotice = document.createElement('div');
+
+    regionNotice.className = 'region-badge';
+
+    regionNotice.innerHTML = `
+        <img src="https://flagcdn.com/w40/br.png" width="18" alt="Brasil" style="border-radius:2px;">
+        VÁLIDO APENAS PARA CONTAS BRASILEIRAS.
+    `;
+
+    // =========================
+    // MODAL
+    // =========================
+
+    const modalOverlay = document.createElement('div');
+    modalOverlay.className = 'modal-overlay';
+
+    const modalBox = document.createElement('div');
+    modalBox.className = 'modal-box';
+
+    const modalText = document.createElement('div');
+
+    modalText.innerHTML = `
+        <div style="text-align:left; line-height:1.6; color:#d8d8d8; font-size:13px;">
+
+            <div style="
+                font-size:16px;
+                font-weight:900;
+                color:#00ffcc;
+                margin-bottom:16px;
+                text-align:center;
+            ">
+                TERMO DE SEGURANÇA
+            </div>
+
+            <div style="margin-bottom:16px;">
+                Por ser um produto digital de envio imediato,
+                <span style="color:#ff4d4d;font-weight:800;">
+                    NÃO hay reembolso ou cancelamento
+                </span>
+                após a entrega do código.
+            </div>
+
+            <div style="margin-bottom:18px;">
+                Ao continuar, você declara estar ciente de que a entrega do produto é definitiva e que abrir contestação falsa ou MED no banco após receber o card configura fraude, podendo gerar medidas judiciais.
+            </div>
+
+            <div style="
+                background:rgba(0,255,204,0.08);
+                border:1px solid rgba(0,255,204,0.25);
+                padding:14px;
+                border-radius:10px;
+                margin-bottom:14px;
+                color:#fff;
+            ">
+
+                <div style="
+                    font-size:14px;
+                    font-weight:800;
+                    color:#00ffcc;
+                    margin-bottom:8px;
+                ">
+                    ✔ CONFIRMAÇÃO NECESSÁRIA
+                </div>
+
+                <div style="
+                    font-size:13px;
+                    line-height:1.5;
+                    color:#d8d8d8;
+                ">
+                    Clique em <b>"ESTOU DE ACORDO"</b> apenas se você concordar com os termos acima e desejar prosseguir com a compra.
+                </div>
+
+            </div>
+
+            <div style="
+                text-align:center;
+                font-size:12px;
+                color:#8f8f8f;
+                font-style:italic;
+            ">
+                Sua confirmação será necessária para liberar o botão de compra.
+            </div>
+
+        </div>
+    `;
+
+    const modalButtons = document.createElement('div');
+    modalButtons.className = 'modal-buttons';
+
+    const btnConfirm = document.createElement('button');
+    btnConfirm.className = 'modal-btn btn-confirm';
+    btnConfirm.innerText = '✅ ESTOU DE ACORDO';
+
+    const btnCancel = document.createElement('button');
+    btnCancel.className = 'modal-btn btn-cancel';
+    btnCancel.innerText = '❌ NÃO ESTOU DE ACORDO';
+
+    modalButtons.appendChild(btnConfirm);
+    modalButtons.appendChild(btnCancel);
+
+    modalBox.appendChild(modalText);
+    modalBox.appendChild(modalButtons);
+
+    modalOverlay.appendChild(modalBox);
+
+    document.body.appendChild(modalOverlay);
+
+    // =========================
+    // INSERIR ELEMENTOS
+    // =========================
+
+    btnBuy.parentNode.insertBefore(containerCheck, btnBuy);
+    btnBuy.parentNode.insertBefore(regionNotice, btnBuy);
+
+    // =========================
+    // ABRIR MODAL
+    // =========================
+
+    containerCheck.addEventListener('click', function(e){
+
+        e.preventDefault();
+        e.stopPropagation();
+
+        if (checkbox.checked) return;
+
+        checkbox.checked = false;
+
+        modalOverlay.classList.add('active');
     });
 
-    if (itemOutros) {
-        itemOutros.parentNode.insertBefore(playerLink, itemOutros.nextSibling);
-    } else {
-        navList.appendChild(playerLink);
-    }
-}
+    // impede marcar direto
+    checkbox.addEventListener('click', function(e){
+        e.preventDefault();
+        this.checked = false;
+    });
 
+    // =========================
+    // BOTÃO VERDE
+    // =========================
+
+    btnConfirm.addEventListener('click', function(){
+
+        checkbox.checked = true;
+
+        containerCheck.style.borderColor = '#00ffcc';
+        containerCheck.style.background = 'rgba(0,255,204,0.08)';
+
+        modalOverlay.classList.remove('active');
+    });
+
+    // =========================
+    // BOTÃO VERMELHO
+    // =========================
+
+    btnCancel.addEventListener('click', function(){
+
+        checkbox.checked = false;
+
+        containerCheck.style.borderColor = '#7b2cbf';
+        containerCheck.style.background = 'rgba(106,27,154,0.25)';
+
+        modalOverlay.classList.remove('active');
+    });
+
+    // =========================
+    // FECHAR CLICANDO FORA
+    // =========================
+
+    modalOverlay.addEventListener('click', function(e){
+
+        if(e.target === modalOverlay){
+            modalOverlay.classList.remove('active');
+        }
+    });
+
+    // =========================
+    // BOTÃO COMPRAR
+    // =========================
+
+    const originalOnClick = btnBuy.onclick;
+
+    btnBuy.onclick = function(e){
+
+        // se NÃO confirmou
+        if (!checkbox.checked){
+
+            e.preventDefault();
+
+            // reinicia animação
+            containerCheck.classList.remove('shake-error');
+
+            void containerCheck.offsetWidth;
+
+            containerCheck.classList.add('shake-error');
+
+            return false;
+        }
+
+        // segue compra normal
+        if (typeof originalOnClick === 'function'){
+            originalOnClick.apply(this, arguments);
+        }
+    };
+
+    // ==========================================
+    // INJEÇÃO DINÂMICA DO ITEM "PLAYERS" NO NAV
+    // ==========================================
+    const navList = document.querySelector('.mac-nav .nav-list');
+    if (navList) {
+        // Cria a tag <a> para o item Players
+        const playerLink = document.createElement('a');
+        playerLink.className = 'nav-item';
+        playerLink.href = 'https://recargasplay.com.br/players';
+        
+        // Define a estrutura interna com o ícone de TV e o texto
+        playerLink.innerHTML = `
+            <i class="fa-solid fa-tv"></i>
+            <span>Players</span>
+        `;
+        
+        // Encontra o item "Outros" (que contém o ícone fa-tags) para inserir logo após ele
+        const itemOutros = Array.from(navList.querySelectorAll('.nav-item')).find(el => {
+            return el.querySelector('.fa-tags') !== null;
+        });
+
+        if (itemOutros) {
+            // Insere logo após o item Outros se ele for encontrado
+            itemOutros.parentNode.insertBefore(playerLink, itemOutros.nextSibling);
+        } else {
+            // Caso não ache a tag específica, insere no fim da lista como garantia
+            navList.appendChild(playerLink);
+        }
+    }
 
 });
