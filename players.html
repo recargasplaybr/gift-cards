@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
    <head>
-      <!-- Google tag (gtag.js) -->
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-005G8DEBYQ"></script>
       <script>
          window.dataLayer = window.dataLayer || [];
@@ -185,10 +184,9 @@
          <div class="product-grid" id="product-grid"></div>
       </div>
       
-      <!-- MENU INFERIOR AJUSTADO: Apenas Início (destacado) e Gift Cards -->
       <nav class="mac-nav">
          <ul class="nav-list">
-            <a class="nav-item active" href="https://recargasplay.com.br">
+            <a class="nav-item" href="https://recargasplay.com.br">
                <i class="fa-solid fa-house"></i>
                <span>Início</span>
             </a>
@@ -259,6 +257,7 @@
                  card.className = 'card';
                  card.href = `players/${p.slug}.html`;
                  
+                 // Renderização dos cards com caminhos de imagem corretos e estrutura CSS idêntica
                  card.innerHTML = `
                      <div class="image-wrapper">
                          <img src="players/imagens/${p.slug}.jpg" alt="Comprar Gift Card ${p.name}" loading="lazy">
