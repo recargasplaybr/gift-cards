@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+   <head>
+      <!-- Google tag (gtag.js) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-005G8DEBYQ"></script>
+      <script>
+         window.dataLayer = window.dataLayer || [];
+         function gtag(){dataLayer.push(arguments);}
+         gtag('js', new Date());
+         
+         gtag('config', 'G-005G8DEBYQ');
+      </script>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+      <link rel="canonical" href="https://recargasplay.com.br/" />
+      <title>Recargas Play | Comprar Gift Cards via PIX</title>
+      <meta name="description" content="Compre Gift Cards da Uber, PlayStation, Roblox, Netflix e muito mais na Recargas Play. Entrega digital imediata com pagamento via PIX. Resgate seus créditos agora!">
+      <meta name="keywords" content="Comprar Gift Card, Resgatar Gift Card, Cartão Presente, Minecraft, Xbox, Roblox, PlayStation, PIX, Recargas Play">
+      <meta name="author" content="Recargas Play">
+      <link rel="icon" type="image/png" href="favicon.png">
+      <link rel="apple-touch-icon" href="favicon.png">
+      <meta property="og:title" content="Recargas Play | Compre Gift Cards com Entrega Imediata">
+      <meta property="og:description" content="Os melhores Gift Cards de Games e Streaming estão aqui. Compre via PIX com total segurança.">
+      <meta property="og:image" content="https://seusite.com.br/logo.png">
+      <meta property="og:type" content="website">
+      <meta property="og:url" content="https://recargasplay.com.br">
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+      <style>
+         :root {
+         --primary-mint: #00ffcc;
+         --accent-purple: #a855f7; 
+         --bg-dark: #111111;
+         --bg-gradient: linear-gradient(180deg, #1a0b2e 0%, #111111 100%);
+         --card-bg: rgba(26, 26, 26, 0.8);
+         --card-border: var(--primary-mint); 
+         --input-bg: rgba(255, 255, 255, 0.05);
+         }
+         ::-webkit-scrollbar { width: 6px; height: 6px; }
+         ::-webkit-scrollbar-track { background: #0a0a0a; }
+         ::-webkit-scrollbar-thumb { background: var(--accent-purple); border-radius: 10px; }
+         ::-webkit-scrollbar-thumb:hover { background: var(--primary-mint); }
+         * { scrollbar-width: thin; scrollbar-color: var(--accent-purple) #0a0a0a; margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+         body { 
+         background: var(--bg-gradient);
+         background-attachment: fixed;
+         color: #fff;
+         min-height: 100vh;
+         padding-bottom: 120px;
+         }
+         header { padding: 40px 20px 20px; display: flex; justify-content: center; }
+         .logo-container {
+         display: flex;
+         align-items: center;
+         gap: 8px;
+         }
+         .logo-img { width: 55px; height: auto; }
+         header h1 { 
+         font-size: 2.5rem; 
+         font-weight: 800; 
+         text-transform: uppercase; 
+         letter-spacing: -2px; 
+         line-height: 1;
+         background: linear-gradient(90deg, var(--primary-mint) 0%, var(--accent-purple) 100%);
+         -webkit-background-clip: text;
+         -webkit-text-fill-color: transparent;
+         display: flex;
+         align-items: center;
+         }
+         .container { max-width: 1300px; margin: 0 auto; padding: 0 20px; }
+         .toolbar {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         gap: 15px;
+         margin-bottom: 40px;
+         width: 100%;
+         }
+         .search-box { width: 100%; max-width: 600px; position: relative; }
+         .search-box i { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--primary-mint); z-index: 10; }
+         .search-box input {
+         width: 100%; background: var(--input-bg); border: 1px solid var(--primary-mint);
+         padding: 12px 12px 12px 45px; border-radius: 12px; color: #fff; outline: none; transition: 0.3s;
+         }
+         .search-box input:focus { border-color: var(--accent-purple); box-shadow: 0 0 20px rgba(168, 85, 247, 0.4); }
+         .filter-select {
+         background: #1a1a1a; border: 1px solid var(--primary-mint); color: var(--primary-mint);
+         padding: 10px 20px; border-radius: 12px; outline: none; cursor: pointer; font-weight: 600;
+         }
+         .product-grid {
+         display: grid;
+         grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+         gap: 25px;
+         }
+         .card {
+         background: var(--card-bg);
+         border: 1px solid var(--primary-mint);
+         border-radius: 24px;
+         text-decoration: none;
+         color: inherit;
+         transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+         display: flex;
+         flex-direction: column;
+         overflow: hidden;
+         backdrop-filter: blur(10px);
+         }
+         .card:hover {
+         transform: translateY(-10px);
+         border-color: var(--accent-purple);
+         box-shadow: 0 15px 40px rgba(168, 85, 247, 0.4);
+         }
+         .image-wrapper { 
+         width: 100%; height: 200px; 
+         display: flex; justify-content: center; align-items: center;
+         padding: 30px; background: rgba(0,0,0,0.2);
+         }
+         .image-wrapper img { max-width: 100%; max-height: 100%; object-fit: contain; }
+         .info { padding: 20px; text-align: center; }
+         .info h3 { font-size: 0.95rem; margin-bottom: 15px; font-weight: 700; height: 2.5rem; display: flex; align-items: center; justify-content: center; }
+         .buy-btn {
+         background: linear-gradient(90deg, #6a11cb, #45108a);
+         color: white; padding: 12px 0; border-radius: 12px;
+         font-size: 0.8rem; font-weight: 800; text-transform: uppercase; transition: 0.3s;
+         width: 100%; display: block;
+         }
+         .mac-nav {
+         position: fixed; bottom: 0; left: 0; right: 0;
+         background: rgba(10, 10, 10, 0.95); border-top: 1px solid rgba(255,255,255,0.1);
+         display: flex; justify-content: center; z-index: 10000; backdrop-filter: blur(20px);
+         }
+         .nav-list { 
+         display: flex; 
+         list-style: none; 
+         padding: 10px 15px; 
+         gap: 25px; 
+         max-width: 100%; 
+         overflow-x: auto;
+         scroll-behavior: smooth;
+         -webkit-overflow-scrolling: touch;
+         }
+         .nav-list::-webkit-scrollbar { height: 4px; }
+         .nav-list::-webkit-scrollbar-thumb { background: var(--accent-purple); border-radius: 10px; }
+         .nav-item { 
+         display: flex; 
+         flex-direction: column; 
+         align-items: center; 
+         color: #555; 
+         min-width: 70px; 
+         transition: 0.3s;
+         cursor: pointer;
+         text-decoration: none;
+         }
+         .nav-item:hover, .nav-item.active { color: var(--primary-mint); }
+         .nav-item i { font-size: 1.2rem; margin-bottom: 4px; }
+         .nav-item span { font-size: 9px; font-weight: 700; text-transform: uppercase; white-space: nowrap; }
+         @media (max-width: 600px) {
+         header h1 { font-size: 1.8rem; }
+         .product-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; padding: 0 5px; }
+         .card { border-radius: 12px; }
+         .image-wrapper { height: 80px; padding: 10px; }
+         .info { padding: 10px 5px; }
+         .info h3 { font-size: 0.6rem; height: 1.5rem; margin-bottom: 8px; line-height: 1.1; }
+         .buy-btn { padding: 6px 0; font-size: 0.55rem; border-radius: 6px; }
+         }
+      </style>
+   </head>
+   <body>
+      <header>
+         <div class="logo-container">
+            <img src="logo.png" alt="Recargas Play - Comprar Gift Cards Online" class="logo-img">
+            <h1>RECARGASPLAY</h1>
+         </div>
+      </header>
+      <div class="container">
+         <div class="toolbar">
+            <div class="search-box">
+               <i class="fa-solid fa-magnifying-glass"></i>
+               <input type="text" id="searchInput" placeholder="Buscar Player (Ex: VU Player Pro, IBO Player Pro)..." oninput="filterAll()">
+            </div>
+            <select id="sortSelect" class="filter-select" onchange="filterAll()">
+               <option value="az">🔤 Ordem Alfabética (A-Z)</option>
+               <option value="za">🔤 Ordem Alfabética (Z-A)</option>
+            </select>
+         </div>
+         <div class="product-grid" id="product-grid"></div>
+      </div>
+      
+      <!-- MENU INFERIOR AJUSTADO: Apenas Início (destacado) e Gift Cards -->
+      <nav class="mac-nav">
+         <ul class="nav-list">
+            <a class="nav-item active" href="https://recargasplay.com.br">
+               <i class="fa-solid fa-house"></i>
+               <span>Início</span>
+            </a>
+            <a class="nav-item" href="https://recargasplay.com.br">
+               <i class="fa-solid fa-gift"></i>
+               <span>Gift Cards</span>
+            </a>
+         </ul>
+      </nav>
+
+      <script>
+         const products = [
+            { id: 1, name: "4K IPTV", slug: "4k-iptv", category: "streaming" },
+            { id: 2, name: "Bay TV", slug: "bay-tv", category: "streaming" },
+            { id: 3, name: "Bob Player", slug: "bob-player", category: "streaming" },
+            { id: 4, name: "Cap Player", slug: "cap-player", category: "streaming" },
+            { id: 5, name: "Dream TV", slug: "dream-tv", category: "streaming" },
+            { id: 6, name: "Duplex TV", slug: "duplex-tv", category: "streaming" },
+            { id: 7, name: "IBO Player", slug: "ibo-player", category: "streaming" },
+            { id: 8, name: "IBO Player Pro", slug: "ibo-player-pro", category: "streaming" },
+            { id: 9, name: "IP-TV Player", slug: "ip-tvplayer", category: "streaming" },
+            { id: 10, name: "IPTV Player IO", slug: "iptv-player-io", category: "streaming" },
+            { id: 11, name: "IPTV Plus", slug: "iptv-plus", category: "streaming" },
+            { id: 12, name: "Lazer Play", slug: "lazer-play", category: "streaming" },
+            { id: 13, name: "Ninja Player", slug: "ninja-player", category: "streaming" },
+            { id: 14, name: "OTT Player", slug: "ott-player", category: "streaming" },
+            { id: 15, name: "Quick Player", slug: "quick-player", category: "streaming" },
+            { id: 16, name: "Star IPTV", slug: "star-iptv", category: "streaming" },
+            { id: 17, name: "Vizzion Play", slug: "vizzion-play", category: "streaming" },
+            { id: 18, name: "VU Player Pro", slug: "vu-player-pro", category: "streaming" }
+         ];
+         
+         let currentCategory = 'all';
+         const grid = document.getElementById('product-grid');
+         
+         function setCategory(cat, el) {
+             currentCategory = cat;
+             document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+             el.classList.add('active');
+             filterAll();
+         }
+         
+         function filterAll() {
+             const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+             const sortBy = document.getElementById('sortSelect').value;
+         
+             let filtered = products.filter(p => {
+                 const matchesCat = currentCategory === 'all' || p.category === currentCategory;
+                 const matchesSearch = p.name.toLowerCase().includes(searchTerm);
+                 return matchesCat && matchesSearch;
+             });
+         
+             if (sortBy === 'az') filtered.sort((a, b) => a.name.localeCompare(b.name));
+             else if (sortBy === 'za') filtered.sort((a, b) => b.name.localeCompare(a.name));
+         
+             render(filtered);
+         }
+         
+         function render(list) {
+             grid.innerHTML = '';
+             if (list.length === 0) {
+                 grid.innerHTML = '<p style="text-align:center; grid-column: 1/-1; padding: 40px; color: #666;">Nenhum Player encontrado.</p>';
+                 return;
+             }
+         
+             list.forEach(p => {
+                 const card = document.createElement('a');
+                 card.className = 'card';
+                 card.href = `players/${p.slug}.html`;
+                 
+                 card.innerHTML = `
+                     <div class="image-wrapper">
+                         <img src="players/imagens/${p.slug}.jpg" alt="Comprar Gift Card ${p.name}" loading="lazy">
+                     </div>
+                     <div class="info">
+                         <h3>Gift Card ${p.name}</h3>
+                         <div class="buy-btn" aria-label="Resgatar Gift Card ${p.name}">Resgatar</div>
+                     </div>
+                 `;
+                 grid.appendChild(card);
+             });
+         }
+         
+         filterAll();
+      </script>
+   </body>
+</html>
