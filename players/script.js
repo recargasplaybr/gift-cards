@@ -177,7 +177,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const regionNotice = document.createElement('div');
     regionNotice.className = 'region-badge';
-    regionNotice.innerHTML = `NÃO ACEITAMOS REEMBOLSO APÓS O ENVIO DO CÓDIGO DO GIFT CARD.`;
+    regionNotice.innerHTML = `NÃO ACEITAMOS REEMBOLSO APÓS a Ativação do Aplicativo.`;
 
     // =========================
     // MODAL (Texto Alterado para Esclarecimento de IPTV)
