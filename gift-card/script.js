@@ -219,7 +219,7 @@ document.addEventListener("DOMContentLoaded", function() {
             <div style="margin-bottom:16px;">
                 Por ser um produto digital de envio imediato,
                 <span style="color:#ff4d4d;font-weight:800;">
-                    NÃO há reembolso ou cancelamento
+                    NÃO hay reembolso ou cancelamento
                 </span>
                 após a entrega do código.
             </div>
@@ -385,5 +385,35 @@ document.addEventListener("DOMContentLoaded", function() {
             originalOnClick.apply(this, arguments);
         }
     };
+
+    // ==========================================
+    // INJEÇÃO DINÂMICA DO ITEM "PLAYERS" NO NAV
+    // ==========================================
+    const navList = document.querySelector('.mac-nav .nav-list');
+    if (navList) {
+        // Cria a tag <a> para o item Players
+        const playerLink = document.createElement('a');
+        playerLink.className = 'nav-item';
+        playerLink.href = 'https://recargasplay.com.br/players';
+        
+        // Define a estrutura interna com o ícone de TV e o texto
+        playerLink.innerHTML = `
+            <i class="fa-solid fa-tv"></i>
+            <span>Players</span>
+        `;
+        
+        // Encontra o item "Outros" (que contém o ícone fa-tags) para inserir logo após ele
+        const itemOutros = Array.from(navList.querySelectorAll('.nav-item')).find(el => {
+            return el.querySelector('.fa-tags') !== null;
+        });
+
+        if (itemOutros) {
+            // Insere logo após o item Outros se ele for encontrado
+            itemOutros.parentNode.insertBefore(playerLink, itemOutros.nextSibling);
+        } else {
+            // Caso não ache a tag específica, insere no fim da lista como garantia
+            navList.appendChild(playerLink);
+        }
+    }
 
 });
