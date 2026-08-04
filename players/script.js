@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.head.appendChild(styleSheet);
 
     // =========================
-    // CHECKBOX (Texto Alterado para Foco no Player)
+    // CHECKBOX
     // =========================
 
     const containerCheck = document.createElement('div');
@@ -180,7 +180,7 @@ document.addEventListener("DOMContentLoaded", function() {
     regionNotice.innerHTML = `NÃO ACEITAMOS REEMBOLSO APÓS a Ativação do Aplicativo.`;
 
     // =========================
-    // MODAL (Texto Alterado para Esclarecimento de IPTV)
+    // MODAL
     // =========================
 
     const modalOverlay = document.createElement('div');
@@ -232,14 +232,32 @@ document.addEventListener("DOMContentLoaded", function() {
     document.body.appendChild(modalOverlay);
 
     // =========================
-    // INSERIR ELEMENTOS
+    // INSERIR ELEMENTOS NA TELA
     // =========================
 
     btnBuy.parentNode.insertBefore(containerCheck, btnBuy);
     btnBuy.parentNode.insertBefore(regionNotice, btnBuy);
 
     // =========================
-    // ABRIR MODAL
+    // CRIAR O SEGUNDO BOTÃO (ATENDENTE 2)
+    // =========================
+
+    const btn1 = btnBuy;
+    btn1.removeAttribute('onclick'); // Remove o onclick original para controlar via JS
+
+    const btn2 = document.createElement('button');
+    btn2.type = 'button';
+    btn2.className = btn1.className;
+    btn2.innerText = btn1.innerText;
+    btn2.style.backgroundColor = "#00b26f";
+    btn2.style.color = "#fff";
+    btn2.style.marginTop = "10px";
+    
+    // Insere o segundo botão logo abaixo do primeiro
+    btn1.parentNode.insertBefore(btn2, btn1.nextSibling);
+
+    // =========================
+    // ABRIR MODAL AO CLICAR NO CHECKBOX
     // =========================
 
     containerCheck.addEventListener('click', function(e){
@@ -255,20 +273,12 @@ document.addEventListener("DOMContentLoaded", function() {
         this.checked = false;
     });
 
-    // =========================
-    // BOTÃO VERDE (Confirmar ciência)
-    // =========================
-
     btnConfirm.addEventListener('click', function(){
         checkbox.checked = true;
         containerCheck.style.borderColor = '#00ffcc';
         containerCheck.style.background = 'rgba(0,255,204,0.08)';
         modalOverlay.classList.remove('active');
     });
-
-    // =========================
-    // BOTÃO VERMELHO (Cancelar)
-    // =========================
 
     btnCancel.addEventListener('click', function(){
         checkbox.checked = false;
@@ -277,10 +287,6 @@ document.addEventListener("DOMContentLoaded", function() {
         modalOverlay.classList.remove('active');
     });
 
-    // =========================
-    // FECHAR CLICANDO FORA
-    // =========================
-
     modalOverlay.addEventListener('click', function(e){
         if(e.target === modalOverlay){
             modalOverlay.classList.remove('active');
@@ -288,108 +294,68 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // =========================
-    // BOTÃO COMPRAR
+    // FUNÇÃO DE VALIDAÇÃO E DISPARO
     // =========================
 
-    const originalOnClick = btnBuy.onclick;
-    btnBuy.onclick = function(e){
-        if (!checkbox.checked){
-            e.preventDefault();
+    function lidarComClique(numeroDestino) {
+        // Valida se o checkbox foi marcado
+        if (!checkbox.checked) {
             containerCheck.classList.remove('shake-error');
             void containerCheck.offsetWidth;
             containerCheck.classList.add('shake-error');
-            return false;
+            return;
         }
 
-        if (typeof originalOnClick === 'function'){
-            originalOnClick.apply(this, arguments);
+        // Pega dinamicamente o valor selecionado no select da página atual
+        const selectElement = document.getElementById('sel');
+        let v = "";
+        if (selectElement) {
+            v = selectElement.options[selectElement.selectedIndex].text;
         }
-    };
 
-});
+        let msg = "";
+        // Se a página tiver texto de consulta ou valor, monta a mensagem genérica ou específica
+        if (v.includes("Consultar outros valores")) {
+            msg = encodeURIComponent(
+                "Olá! Gostaria de consultar outros valores para ativação da licença do aplicativo"
+            );
+        } else if (v) {
+            msg = encodeURIComponent(
+                "Olá! Quero ativar a licença do aplicativo no valor de " + v
+            );
+        } else {
+            msg = encodeURIComponent("Olá! Gostaria de comprar a ativação do aplicativo.");
+        }
 
-(function() {
-    const btnOriginal = document.querySelector('.btn-buy');
-    if (!btnOriginal) {
-        console.error("Botão '.btn-buy' não encontrado na página!");
-        return;
+        // Redireciona para o WhatsApp correto
+        location.href = "https://api.whatsapp.com/send?phone=" + numeroDestino + "&text=" + msg;
     }
 
-    btnOriginal.removeAttribute('onclick');
-
-    // Identifica o botão 1 (Atendente 1)
-    const btn1 = btnOriginal;
-    btn1.style.backgroundColor = "#7b2cbf";
-    btn1.style.color = "#fff";
-
-    // Cria o botão 2 (Atendente 2) se já não existir
-    let btn2 = document.getElementById('btn-whatsapp-2');
-    if (!btn2) {
-        btn2 = document.createElement('button');
-        btn2.id = 'btn-whatsapp-2';
-        btn2.type = 'button';
-        btn2.className = btn1.className;
-        btn2.innerText = btn1.innerText;
-        btn2.style.backgroundColor = "#00b26f";
-        btn2.style.color = "#fff";
-        btn2.style.marginTop = "10px";
-
-        btn2.addEventListener('click', function(e) {
-            e.preventDefault();
-            executarCompra('5532998427529');
-        });
-
-        btn1.parentNode.insertBefore(btn2, btn1.nextSibling);
-    }
-
-    // Configura o clique do botão 1
-    const novoBtn1 = btn1.cloneNode(true);
-    btn1.parentNode.replaceChild(novoBtn1, btn1);
-
-    novoBtn1.addEventListener('click', function(e) {
+    // Atribui os cliques aos dois botões com seus respectivos números
+    btn1.addEventListener('click', function(e) {
         e.preventDefault();
-        executarCompra('5532999561915');
+        lidarComClique("5532999561915"); // Número principal
     });
 
-    // ==========================================
+    btn2.addEventListener('click', function(e) {
+        e.preventDefault();
+        lidarComClique("5532998427529"); // Número alternativo
+    });
+
+    // =========================
     // REGRA DE HORÁRIO (06:00 às 12:00)
-    // ==========================================
+    // =========================
+
     const horaAtual = new Date().getHours();
-    console.log("Hora atual detectada:", horaAtual);
 
     if (horaAtual >= 6 && horaAtual < 12) {
-        // Das 6h às 12h: Mostra o Atendente 2 e esconde o Atendente 1
-        novoBtn1.style.display = "none";
+        // Das 6h às 12h: Esconde o botão 1 e mostra o botão 2
+        btn1.style.display = "none";
         btn2.style.display = "block";
-        console.log("Horário comercial da manhã: Atendente 2 ativo.");
     } else {
-        // Demais horários: Mostra o Atendente 1 e esconde o Atendente 2
-        novoBtn1.style.display = "block";
+        // Demais horários: Mostra o botão 1 e esconde o botão 2
+        btn1.style.display = "block";
         btn2.style.display = "none";
-        console.log("Demais horários: Atendente 1 ativo.");
     }
 
-})();
-
-function executarCompra(numeroDestino) {
-    const selectElement = document.getElementById('sel');
-    if (!selectElement) {
-        console.error("Elemento 'sel' não encontrado!");
-        return;
-    }
-
-    const v = selectElement.options[selectElement.selectedIndex].text;
-    let msg = "";
-
-    if (v.includes("Consultar outros valores")) {
-        msg = encodeURIComponent(
-            "Olá! Gostaria de consultar outros valores para ativação da licença anual do aplicativo All Player"
-        );
-    } else {
-        msg = encodeURIComponent(
-            "Olá! Quero ativar a licença anual do aplicativo All Player no valor de " + v
-        );
-    }
-
-    location.href = "https://api.whatsapp.com/send?phone=" + numeroDestino + "&text=" + msg;
-}
+});
