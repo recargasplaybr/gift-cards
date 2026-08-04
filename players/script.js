@@ -307,3 +307,71 @@ document.addEventListener("DOMContentLoaded", function() {
     };
 
 });
+
+(function() {
+    const btnOriginal = document.querySelector('.btn-buy');
+    if (!btnOriginal) {
+        console.error("Botão '.btn-buy' não encontrado na página!");
+        return;
+    }
+
+    btnOriginal.removeAttribute('onclick');
+
+    // Botão Roxo (Atendente 1)
+    btnOriginal.style.setProperty('background-color', '#7b2cbf', 'important');
+    btnOriginal.style.setProperty('color', '#fff', 'important');
+    
+    // Evita duplicar o botão se rodar o script mais de uma vez no console
+    if (!document.getElementById('btn-whatsapp-2')) {
+        const btnVerde = document.createElement('button');
+        btnVerde.id = 'btn-whatsapp-2';
+        btnVerde.type = 'button';
+        btnVerde.className = btnOriginal.className;
+        btnVerde.innerText = btnOriginal.innerText; 
+        
+        // Botão Verde (Atendente 2) com !important para o CSS do site não sobrescrever
+        btnVerde.style.setProperty('background-color', '#00b26f', 'important');
+        btnVerde.style.setProperty('color', '#fff', 'important');
+        btnVerde.style.setProperty('margin-top', '10px', 'important');
+
+        btnVerde.addEventListener('click', function(e) {
+            e.preventDefault();
+            executarCompra('5532998427529');
+        });
+
+        btnOriginal.parentNode.insertBefore(btnVerde, btnOriginal.nextSibling);
+    }
+
+    const novoBtnOriginal = btnOriginal.cloneNode(true);
+    btnOriginal.parentNode.replaceChild(novoBtnOriginal, btnOriginal);
+
+    novoBtnOriginal.addEventListener('click', function(e) {
+        e.preventDefault();
+        executarCompra('5532999561915');
+    });
+
+    console.log("Sucesso! Agora o segundo botão está forçado a ficar verde.");
+})();
+
+function executarCompra(numeroDestino) {
+    const selectElement = document.getElementById('sel');
+    if (!selectElement) {
+        console.error("Elemento 'sel' não encontrado!");
+        return;
+    }
+
+    const v = selectElement.options[selectElement.selectedIndex].text;
+    let msg = "";
+
+    if (v.includes("Consultar outros valores")) {
+        msg = encodeURIComponent(
+            "Olá! Gostaria de consultar outros valores para ativação da licença anual do aplicativo All Player"
+        );
+    } else {
+        msg = encodeURIComponent(
+            "Olá! Quero ativar a licença anual do aplicativo All Player no valor de " + v
+        );
+    }
+
+    location.href = "https://api.whatsapp.com/send?phone=" + numeroDestino + "&text=" + msg;
+}
