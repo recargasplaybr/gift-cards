@@ -308,19 +308,39 @@ document.addEventListener("DOMContentLoaded", function() {
 
 });
 
-function enviarWhatsApp(msg) {
+function buy(){
+    // Pega o valor selecionado no select (Ex: "R$ 17,00 (ANUAL)")
+    const v = document.getElementById('sel').options[
+        document.getElementById('sel').selectedIndex
+    ].text;
+
+    let msg = "";
+
+    if(v === "Consultar outros valores"){
+        msg = encodeURIComponent(
+            "Olá! Gostaria de consultar outros valores para ativação da licença anual do aplicativo All Player"
+        );
+    }else{
+        msg = encodeURIComponent(
+            "Olá! Quero ativar a licença anual do aplicativo All Player no valor de " + v
+        );
+    }
+
+    // ==========================================
+    // LÓGICA DE HORÁRIO PARA O WHATSAPP
+    // ==========================================
     const horaAtual = new Date().getHours();
     
-    // Número padrão (fora do horário de teste)
+    // Número padrão (fora do horário)
     let numero = "5532999561915"; 
     
-    // Teste: Das 19:00 (7 da noite) até as 20:00 (8 da noite) usa o número novo
+    // Teste: Das 19:00 às 20:00 usa o número novo
     if (horaAtual >= 19 && horaAtual < 20) {
         numero = "5532998427529";
     }
     
     console.log("Hora atual:", horaAtual, "| Número enviado:", numero);
-    
-    // Redireciona para o WhatsApp
+
+    // Redireciona para o WhatsApp com o número e a mensagem correta
     location.href = "https://api.whatsapp.com/send?phone=" + numero + "&text=" + msg;
 }
