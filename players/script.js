@@ -20,6 +20,9 @@ document.addEventListener("DOMContentLoaded", function() {
     const btnBuy = document.querySelector('.btn-buy');
     if (!btnBuy) return;
 
+    // Removemos o onclick direto do HTML para o JS assumir o controle com segurança
+    btnBuy.removeAttribute('onclick');
+
     // =========================
     // ESTILOS
     // =========================
@@ -133,7 +136,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.head.appendChild(styleSheet);
 
     // =========================
-    // CHECKBOX (Texto Alterado para Foco no Player)
+    // CHECKBOX
     // =========================
 
     const containerCheck = document.createElement('div');
@@ -180,7 +183,7 @@ document.addEventListener("DOMContentLoaded", function() {
     regionNotice.innerHTML = `NÃO ACEITAMOS REEMBOLSO APÓS a Ativação do Aplicativo.`;
 
     // =========================
-    // MODAL (Texto Alterado para Esclarecimento de IPTV)
+    // MODAL
     // =========================
 
     const modalOverlay = document.createElement('div');
@@ -232,14 +235,14 @@ document.addEventListener("DOMContentLoaded", function() {
     document.body.appendChild(modalOverlay);
 
     // =========================
-    // INSERIR ELEMENTOS
+    // INSERIR ELEMENTOS NA PÁGINA
     // =========================
 
     btnBuy.parentNode.insertBefore(containerCheck, btnBuy);
     btnBuy.parentNode.insertBefore(regionNotice, btnBuy);
 
     // =========================
-    // ABRIR MODAL
+    // EVENTOS DO MODAL E CHECKBOX
     // =========================
 
     containerCheck.addEventListener('click', function(e){
@@ -255,20 +258,12 @@ document.addEventListener("DOMContentLoaded", function() {
         this.checked = false;
     });
 
-    // =========================
-    // BOTÃO VERDE (Confirmar ciência)
-    // =========================
-
     btnConfirm.addEventListener('click', function(){
         checkbox.checked = true;
         containerCheck.style.borderColor = '#00ffcc';
         containerCheck.style.background = 'rgba(0,255,204,0.08)';
         modalOverlay.classList.remove('active');
     });
-
-    // =========================
-    // BOTÃO VERMELHO (Cancelar)
-    // =========================
 
     btnCancel.addEventListener('click', function(){
         checkbox.checked = false;
@@ -277,10 +272,6 @@ document.addEventListener("DOMContentLoaded", function() {
         modalOverlay.classList.remove('active');
     });
 
-    // =========================
-    // FECHAR CLICANDO FORA
-    // =========================
-
     modalOverlay.addEventListener('click', function(e){
         if(e.target === modalOverlay){
             modalOverlay.classList.remove('active');
@@ -288,23 +279,21 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // =========================
-    // BOTÃO COMPRAR
+    // CLIQUE DO BOTÃO COMPRAR
     // =========================
 
-    const originalOnClick = btnBuy.onclick;
-    btnBuy.onclick = function(e){
+    btnBuy.addEventListener('click', function(e){
         if (!checkbox.checked){
             e.preventDefault();
             containerCheck.classList.remove('shake-error');
             void containerCheck.offsetWidth;
             containerCheck.classList.add('shake-error');
-            return false;
+            return;
         }
 
-        if (typeof originalOnClick === 'function'){
-            originalOnClick.apply(this, arguments);
-        }
-    };
+        // Se o checkbox estiver marcado, chama a função buy() normalmente
+        buy();
+    });
 
 });
 
