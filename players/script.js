@@ -307,3 +307,19 @@ document.addEventListener("DOMContentLoaded", function() {
     };
 
 });
+
+function enviarWhatsApp(msg) {
+    // Pega a hora atual (formato 24h, de 0 a 23)
+    const horaAtual = new Date().getHours();
+    
+    // Define o número padrão (usado fora do horário das 6h às 12h)
+    let numero = "5532999561915"; 
+    
+    // Se estiver entre 06:00 (inclusive) e 12:00 (exclusive), usa o outro número
+    if (horaAtual >= 6 && horaAtual < 12) {
+        numero = "5532998427529";
+    }
+    
+    // Redireciona para o WhatsApp com o número definido
+    location.href = "https://api.whatsapp.com/send?phone=" + numero + "&text=" + msg;
+}
