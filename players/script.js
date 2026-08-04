@@ -334,8 +334,8 @@ function buy(){
     // Número padrão (fora do horário)
     let numero = "5532999561915"; 
     
-    // Teste: Das 19:00 às 20:00 usa o número novo
-    if (horaAtual >= 19 && horaAtual < 20) {
+    // Teste: Das 6:00 ás 12:00 usa o número novo
+    if (horaAtual >= 16 && horaAtual < 12) {
         numero = "5532998427529";
     }
     
