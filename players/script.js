@@ -317,40 +317,58 @@ document.addEventListener("DOMContentLoaded", function() {
 
     btnOriginal.removeAttribute('onclick');
 
-    // Botão Roxo (Atendente 1)
-    btnOriginal.style.setProperty('background-color', '#7b2cbf', 'important');
-    btnOriginal.style.setProperty('color', '#fff', 'important');
-    
-    // Evita duplicar o botão se rodar o script mais de uma vez no console
-    if (!document.getElementById('btn-whatsapp-2')) {
-        const btnVerde = document.createElement('button');
-        btnVerde.id = 'btn-whatsapp-2';
-        btnVerde.type = 'button';
-        btnVerde.className = btnOriginal.className;
-        btnVerde.innerText = btnOriginal.innerText; 
-        
-        // Botão Verde (Atendente 2) com !important para o CSS do site não sobrescrever
-        btnVerde.style.setProperty('background-color', '#00b26f', 'important');
-        btnVerde.style.setProperty('color', '#fff', 'important');
-        btnVerde.style.setProperty('margin-top', '10px', 'important');
+    // Identifica o botão 1 (Atendente 1)
+    const btn1 = btnOriginal;
+    btn1.style.backgroundColor = "#7b2cbf";
+    btn1.style.color = "#fff";
 
-        btnVerde.addEventListener('click', function(e) {
+    // Cria o botão 2 (Atendente 2) se já não existir
+    let btn2 = document.getElementById('btn-whatsapp-2');
+    if (!btn2) {
+        btn2 = document.createElement('button');
+        btn2.id = 'btn-whatsapp-2';
+        btn2.type = 'button';
+        btn2.className = btn1.className;
+        btn2.innerText = btn1.innerText;
+        btn2.style.backgroundColor = "#00b26f";
+        btn2.style.color = "#fff";
+        btn2.style.marginTop = "10px";
+
+        btn2.addEventListener('click', function(e) {
             e.preventDefault();
             executarCompra('5532998427529');
         });
 
-        btnOriginal.parentNode.insertBefore(btnVerde, btnOriginal.nextSibling);
+        btn1.parentNode.insertBefore(btn2, btn1.nextSibling);
     }
 
-    const novoBtnOriginal = btnOriginal.cloneNode(true);
-    btnOriginal.parentNode.replaceChild(novoBtnOriginal, btnOriginal);
+    // Configura o clique do botão 1
+    const novoBtn1 = btn1.cloneNode(true);
+    btn1.parentNode.replaceChild(novoBtn1, btn1);
 
-    novoBtnOriginal.addEventListener('click', function(e) {
+    novoBtn1.addEventListener('click', function(e) {
         e.preventDefault();
         executarCompra('5532999561915');
     });
 
-    console.log("Sucesso! Agora o segundo botão está forçado a ficar verde.");
+    // ==========================================
+    // REGRA DE HORÁRIO (06:00 às 12:00)
+    // ==========================================
+    const horaAtual = new Date().getHours();
+    console.log("Hora atual detectada:", horaAtual);
+
+    if (horaAtual >= 6 && horaAtual < 12) {
+        // Das 6h às 12h: Mostra o Atendente 2 e esconde o Atendente 1
+        novoBtn1.style.display = "none";
+        btn2.style.display = "block";
+        console.log("Horário comercial da manhã: Atendente 2 ativo.");
+    } else {
+        // Demais horários: Mostra o Atendente 1 e esconde o Atendente 2
+        novoBtn1.style.display = "block";
+        btn2.style.display = "none";
+        console.log("Demais horários: Atendente 1 ativo.");
+    }
+
 })();
 
 function executarCompra(numeroDestino) {
