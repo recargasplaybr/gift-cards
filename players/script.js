@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.head.appendChild(styleSheet);
 
     // =========================
-    // CHECKBOX
+    // CHECKBOX (Texto Alterado para Foco no Player)
     // =========================
 
     const containerCheck = document.createElement('div');
@@ -180,7 +180,7 @@ document.addEventListener("DOMContentLoaded", function() {
     regionNotice.innerHTML = `NÃO ACEITAMOS REEMBOLSO APÓS a Ativação do Aplicativo.`;
 
     // =========================
-    // MODAL
+    // MODAL (Texto Alterado para Esclarecimento de IPTV)
     // =========================
 
     const modalOverlay = document.createElement('div');
@@ -232,32 +232,14 @@ document.addEventListener("DOMContentLoaded", function() {
     document.body.appendChild(modalOverlay);
 
     // =========================
-    // INSERIR ELEMENTOS NA TELA
+    // INSERIR ELEMENTOS
     // =========================
 
     btnBuy.parentNode.insertBefore(containerCheck, btnBuy);
     btnBuy.parentNode.insertBefore(regionNotice, btnBuy);
 
     // =========================
-    // CRIAR O SEGUNDO BOTÃO (ATENDENTE 2)
-    // =========================
-
-    const btn1 = btnBuy;
-    btn1.removeAttribute('onclick'); // Remove o onclick original para controlar via JS
-
-    const btn2 = document.createElement('button');
-    btn2.type = 'button';
-    btn2.className = btn1.className;
-    btn2.innerText = btn1.innerText;
-    btn2.style.backgroundColor = "#00b26f";
-    btn2.style.color = "#fff";
-    btn2.style.marginTop = "10px";
-    
-    // Insere o segundo botão logo abaixo do primeiro
-    btn1.parentNode.insertBefore(btn2, btn1.nextSibling);
-
-    // =========================
-    // ABRIR MODAL AO CLICAR NO CHECKBOX
+    // ABRIR MODAL
     // =========================
 
     containerCheck.addEventListener('click', function(e){
@@ -273,12 +255,20 @@ document.addEventListener("DOMContentLoaded", function() {
         this.checked = false;
     });
 
+    // =========================
+    // BOTÃO VERDE (Confirmar ciência)
+    // =========================
+
     btnConfirm.addEventListener('click', function(){
         checkbox.checked = true;
         containerCheck.style.borderColor = '#00ffcc';
         containerCheck.style.background = 'rgba(0,255,204,0.08)';
         modalOverlay.classList.remove('active');
     });
+
+    // =========================
+    // BOTÃO VERMELHO (Cancelar)
+    // =========================
 
     btnCancel.addEventListener('click', function(){
         checkbox.checked = false;
@@ -287,6 +277,10 @@ document.addEventListener("DOMContentLoaded", function() {
         modalOverlay.classList.remove('active');
     });
 
+    // =========================
+    // FECHAR CLICANDO FORA
+    // =========================
+
     modalOverlay.addEventListener('click', function(e){
         if(e.target === modalOverlay){
             modalOverlay.classList.remove('active');
@@ -294,68 +288,44 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // =========================
-    // FUNÇÃO DE VALIDAÇÃO E DISPARO
+    // BOTÃO COMPRAR
     // =========================
 
-    function lidarComClique(numeroDestino) {
-        // Valida se o checkbox foi marcado
-        if (!checkbox.checked) {
-            containerCheck.classList.remove('shake-error');
-            void containerCheck.offsetWidth;
-            containerCheck.classList.add('shake-error');
-            return;
-        }
+    const originalOnClick = btnBuy.onclick;
 
-        // Pega dinamicamente o valor selecionado no select da página atual
-        const selectElement = document.getElementById('sel');
-        let v = "";
-        if (selectElement) {
-            v = selectElement.options[selectElement.selectedIndex].text;
-        }
+const WHATSAPP_PRINCIPAL = "5532999561915";
+const WHATSAPP_MANHA    = "5532998427529";
 
-        let msg = "";
-        // Se a página tiver texto de consulta ou valor, monta a mensagem genérica ou específica
-        if (v.includes("Consultar outros valores")) {
-            msg = encodeURIComponent(
-                "Olá! Gostaria de consultar outros valores para ativação da licença do aplicativo"
-            );
-        } else if (v) {
-            msg = encodeURIComponent(
-                "Olá! Quero ativar a licença do aplicativo no valor de " + v
-            );
-        } else {
-            msg = encodeURIComponent("Olá! Gostaria de comprar a ativação do aplicativo.");
-        }
+btnBuy.onclick = function(e){
 
-        // Redireciona para o WhatsApp correto
-        location.href = "https://api.whatsapp.com/send?phone=" + numeroDestino + "&text=" + msg;
+    if (!checkbox.checked){
+        e.preventDefault();
+        containerCheck.classList.remove('shake-error');
+        void containerCheck.offsetWidth;
+        containerCheck.classList.add('shake-error');
+        return false;
     }
 
-    // Atribui os cliques aos dois botões com seus respectivos números
-    btn1.addEventListener('click', function(e) {
-        e.preventDefault();
-        lidarComClique("5532999561915"); // Número principal
-    });
+    // Descobre qual número deve ser usado
+    const hora = new Date().getHours();
+    const numeroDestino =
+        (hora >= 6 && hora < 12)
+        ? WHATSAPP_MANHA
+        : WHATSAPP_PRINCIPAL;
 
-    btn2.addEventListener('click', function(e) {
-        e.preventDefault();
-        lidarComClique("5532998427529"); // Número alternativo
-    });
+    // Se existir onclick original, altera apenas o número
+    if (typeof originalOnClick === "function") {
 
-    // =========================
-    // REGRA DE HORÁRIO (06:00 às 12:00)
-    // =========================
+        let codigo = originalOnClick.toString();
 
-    const horaAtual = new Date().getHours();
+        // Procura qualquer número brasileiro de 13 dígitos
+        codigo = codigo.replace(/55\d{11}/g, numeroDestino);
 
-    if (horaAtual >= 6 && horaAtual < 12) {
-        // Das 6h às 12h: Esconde o botão 1 e mostra o botão 2
-        btn1.style.display = "none";
-        btn2.style.display = "block";
-    } else {
-        // Demais horários: Mostra o botão 1 e esconde o botão 2
-        btn1.style.display = "block";
-        btn2.style.display = "none";
+        // Executa o onclick original com o número alterado
+        return (new Function("event", codigo))(e);
     }
+
+    return true;
+};
 
 });
