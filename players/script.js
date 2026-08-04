@@ -20,9 +20,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const btnBuy = document.querySelector('.btn-buy');
     if (!btnBuy) return;
 
-    // Removemos o onclick direto do HTML para o JS assumir o controle com segurança
-    btnBuy.removeAttribute('onclick');
-
     // =========================
     // ESTILOS
     // =========================
@@ -136,7 +133,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.head.appendChild(styleSheet);
 
     // =========================
-    // CHECKBOX
+    // CHECKBOX (Texto Alterado para Foco no Player)
     // =========================
 
     const containerCheck = document.createElement('div');
@@ -183,7 +180,7 @@ document.addEventListener("DOMContentLoaded", function() {
     regionNotice.innerHTML = `NÃO ACEITAMOS REEMBOLSO APÓS a Ativação do Aplicativo.`;
 
     // =========================
-    // MODAL
+    // MODAL (Texto Alterado para Esclarecimento de IPTV)
     // =========================
 
     const modalOverlay = document.createElement('div');
@@ -235,14 +232,14 @@ document.addEventListener("DOMContentLoaded", function() {
     document.body.appendChild(modalOverlay);
 
     // =========================
-    // INSERIR ELEMENTOS NA PÁGINA
+    // INSERIR ELEMENTOS
     // =========================
 
     btnBuy.parentNode.insertBefore(containerCheck, btnBuy);
     btnBuy.parentNode.insertBefore(regionNotice, btnBuy);
 
     // =========================
-    // EVENTOS DO MODAL E CHECKBOX
+    // ABRIR MODAL
     // =========================
 
     containerCheck.addEventListener('click', function(e){
@@ -258,12 +255,20 @@ document.addEventListener("DOMContentLoaded", function() {
         this.checked = false;
     });
 
+    // =========================
+    // BOTÃO VERDE (Confirmar ciência)
+    // =========================
+
     btnConfirm.addEventListener('click', function(){
         checkbox.checked = true;
         containerCheck.style.borderColor = '#00ffcc';
         containerCheck.style.background = 'rgba(0,255,204,0.08)';
         modalOverlay.classList.remove('active');
     });
+
+    // =========================
+    // BOTÃO VERMELHO (Cancelar)
+    // =========================
 
     btnCancel.addEventListener('click', function(){
         checkbox.checked = false;
@@ -272,6 +277,10 @@ document.addEventListener("DOMContentLoaded", function() {
         modalOverlay.classList.remove('active');
     });
 
+    // =========================
+    // FECHAR CLICANDO FORA
+    // =========================
+
     modalOverlay.addEventListener('click', function(e){
         if(e.target === modalOverlay){
             modalOverlay.classList.remove('active');
@@ -279,51 +288,22 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // =========================
-    // CLIQUE DO BOTÃO COMPRAR
+    // BOTÃO COMPRAR
     // =========================
 
-    btnBuy.addEventListener('click', function(e){
+    const originalOnClick = btnBuy.onclick;
+    btnBuy.onclick = function(e){
         if (!checkbox.checked){
             e.preventDefault();
             containerCheck.classList.remove('shake-error');
             void containerCheck.offsetWidth;
             containerCheck.classList.add('shake-error');
-            return;
+            return false;
         }
 
-        // Se o checkbox estiver marcado, chama a função buy() normalmente
-        buy();
-    });
+        if (typeof originalOnClick === 'function'){
+            originalOnClick.apply(this, arguments);
+        }
+    };
 
 });
-
-// Função global de compra com a lógica de horário (6h às 12h)
-function buy(){
-    const selectElement = document.getElementById('sel');
-    if (!selectElement) return;
-
-    const v = selectElement.options[selectElement.selectedIndex].text;
-    let msg = "";
-
-    if(v.includes("Consultar outros valores")){
-        msg = encodeURIComponent(
-            "Olá! Gostaria de consultar outros valores para ativação da licença anual do aplicativo All Player"
-        );
-    } else {
-        msg = encodeURIComponent(
-            "Olá! Quero ativar a licença anual do aplicativo All Player no valor de " + v
-        );
-    }
-
-    const horaAtual = new Date().getHours();
-    let numero = "5532999561915"; // Número padrão
-    
-    // Das 6:00 às 12:00 usa o número alternativo
-    if (horaAtual >= 6 && horaAtual < 12) {
-        numero = "5532998427529";
-    }
-    
-    console.log("Hora atual:", horaAtual, "| Número enviado:", numero);
-
-    location.href = "https://api.whatsapp.com/send?phone=" + numero + "&text=" + msg;
-}
