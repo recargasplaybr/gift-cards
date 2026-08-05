@@ -288,44 +288,47 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // =========================
-    // BOTÃO COMPRAR
-    // =========================
+// BOTÃO COMPRAR
+// =========================
 
-    const originalOnClick = btnBuy.onclick;
-
-const WHATSAPP_PRINCIPAL = "5532999561915";
-const WHATSAPP_MANHA    = "5532998427529";
+const originalBuy = window.buy;
 
 btnBuy.onclick = function(e){
 
     if (!checkbox.checked){
         e.preventDefault();
-        containerCheck.classList.remove('shake-error');
+        containerCheck.classList.remove("shake-error");
         void containerCheck.offsetWidth;
-        containerCheck.classList.add('shake-error');
+        containerCheck.classList.add("shake-error");
         return false;
     }
 
-    // Descobre qual número deve ser usado
-    const hora = new Date().getHours();
-    const numeroDestino =
-        (hora >= 6 && hora < 12)
-        ? WHATSAPP_MANHA
-        : WHATSAPP_PRINCIPAL;
+    if(typeof originalBuy === "function"){
 
-    // Se existir onclick original, altera apenas o número
-    if (typeof originalOnClick === "function") {
+        const originalHref = location.href;
 
-        let codigo = originalOnClick.toString();
+        // Intercepta o redirecionamento do buy()
+        Object.defineProperty(window.location, "href", {
+            configurable: true,
+            set(url){
 
-        // Procura qualquer número brasileiro de 13 dígitos
-        codigo = codigo.replace(/55\d{11}/g, numeroDestino);
+                const hora = new Date().getHours();
 
-        // Executa o onclick original com o número alterado
-        return (new Function("event", codigo))(e);
+                const telefone =
+                    (hora >= 6 && hora < 12)
+                    ? "5532998427529"
+                    : "5532999561915";
+
+                url = url.replace(/phone=\d+/, "phone=" + telefone);
+
+                window.location.assign(url);
+            }
+        });
+
+        originalBuy();
+
+        return false;
     }
-
-    return true;
 };
 
 });
