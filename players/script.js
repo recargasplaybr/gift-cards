@@ -280,7 +280,6 @@ document.addEventListener("DOMContentLoaded", function() {
     // =========================================
 
     const btn1 = btnBuy;
-    const originalOnClick = btn1.onclick;
     btn1.removeAttribute('onclick'); // Remove o onclick original do HTML
 
     // Cria o segundo botão com base no primeiro
@@ -294,7 +293,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
     btn1.parentNode.insertBefore(btn2, btn1.nextSibling);
 
-    // Função que valida o checkbox e executa o clique original (ou o comportamento do botão)
+    // Função de validação do checkbox, captura dinâmica do nome do app e disparo do WhatsApp
     function lidarComClique(e, numeroDestino) {
         if (!checkbox.checked){
             e.preventDefault();
@@ -304,30 +303,32 @@ document.addEventListener("DOMContentLoaded", function() {
             return false;
         }
 
-        // Se houver uma função buy() global na página, interceptamos o redirecionamento para injetar o número correto
+        e.preventDefault();
+
         const selectElement = document.getElementById('sel');
+        let v = "";
         if (selectElement) {
-            e.preventDefault();
-            const v = selectElement.options[selectElement.selectedIndex].text;
-            let msg = "";
-
-            if (v.includes("Consultar outros valores")) {
-                msg = encodeURIComponent(
-                    "Olá! Gostaria de consultar outros valores para ativação da licença anual do aplicativo"
-                );
-            } else {
-                msg = encodeURIComponent(
-                    "Olá! Quero ativar a licença anual do aplicativo no valor de " + v
-                );
-            }
-
-            location.href = "https://api.whatsapp.com/send?phone=" + numeroDestino + "&text=" + msg;
-            return;
+            v = selectElement.options[selectElement.selectedIndex].text;
         }
 
-        if (typeof originalOnClick === 'function'){
-            originalOnClick.apply(btn1, arguments);
+        // Pega dinamicamente o nome do aplicativo direto do título da página
+        let nomeApp = document.title.split("|")[0].replace("Ativar Licença", "").trim();
+        if (!nomeApp) nomeApp = "Aplicativo";
+
+        let msg = "";
+        if (v.includes("Consultar outros valores")) {
+            msg = encodeURIComponent(
+                "Olá! Gostaria de consultar outros valores para ativação da licença do " + nomeApp
+            );
+        } else if (v) {
+            msg = encodeURIComponent(
+                "Olá! Quero ativar a licença do " + nomeApp + " no valor de " + v
+            );
+        } else {
+            msg = encodeURIComponent("Olá! Gostaria de comprar a ativação do " + nomeApp);
         }
+
+        location.href = "https://api.whatsapp.com/send?phone=" + numeroDestino + "&text=" + msg;
     }
 
     // Atribui os cliques aos botões com seus respectivos números
