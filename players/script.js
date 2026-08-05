@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.head.appendChild(styleSheet);
 
     // =========================
-    // CHECKBOX (Texto Alterado para Foco no Player)
+    // CHECKBOX
     // =========================
 
     const containerCheck = document.createElement('div');
@@ -180,7 +180,7 @@ document.addEventListener("DOMContentLoaded", function() {
     regionNotice.innerHTML = `NÃO ACEITAMOS REEMBOLSO APÓS a Ativação do Aplicativo.`;
 
     // =========================
-    // MODAL (Texto Alterado para Esclarecimento de IPTV)
+    // MODAL
     // =========================
 
     const modalOverlay = document.createElement('div');
@@ -232,14 +232,14 @@ document.addEventListener("DOMContentLoaded", function() {
     document.body.appendChild(modalOverlay);
 
     // =========================
-    // INSERIR ELEMENTOS
+    // INSERIR ELEMENTOS NA TELA
     // =========================
 
     btnBuy.parentNode.insertBefore(containerCheck, btnBuy);
     btnBuy.parentNode.insertBefore(regionNotice, btnBuy);
 
     // =========================
-    // ABRIR MODAL
+    // ABRIR MODAL AO CLICAR NO CHECKBOX
     // =========================
 
     containerCheck.addEventListener('click', function(e){
@@ -255,20 +255,12 @@ document.addEventListener("DOMContentLoaded", function() {
         this.checked = false;
     });
 
-    // =========================
-    // BOTÃO VERDE (Confirmar ciência)
-    // =========================
-
     btnConfirm.addEventListener('click', function(){
         checkbox.checked = true;
         containerCheck.style.borderColor = '#00ffcc';
         containerCheck.style.background = 'rgba(0,255,204,0.08)';
         modalOverlay.classList.remove('active');
     });
-
-    // =========================
-    // BOTÃO VERMELHO (Cancelar)
-    // =========================
 
     btnCancel.addEventListener('click', function(){
         checkbox.checked = false;
@@ -277,58 +269,84 @@ document.addEventListener("DOMContentLoaded", function() {
         modalOverlay.classList.remove('active');
     });
 
-    // =========================
-    // FECHAR CLICANDO FORA
-    // =========================
-
     modalOverlay.addEventListener('click', function(e){
         if(e.target === modalOverlay){
             modalOverlay.classList.remove('active');
         }
     });
 
-    // =========================
-// BOTÃO COMPRAR
-// =========================
+    // =========================================
+    // LÓGICA DOS DOIS BOTÕES, WHATSAPP E HORÁRIO
+    // =========================================
 
-const originalBuy = window.buy;
+    const btn1 = btnBuy;
+    const originalOnClick = btn1.onclick;
+    btn1.removeAttribute('onclick'); // Remove o onclick original do HTML
 
-btnBuy.onclick = function(e){
+    // Cria o segundo botão com base no primeiro
+    const btn2 = document.createElement('button');
+    btn2.type = 'button';
+    btn2.className = btn1.className;
+    btn2.innerText = btn1.innerText;
+    btn2.style.backgroundColor = "#00b26f";
+    btn2.style.color = "#fff";
+    btn2.style.marginTop = "10px";
+    
+    btn1.parentNode.insertBefore(btn2, btn1.nextSibling);
 
-    if (!checkbox.checked){
-        e.preventDefault();
-        containerCheck.classList.remove("shake-error");
-        void containerCheck.offsetWidth;
-        containerCheck.classList.add("shake-error");
-        return false;
-    }
+    // Função que valida o checkbox e executa o clique original (ou o comportamento do botão)
+    function lidarComClique(e, numeroDestino) {
+        if (!checkbox.checked){
+            e.preventDefault();
+            containerCheck.classList.remove('shake-error');
+            void containerCheck.offsetWidth;
+            containerCheck.classList.add('shake-error');
+            return false;
+        }
 
-    if(typeof originalBuy === "function"){
+        // Se houver uma função buy() global na página, interceptamos o redirecionamento para injetar o número correto
+        const selectElement = document.getElementById('sel');
+        if (selectElement) {
+            e.preventDefault();
+            const v = selectElement.options[selectElement.selectedIndex].text;
+            let msg = "";
 
-        const originalHref = location.href;
-
-        // Intercepta o redirecionamento do buy()
-        Object.defineProperty(window.location, "href", {
-            configurable: true,
-            set(url){
-
-                const hora = new Date().getHours();
-
-                const telefone =
-                    (hora >= 6 && hora < 12)
-                    ? "5532998427529"
-                    : "5532999561915";
-
-                url = url.replace(/phone=\d+/, "phone=" + telefone);
-
-                window.location.assign(url);
+            if (v.includes("Consultar outros valores")) {
+                msg = encodeURIComponent(
+                    "Olá! Gostaria de consultar outros valores para ativação da licença anual do aplicativo"
+                );
+            } else {
+                msg = encodeURIComponent(
+                    "Olá! Quero ativar a licença anual do aplicativo no valor de " + v
+                );
             }
-        });
 
-        originalBuy();
+            location.href = "https://api.whatsapp.com/send?phone=" + numeroDestino + "&text=" + msg;
+            return;
+        }
 
-        return false;
+        if (typeof originalOnClick === 'function'){
+            originalOnClick.apply(btn1, arguments);
+        }
     }
-};
+
+    // Atribui os cliques aos botões com seus respectivos números
+    btn1.addEventListener('click', function(e) {
+        lidarComClique(e, "5532999561915"); // Número principal
+    });
+
+    btn2.addEventListener('click', function(e) {
+        lidarComClique(e, "5532998427529"); // Número alternativo
+    });
+
+    // Regra de horário: Das 06:00 às 12:00 esconde o botão 1 e mostra o botão 2
+    const horaAtual = new Date().getHours();
+    if (horaAtual >= 6 && horaAtual < 12) {
+        btn1.style.display = "none";
+        btn2.style.display = "block";
+    } else {
+        btn1.style.display = "block";
+        btn2.style.display = "none";
+    }
 
 });
